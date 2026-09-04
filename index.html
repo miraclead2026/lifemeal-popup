@@ -592,6 +592,148 @@ body.showall .pane > footer{display:block}
   .pbar>i,.wk-m>i{background:#008B8B!important;box-shadow:none!important}
 }
 
+
+/* ============================================================
+   11. PROJECT BOARD — 비밀번호 잠금 · 노션형 편집 표
+   ============================================================ */
+.lock{max-width:420px;margin:40px auto 0;background:var(--card);border:1px solid var(--line);border-radius:var(--r);
+  padding:38px 34px;box-shadow:var(--shadow);text-align:center}
+.lock .lk-ic{font-size:30px;line-height:1}
+.lock .lk-t{font-family:var(--display);font-size:20px;font-weight:800;letter-spacing:-.02em;color:var(--ink);margin-top:14px}
+.lock .lk-s{font-size:13px;color:var(--ink-3);margin-top:8px;line-height:1.7}
+.lock form{display:flex;gap:8px;margin-top:22px}
+.lock input{flex:1;min-width:0;background:var(--bg);border:1px solid var(--line);border-radius:9px;color:var(--ink);
+  font-family:var(--sans);font-size:20px;letter-spacing:.4em;text-align:center;padding:11px 10px;outline:none}
+.lock input:focus{border-color:var(--accent);box-shadow:0 0 0 1px var(--accent-line)}
+.lock .lk-err{color:var(--red);font-size:12.5px;margin-top:12px;min-height:18px;font-weight:600}
+.lock.shake{animation:lkshake .35s}
+@keyframes lkshake{0%,100%{transform:none}25%{transform:translateX(-7px)}75%{transform:translateX(7px)}}
+
+.bd-tabs{display:flex;gap:6px;align-items:center;flex-wrap:wrap;margin:-6px 0 18px}
+.bd-tab{display:flex;align-items:center;gap:7px;border:1px solid var(--line);background:var(--card);color:var(--ink-3);
+  border-radius:999px;padding:7px 14px;font-size:12.5px;font-weight:700;cursor:pointer;font-family:var(--sans);transition:.13s}
+.bd-tab:hover{color:var(--ink);border-color:var(--accent-line)}
+.bd-tab.on{background:var(--accent);color:#000;border-color:var(--accent)}
+.bd-tab .ct{font-size:10.5px;opacity:.7;font-weight:800}
+.bd-tab.add{border-style:dashed;background:transparent}
+
+.bd-head{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:12px}
+.bd-icon{font-size:22px;line-height:1;cursor:pointer;border-radius:6px;padding:2px}
+.bd-title{font-family:var(--display);font-size:22px;font-weight:800;letter-spacing:-.025em;color:var(--ink);outline:none;
+  border-radius:6px;padding:2px 6px;margin-left:-6px;min-width:80px}
+.bd-title:focus{background:rgba(0,255,255,.09);box-shadow:0 0 0 1px var(--accent-line)}
+.bd-head .sp{flex:1}
+.bd-tools{display:flex;gap:6px;flex-wrap:wrap;align-items:center}
+.bd-tools input[type=search]{background:var(--bg);border:1px solid var(--line);border-radius:8px;color:var(--ink);
+  font-family:var(--sans);font-size:12.5px;padding:7px 11px;outline:none;width:160px}
+.bd-tools input[type=search]:focus{border-color:var(--accent)}
+.bd-tools select{background:var(--bg);border:1px solid var(--line);border-radius:8px;color:var(--ink-2);
+  font-family:var(--sans);font-size:12px;padding:7px 9px;outline:none}
+.bd-desc{font-size:13px;color:var(--ink-3);outline:none;border-radius:6px;padding:3px 6px;margin:0 0 14px -6px;line-height:1.7;max-width:80ch;
+  border:1px dashed transparent}
+.bd-desc:empty:before{content:"설명을 입력하세요 (선택)";color:var(--ink-4)}
+.bd-desc:hover{border-color:var(--line-2)}
+.bd-desc:focus{background:rgba(0,255,255,.07);border-color:var(--accent-line);border-style:solid}
+
+.bd-wrap{border:1px solid var(--line);border-radius:var(--r);background:var(--card);box-shadow:var(--shadow);overflow:hidden}
+.bd-scroll{overflow-x:auto;scrollbar-width:thin}
+table.bd{border-collapse:separate;border-spacing:0;width:100%;min-width:720px;font-size:13.5px;margin:0}
+table.bd th,table.bd td{border-bottom:1px solid var(--line-2);border-right:1px solid var(--line-2);padding:0;vertical-align:top;text-align:left;background:transparent}
+table.bd th:last-child,table.bd td:last-child{border-right:none}
+table.bd thead th{position:sticky;top:0;z-index:2;background:var(--card-2);font-size:11.5px;font-weight:700;color:var(--ink-3);
+  letter-spacing:.01em;white-space:nowrap;user-select:none}
+table.bd thead th .th{display:flex;align-items:center;gap:6px;padding:10px 12px;cursor:pointer;min-width:110px}
+table.bd thead th .th:hover{color:var(--ink);background:rgba(255,255,255,.04)}
+table.bd thead th .th .ty{font-size:10px;color:var(--ink-4);font-weight:800;letter-spacing:.04em;flex:0 0 auto}
+table.bd thead th .th .nm{flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis}
+table.bd thead th .th .srt{font-size:10px;color:var(--accent)}
+table.bd thead th.th-add,table.bd td.td-add{width:44px;min-width:44px;background:transparent}
+table.bd thead th.th-add button{border:0;background:transparent;color:var(--ink-4);font-size:16px;cursor:pointer;width:100%;padding:8px 0;font-family:var(--sans)}
+table.bd thead th.th-add button:hover{color:var(--accent)}
+table.bd thead th.th-hd{width:34px;min-width:34px}
+table.bd td.td-hd{width:34px;min-width:34px;text-align:center;color:var(--ink-4);font-size:14px;cursor:grab;vertical-align:middle;position:relative}
+table.bd td.td-hd:hover{color:var(--ink-2)}
+table.bd td.td-hd .rx{position:absolute;inset:0;display:grid;place-items:center;opacity:0;transition:.12s;font-size:12px;color:var(--red);background:var(--card)}
+table.bd tr:hover td.td-hd .rx{opacity:1}
+table.bd tr.drag{opacity:.35}
+table.bd tr.over td{border-top:2px solid var(--accent)}
+table.bd tbody tr:hover td{background:rgba(255,255,255,.025)}
+table.bd tbody td{min-width:110px;max-width:360px;position:relative}
+
+.cell{padding:9px 12px;min-height:40px;line-height:1.55;outline:none;color:var(--ink-2);word-break:break-word;border-radius:0;cursor:text}
+.cell:focus{box-shadow:inset 0 0 0 1.5px var(--accent);background:rgba(0,255,255,.05);color:var(--ink)}
+.cell.title{font-weight:700;color:var(--ink)}
+.cell.num{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+.cell.pick{cursor:pointer;display:flex;flex-wrap:wrap;gap:4px;align-items:center}
+.cell.pick .ph{color:var(--ink-4);font-size:12px}
+.cell.pick:hover{background:rgba(255,255,255,.04)}
+.cell.chk{cursor:pointer;display:flex;align-items:center;justify-content:center}
+.cell.date{cursor:pointer;white-space:nowrap}
+.cell.date.over{color:var(--red);font-weight:700}
+.cell.date .dd{font-size:10.5px;color:var(--ink-4);margin-left:6px;font-weight:700}
+.cell input[type=date]{background:var(--bg);border:1px solid var(--accent);border-radius:6px;color:var(--ink);font-family:var(--sans);font-size:12.5px;padding:4px 6px;outline:none;color-scheme:dark}
+.cell.url a{color:var(--accent-dim);text-decoration:none;word-break:break-all}
+.cell.url a:hover{text-decoration:underline}
+
+.tag{display:inline-flex;align-items:center;gap:5px;border-radius:5px;padding:2px 8px;font-size:12px;font-weight:700;line-height:1.5;white-space:nowrap;max-width:100%}
+.tag.st:before{content:"";width:7px;height:7px;border-radius:50%;background:currentColor;flex:0 0 auto;opacity:.9}
+.tag .px{opacity:0;cursor:pointer;margin-left:2px;font-size:11px;transition:.12s}
+.cell.pick:hover .tag .px,.cell.pick:focus .tag .px{opacity:.6}
+.tag .px:hover{opacity:1!important}
+.c-gray{background:rgba(255,255,255,.10);color:#D9D9D9}
+.c-brown{background:rgba(190,140,100,.18);color:#E0B896}
+.c-orange{background:rgba(255,150,60,.16);color:#FFB86B}
+.c-yellow{background:rgba(255,205,80,.15);color:#FFDC7A}
+.c-green{background:rgba(142,195,31,.16);color:#B6E35C}
+.c-blue{background:rgba(74,144,226,.18);color:#8FC0F5}
+.c-purple{background:rgba(183,156,255,.18);color:#CDBBFF}
+.c-pink{background:rgba(255,120,190,.16);color:#FFA0D2}
+.c-red{background:rgba(254,83,86,.16);color:#FF9597}
+.c-cyan{background:rgba(0,255,255,.13);color:#7FF6F6}
+
+.ck{width:18px;height:18px;border-radius:5px;border:1.5px solid var(--line);display:inline-grid;place-items:center;font-size:12px;color:#000;transition:.12s}
+.ck.on{background:var(--accent);border-color:var(--accent)}
+
+table.bd tfoot td{padding:8px 12px;font-size:11.5px;color:var(--ink-3);font-weight:700;background:var(--card-2);border-bottom:none;white-space:nowrap}
+table.bd tfoot td b{color:var(--accent);font-weight:800}
+.bd-addrow{display:flex;align-items:center;gap:8px;padding:10px 14px;color:var(--ink-3);font-size:13px;font-weight:700;cursor:pointer;border-top:1px solid var(--line-2);font-family:var(--sans);background:transparent;border-left:0;border-right:0;border-bottom:0;width:100%;text-align:left}
+.bd-addrow:hover{color:var(--accent);background:rgba(0,255,255,.04)}
+.bd-empty{padding:40px;text-align:center;color:var(--ink-4);font-size:13px}
+
+/* 팝오버 */
+.pop{position:absolute;z-index:300;background:#161616;border:1px solid var(--line);border-radius:10px;min-width:220px;max-width:320px;
+  box-shadow:0 20px 50px -18px rgba(0,0,0,.95),0 0 0 1px rgba(0,0,0,.5);padding:6px;font-size:13px;color:var(--ink-2)}
+.pop .pp-h{font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-4);font-weight:800;padding:7px 10px 4px}
+.pop .pp-i{display:flex;align-items:center;gap:8px;padding:7px 10px;border-radius:7px;cursor:pointer;line-height:1.4}
+.pop .pp-i:hover{background:rgba(255,255,255,.07);color:var(--ink)}
+.pop .pp-i.on{background:rgba(0,255,255,.1)}
+.pop .pp-i.danger{color:var(--red)}
+.pop .pp-i .r{margin-left:auto;font-size:11px;color:var(--ink-4)}
+.pop .pp-i .ed{margin-left:auto;font-size:11px;color:var(--ink-4);padding:2px 5px;border-radius:4px}
+.pop .pp-i .ed:hover{background:rgba(255,255,255,.12);color:var(--ink)}
+.pop .pp-sep{height:1px;background:var(--line-2);margin:5px 4px}
+.pop input.pp-in{width:100%;background:var(--bg);border:1px solid var(--line);border-radius:7px;color:var(--ink);font-family:var(--sans);
+  font-size:13px;padding:7px 10px;outline:none;margin:4px 0 6px}
+.pop input.pp-in:focus{border-color:var(--accent)}
+.pop .pp-sw{display:flex;gap:6px;flex-wrap:wrap;padding:4px 10px 8px}
+.pop .pp-sw i{width:20px;height:20px;border-radius:5px;cursor:pointer;border:2px solid transparent;display:block}
+.pop .pp-sw i.on{border-color:#fff}
+.pop .pp-list{max-height:260px;overflow-y:auto;scrollbar-width:thin}
+
+.bd-foot{display:flex;gap:6px;flex-wrap:wrap;margin-top:14px;align-items:center}
+.bd-foot .hint{margin:0 0 0 auto}
+.bd-lock-state{font-size:11.5px;color:var(--ink-4);font-weight:700}
+
+@media(max-width:720px){
+  .bd-tools input[type=search]{width:120px}
+  .bd-title{font-size:19px}
+  table.bd{font-size:13px}
+}
+@media print{
+  #s11 .bd-tools,#s11 .bd-foot,#s11 .th-add,#s11 .td-add,#s11 .td-hd,#s11 .th-hd,#s11 .bd-addrow,#s11 .bd-tabs{display:none!important}
+  #s11.locked{display:none!important}
+  .tag{border:1px solid #CCC;color:#000!important;background:#fff!important}
+}
 </style>
 </head>
 <body>
@@ -843,7 +985,7 @@ body.showall .pane > footer{display:block}
         <span class="tw">▶</span>
         <span class="sum-main">
           <span class="sum-t">최초 제안 — 리빙파크 4F 더 팝업 소개</span>
-          <span class="sum-m"><span class="sum-d">6/30 (화)</span><span class="pill p-them">황다경 바이어</span></span>
+          <span class="sum-m"><span class="sum-d">6/30 (화)</span><span class="tag p-them">황다경 바이어</span></span>
           <span class="sum-x">현장 미팅 전 제안서로 공간 먼저 소개. 2주 진행 시 0.7억~2.5억 매출 사례 제시.</span>
         </span>
       </summary>
@@ -869,7 +1011,7 @@ body.showall .pane > footer{display:block}
         <span class="tw">▶</span>
         <span class="sum-main">
           <span class="sum-t">진행 전 안내 — 조건 · 제출물 · 규격 일괄 통보</span>
-          <span class="sum-m"><span class="sum-d">7/2 (목)</span><span class="pill p-them">황다경 바이어</span><span class="pill p-req">요구사항 원본</span></span>
+          <span class="sum-m"><span class="sum-d">7/2 (목)</span><span class="tag p-them">황다경 바이어</span><span class="tag p-req">요구사항 원본</span></span>
           <span class="sum-x">이 메일이 프로젝트 전체 요구사항의 출처입니다. 고지물 규격·입점자료·정산·법적 요건이 모두 여기 있습니다.</span>
         </span>
       </summary>
@@ -914,7 +1056,7 @@ body.showall .pane > footer{display:block}
         <span class="tw">▶</span>
         <span class="sum-main">
           <span class="sum-t">일정 연기 요청 — 7.30~8.12 → 9.10~9.23</span>
-          <span class="sum-m"><span class="sum-d">7/7 (화)</span><span class="pill p-us">우리 · 미라클애드</span></span>
+          <span class="sum-m"><span class="sum-d">7/7 (화)</span><span class="tag p-us">우리 · 미라클애드</span></span>
           <span class="sum-x">&ldquo;단순 판매 행사가 아닌 브랜드를 제대로 소개하는 자리&rdquo;로 활용하기 위해 준비 기간 확보 요청.</span>
         </span>
       </summary>
@@ -931,7 +1073,7 @@ body.showall .pane > footer{display:block}
         <span class="tw">▶</span>
         <span class="sum-main">
           <span class="sum-t">대안 3가지 제시 — 면적 공유 또는 신규 장소</span>
-          <span class="sum-m"><span class="sum-d">7/8 (수)</span><span class="pill p-them">황다경 바이어</span></span>
+          <span class="sum-m"><span class="sum-d">7/8 (수)</span><span class="tag p-them">황다경 바이어</span></span>
           <span class="sum-x">22평 단독 운영에 대한 우려를 처음 표명한 메일. 현재 대응 과제의 배경입니다.</span>
         </span>
       </summary>
@@ -960,7 +1102,7 @@ body.showall .pane > footer{display:block}
         <span class="tw">▶</span>
         <span class="sum-main">
           <span class="sum-t">행사 픽스 — 9.10(목)~9.23(수) 확정</span>
-          <span class="sum-m"><span class="sum-d">7/14 (화) 오전</span><span class="pill p-them">황다경 바이어</span><span class="pill p-fix">확정</span></span>
+          <span class="sum-m"><span class="sum-d">7/14 (화) 오전</span><span class="tag p-them">황다경 바이어</span><span class="tag p-fix">확정</span></span>
           <span class="sum-x">일정 확정 통보 + 8월 초 제안서 회신 요청. 현재 최우선 과제의 출처입니다.</span>
         </span>
       </summary>
@@ -978,7 +1120,7 @@ body.showall .pane > footer{display:block}
         <span class="tw">▶</span>
         <span class="sum-main">
           <span class="sum-t">확정 수락 + 인플루언서 · 연예인 협업 언급</span>
-          <span class="sum-m"><span class="sum-d">7/14 (화) 오후</span><span class="pill p-us">우리 · 미라클애드</span></span>
+          <span class="sum-m"><span class="sum-d">7/14 (화) 오후</span><span class="tag p-us">우리 · 미라클애드</span></span>
           <span class="sum-x">기획안에 협업 일정을 첨부하겠다고 우리가 먼저 약속한 메일 — 기획안의 필수 구성 요소가 됨.</span>
         </span>
       </summary>
@@ -993,7 +1135,7 @@ body.showall .pane > footer{display:block}
         <span class="tw">▶</span>
         <span class="sum-main">
           <span class="sum-t">내부 공유 — 헤밀리 상무님께 바이어 메일 · 제안서 전달</span>
-          <span class="sum-m"><span class="sum-d">7/23 (목)</span><span class="pill p-in">내부</span></span>
+          <span class="sum-m"><span class="sum-d">7/23 (목)</span><span class="tag p-in">내부</span></span>
           <span class="sum-x">7/8 바이어 메일과 팝업 제안서 PDF를 헤밀리 측으로 포워딩. 내부 검토 라인 확보.</span>
         </span>
       </summary>
@@ -1007,7 +1149,7 @@ body.showall .pane > footer{display:block}
         <span class="tw">▶</span>
         <span class="sum-main">
           <span class="sum-t">입점 서류 3종 발송 — 가장 최근 커뮤니케이션</span>
-          <span class="sum-m"><span class="sum-d">7/30 (목)</span><span class="pill p-us">우리 · 미라클애드</span><span class="pill p-hi">이후 9일 공백</span></span>
+          <span class="sum-m"><span class="sum-d">7/30 (목)</span><span class="tag p-us">우리 · 미라클애드</span><span class="tag p-hi">이후 9일 공백</span></span>
           <span class="sum-x">서류는 완료. 제안서는 &ldquo;8월 초까지 회신&rdquo; 약속으로 남아 있는 상태입니다.</span>
         </span>
       </summary>
@@ -1083,7 +1225,7 @@ body.showall .pane > footer{display:block}
     <details class="tg" open>
       <summary><span class="tw">▶</span><span class="sum-main">
         <span class="sum-t">01 · 종합 기획안 미제출 — 기한 도달</span>
-        <span class="sum-m"><span class="pill p-hi">최우선</span><span class="sum-d">근거 · 7/14 바이어 메일, 7/30 우리 회신</span></span>
+        <span class="sum-m"><span class="tag p-hi">최우선</span><span class="sum-d">근거 · 7/14 바이어 메일, 7/30 우리 회신</span></span>
       </span></summary>
       <div class="tg-body">
         바이어 요청 &ldquo;8월 초 중&rdquo;, 우리 약속 &ldquo;8월 초까지&rdquo;. 오늘 8/8.
@@ -1095,7 +1237,7 @@ body.showall .pane > footer{display:block}
     <details class="tg" open>
       <summary><span class="tw">▶</span><span class="sum-main">
         <span class="sum-t">02 · 마진율 최종 확정 회신 없음</span>
-        <span class="sum-m"><span class="pill p-hi">가격 설계 선행 조건</span><span class="sum-d">근거 · 7/2 바이어 메일</span></span>
+        <span class="sum-m"><span class="tag p-hi">가격 설계 선행 조건</span><span class="sum-d">근거 · 7/2 바이어 메일</span></span>
       </span></summary>
       <div class="tg-body">
         30%(에누리 O) / 20%(특가·에누리 X)는 &ldquo;<strong>마진 확인 후 픽스 예정</strong>&rdquo; 상태로만 안내되었습니다.
@@ -1106,7 +1248,7 @@ body.showall .pane > footer{display:block}
     <details class="tg" open>
       <summary><span class="tw">▶</span><span class="sum-main">
         <span class="sum-t">03 · 건강기능식품 판매 가능 여부 미확인</span>
-        <span class="sum-m"><span class="pill p-hi">SKU 구성 변수</span><span class="sum-d">근거 · 7/2 바이어 메일 서두</span></span>
+        <span class="sum-m"><span class="tag p-hi">SKU 구성 변수</span><span class="sum-d">근거 · 7/2 바이어 메일 서두</span></span>
       </span></summary>
       <div class="tg-body">
         바이어가 명시적으로 &ldquo;건기식 판매에 대한 내용은 포함돼 있지 않아서 <strong>상호 추가 확인이 필요</strong>&rdquo;라고 언급했습니다.
@@ -1118,7 +1260,7 @@ body.showall .pane > footer{display:block}
     <details class="tg">
       <summary><span class="tw">▶</span><span class="sum-main">
         <span class="sum-t">04 · 디지털 사인간판 규격 상충</span>
-        <span class="sum-m"><span class="pill p-mid">디자인 착수 전 확정</span><span class="sum-d">근거 · 6/30 vs 7/2 메일 비교</span></span>
+        <span class="sum-m"><span class="tag p-mid">디자인 착수 전 확정</span><span class="sum-d">근거 · 6/30 vs 7/2 메일 비교</span></span>
       </span></summary>
       <div class="tg-body">
         6/30 메일에는 <span class="mono">1500×900px</span>, 7/2 메일에는 <span class="mono">1500×750px</span>로 서로 다르게 안내되었습니다.
@@ -1130,7 +1272,7 @@ body.showall .pane > footer{display:block}
     <details class="tg">
       <summary><span class="tw">▶</span><span class="sum-main">
         <span class="sum-t">05 · 현장 운영 방식 미결정 — 시음 / 제조음료 / 완제품</span>
-        <span class="sum-m"><span class="pill p-mid">영업신고 리드타임</span><span class="sum-d">근거 · 7/2 &lsquo;제조음료 판매 원칙&rsquo;</span></span>
+        <span class="sum-m"><span class="tag p-mid">영업신고 리드타임</span><span class="sum-d">근거 · 7/2 &lsquo;제조음료 판매 원칙&rsquo;</span></span>
       </span></summary>
       <div class="tg-body">
         세 방식마다 법적 준비물이 완전히 다릅니다. 현장 제조·판매를 택하면 <strong>영업신고(일반/휴게음식점)</strong>가 필요하고 관할 구청 처리 기간이 발생합니다.
@@ -1141,7 +1283,7 @@ body.showall .pane > footer{display:block}
     <details class="tg">
       <summary><span class="tw">▶</span><span class="sum-main">
         <span class="sum-t">06 · 나이스다큐 · 트러스빌 가입 완료 여부</span>
-        <span class="sum-m"><span class="pill p-lo">계약 단계 병목</span><span class="sum-d">근거 · 7/2 메일 &lsquo;4. 기타&rsquo;</span></span>
+        <span class="sum-m"><span class="tag p-lo">계약 단계 병목</span><span class="sum-d">근거 · 7/2 메일 &lsquo;4. 기타&rsquo;</span></span>
       </span></summary>
       <div class="tg-body">전자계약과 세금계산서 발행의 전제입니다. 미가입 상태면 계약 단계에서 지연이 발생합니다.</div>
     </details>
@@ -1149,7 +1291,7 @@ body.showall .pane > footer{display:block}
     <details class="tg">
       <summary><span class="tw">▶</span><span class="sum-main">
         <span class="sum-t">07 · 현장 실측 미실시</span>
-        <span class="sum-m"><span class="pill p-lo">도면 확정 선행</span><span class="sum-d">근거 · 7/2 메일 &lsquo;현수막&rsquo; 항목</span></span>
+        <span class="sum-m"><span class="tag p-lo">도면 확정 선행</span><span class="sum-d">근거 · 7/2 메일 &lsquo;현수막&rsquo; 항목</span></span>
       </span></summary>
       <div class="tg-body">
         도면(PDF/DWG)은 수령 완료. 다만 바이어가 &ldquo;도면 6p 아일릿 구멍 위치 등 표기되어 있으나 <strong>현장 실측 필요</strong>&rdquo;라고 명시했습니다.
@@ -1160,7 +1302,7 @@ body.showall .pane > footer{display:block}
     <details class="tg">
       <summary><span class="tw">▶</span><span class="sum-main">
         <span class="sum-t">08 · 22평 SKU · 진열 볼륨 대응안 미제시</span>
-        <span class="sum-m"><span class="pill p-mid">바이어 우려 해소</span><span class="sum-d">근거 · 7/8 메일 1-D</span></span>
+        <span class="sum-m"><span class="tag p-mid">바이어 우려 해소</span><span class="sum-d">근거 · 7/8 메일 1-D</span></span>
       </span></summary>
       <div class="tg-body">
         바이어가 단독 운영 시 목표매출·SKU 우려를 표명한 상태에서 단독으로 확정되었습니다.
@@ -1201,7 +1343,7 @@ body.showall .pane > footer{display:block}
     <details class="tg" open>
       <summary><span class="tw">▶</span><span class="sum-main">
         <span class="sum-t">DID 광고 — 몰 내 100여 개소 송출</span>
-        <span class="sum-m"><span class="pill p-req">필수</span><span class="sum-d">마감 8/26 (수)</span></span>
+        <span class="sum-m"><span class="tag p-req">필수</span><span class="sum-d">마감 8/26 (수)</span></span>
         <span class="sum-x">가로·세로 각 1장. 가장 넓게 노출되는 매체입니다.</span>
       </span></summary>
       <div class="tg-body">
@@ -1217,7 +1359,7 @@ body.showall .pane > footer{display:block}
     <details class="tg" open>
       <summary><span class="tw">▶</span><span class="sum-main">
         <span class="sum-t">라이팅패널 — 직접 출력하여 지참</span>
-        <span class="sum-m"><span class="pill p-req">필수</span><span class="sum-d">제작 9/1 · 지참 9/9</span></span>
+        <span class="sum-m"><span class="tag p-req">필수</span><span class="sum-d">제작 9/1 · 지참 9/9</span></span>
         <span class="sum-x">몰에서 출력해주지 않습니다. 원단 수배와 출력 리드타임을 직접 관리해야 합니다.</span>
       </span></summary>
       <div class="tg-body">
@@ -1233,7 +1375,7 @@ body.showall .pane > footer{display:block}
     <details class="tg" open>
       <summary><span class="tw">▶</span><span class="sum-main">
         <span class="sum-t">디지털 사인간판 — USB 지참</span>
-        <span class="sum-m"><span class="pill p-req">필수</span><span class="pill p-mid">규격 확인 필요</span><span class="sum-d">확정 8/28 · 지참 9/9</span></span>
+        <span class="sum-m"><span class="tag p-req">필수</span><span class="tag p-mid">규격 확인 필요</span><span class="sum-d">확정 8/28 · 지참 9/9</span></span>
         <span class="sum-x">6/30 메일과 7/2 메일의 규격이 서로 다릅니다. 확인 전 제작 금지.</span>
       </span></summary>
       <div class="tg-body">
@@ -1249,7 +1391,7 @@ body.showall .pane > footer{display:block}
     <details class="tg" open>
       <summary><span class="tw">▶</span><span class="sum-main">
         <span class="sum-t">스탠딩배너 — 몰에서 출력</span>
-        <span class="sum-m"><span class="pill p-opt">선택</span><span class="pill p-hi">8/27 하드 마감</span></span>
+        <span class="sum-m"><span class="tag p-opt">선택</span><span class="tag p-hi">8/27 하드 마감</span></span>
         <span class="sum-x">작업 원본만 보내면 몰에서 가이드 수정 후 출력해줍니다. 대신 마감이 엄격합니다.</span>
       </span></summary>
       <div class="tg-body">
@@ -1265,7 +1407,7 @@ body.showall .pane > footer{display:block}
     <details class="tg" open>
       <summary><span class="tw">▶</span><span class="sum-main">
         <span class="sum-t">APP 광고 시안 — 썸네일 · 앱메인 · 앱상세</span>
-        <span class="sum-m"><span class="pill p-opt">선택</span><span class="pill p-hi">8/27 하드 마감</span></span>
+        <span class="sum-m"><span class="tag p-opt">선택</span><span class="tag p-hi">8/27 하드 마감</span></span>
         <span class="sum-x">가이드 파일과 실제 사례(바이칸 팝업)를 함께 받았습니다. 온라인 유입의 핵심 채널.</span>
       </span></summary>
       <div class="tg-body">
@@ -1284,7 +1426,7 @@ body.showall .pane > footer{display:block}
     <details class="tg">
       <summary><span class="tw">▶</span><span class="sum-main">
         <span class="sum-t">현수막 — 바이어 비권장</span>
-        <span class="sum-m"><span class="pill p-opt">선택</span><span class="pill p-lo">대안 권장</span></span>
+        <span class="sum-m"><span class="tag p-opt">선택</span><span class="tag p-lo">대안 권장</span></span>
         <span class="sum-x">&ldquo;감도가 나오지 않는 단점&rdquo;. 벽체 집기 또는 허니콤보드 가벽을 대신 추천받았습니다.</span>
       </span></summary>
       <div class="tg-body">
@@ -1322,13 +1464,13 @@ body.showall .pane > footer{display:block}
     <table>
       <thead><tr><th style="width:250px">자료</th><th style="width:120px">상태</th><th>비고</th></tr></thead>
       <tbody>
-        <tr><td>팝업 입점 요청 공문</td><td><span class="pill p-fix">제출 완료</span></td><td>7/30 발송 · 수수료 · 기간 · 간략 프로모션 포함</td></tr>
-        <tr><td>사업자등록증</td><td><span class="pill p-fix">제출 완료</span></td><td>7/30 발송</td></tr>
-        <tr><td>통장 사본</td><td><span class="pill p-fix">제출 완료</span></td><td>7/30 발송</td></tr>
-        <tr><td><strong>종합 기획안(제안서)</strong></td><td><span class="pill p-hi">기한 도달</span></td><td>&ldquo;8월 초 중&rdquo; 요청 · 전체 회신 형태 · 인플루언서 협업 일정 포함 약속</td></tr>
-        <tr><td>행사장 도면 레이아웃 2D / 3D</td><td><span class="pill p-mid">미제출</span></td><td>현장 실측 후 작성 권장 · 목표 8/19~8/21</td></tr>
-        <tr><td>판매 상품 리스트 및 가격</td><td><span class="pill p-mid">미제출</span></td><td>마진율 · 건기식 가능 여부 확정 후 확정 가능 · 목표 8/20</td></tr>
-        <tr><td>프로모션 및 마케팅 계획</td><td><span class="pill p-mid">미제출</span></td><td>기간 중 온 · 오프라인 최저가 조건 반영 · 목표 8/21</td></tr>
+        <tr><td>팝업 입점 요청 공문</td><td><span class="tag p-fix">제출 완료</span></td><td>7/30 발송 · 수수료 · 기간 · 간략 프로모션 포함</td></tr>
+        <tr><td>사업자등록증</td><td><span class="tag p-fix">제출 완료</span></td><td>7/30 발송</td></tr>
+        <tr><td>통장 사본</td><td><span class="tag p-fix">제출 완료</span></td><td>7/30 발송</td></tr>
+        <tr><td><strong>종합 기획안(제안서)</strong></td><td><span class="tag p-hi">기한 도달</span></td><td>&ldquo;8월 초 중&rdquo; 요청 · 전체 회신 형태 · 인플루언서 협업 일정 포함 약속</td></tr>
+        <tr><td>행사장 도면 레이아웃 2D / 3D</td><td><span class="tag p-mid">미제출</span></td><td>현장 실측 후 작성 권장 · 목표 8/19~8/21</td></tr>
+        <tr><td>판매 상품 리스트 및 가격</td><td><span class="tag p-mid">미제출</span></td><td>마진율 · 건기식 가능 여부 확정 후 확정 가능 · 목표 8/20</td></tr>
+        <tr><td>프로모션 및 마케팅 계획</td><td><span class="tag p-mid">미제출</span></td><td>기간 중 온 · 오프라인 최저가 조건 반영 · 목표 8/21</td></tr>
       </tbody>
     </table>
   </div></div>
@@ -1424,61 +1566,61 @@ body.showall .pane > footer{display:block}
   <div class="card" id="risks">
     <details class="tg" open>
       <summary><span class="tw">▶</span><span class="sum-main">
-        <span class="sum-t">기획안 지연</span><span class="sum-m"><span class="pill p-hi">영향 높음</span></span>
+        <span class="sum-t">기획안 지연</span><span class="sum-m"><span class="tag p-hi">영향 높음</span></span>
       </span></summary>
       <div class="tg-body">바이어가 층 목표를 걸고 일정을 확보해준 상태입니다. 지연이 길어지면 신뢰가 손상되고, 대기 중이던 타 브랜드로 대체될 여지도 있습니다.
       미확정 항목(마진 · 건기식)은 &ldquo;확인 요청&rdquo;으로 표기해 남기고 <strong>기획안 자체는 먼저 발송</strong>하는 것이 안전합니다.</div>
     </details>
     <details class="tg" open>
       <summary><span class="tw">▶</span><span class="sum-main">
-        <span class="sum-t">D-14 고지물 마감 미준수</span><span class="sum-m"><span class="pill p-hi">영향 높음</span></span>
+        <span class="sum-t">D-14 고지물 마감 미준수</span><span class="sum-m"><span class="tag p-hi">영향 높음</span></span>
       </span></summary>
       <div class="tg-body">8/27을 넘기면 행사 시작일 기준 몰 내 고지와 APP 노출이 불가합니다. 오픈 초기 트래픽 손실로 직결되므로,
       <strong>8월 3주차에 시안 확정, 4주차 초 발송 완료</strong>를 목표로 역산해야 합니다.</div>
     </details>
     <details class="tg">
       <summary><span class="tw">▶</span><span class="sum-main">
-        <span class="sum-t">22평 진열 볼륨 부족</span><span class="sum-m"><span class="pill p-mid">영향 중간</span></span>
+        <span class="sum-t">22평 진열 볼륨 부족</span><span class="sum-m"><span class="tag p-mid">영향 중간</span></span>
       </span></summary>
       <div class="tg-body">바이어가 이미 우려를 표명한 지점입니다. SKU 확대 + 벽면 그래픽 · 조형물 · 체험 존으로 공간 밀도를 확보하고,
       3D 시안으로 사전에 설득하는 것이 효과적입니다.</div>
     </details>
     <details class="tg">
       <summary><span class="tw">▶</span><span class="sum-main">
-        <span class="sum-t">온 · 오프라인 최저가 조건 위반</span><span class="sum-m"><span class="pill p-mid">영향 중간</span></span>
+        <span class="sum-t">온 · 오프라인 최저가 조건 위반</span><span class="sum-m"><span class="tag p-mid">영향 중간</span></span>
       </span></summary>
       <div class="tg-body">행사 기간 최저가 유지가 계약 조건입니다. 자사몰 · 스마트스토어 · 오픈마켓의 프로모션 일정을 <strong>9/10 이전에 잠금 처리</strong>하고,
       외부 채널 쿠폰 중복 적용까지 점검해야 합니다.</div>
     </details>
     <details class="tg">
       <summary><span class="tw">▶</span><span class="sum-main">
-        <span class="sum-t">건기식 판매 불가 판정</span><span class="sum-m"><span class="pill p-mid">영향 중간</span></span>
+        <span class="sum-t">건기식 판매 불가 판정</span><span class="sum-m"><span class="tag p-mid">영향 중간</span></span>
       </span></summary>
       <div class="tg-body">SKU 구성이 흔들릴 수 있습니다. 건기식 제외 시나리오의 대체 상품 라인을 미리 준비해두면 회신이 늦어도 일정에 영향이 없습니다.</div>
     </details>
     <details class="tg">
       <summary><span class="tw">▶</span><span class="sum-main">
-        <span class="sum-t">체험이 &lsquo;현장 제조&rsquo;로 해석될 위험</span><span class="sum-m"><span class="pill p-mid">영향 중간</span></span>
+        <span class="sum-t">체험이 &lsquo;현장 제조&rsquo;로 해석될 위험</span><span class="sum-m"><span class="tag p-mid">영향 중간</span></span>
       </span></summary>
       <div class="tg-body">FREEZE LAB의 Z2·Z3에서 실제로 무언가를 만들어 제공하면 영업신고 대상이 될 수 있습니다(7/2 바이어 메일 &lsquo;제조음료 판매 원칙&rsquo;).
       동결건조 장비는 <strong>목업·전시</strong>로 두고 시식은 <strong>밀봉 완제품 소분</strong>으로 설계하면 신고 없이 운영 가능합니다. 설계 확정 전 바이어에게 운영 방식을 서면으로 공유해 확인받는 것이 안전합니다.</div>
     </details>
     <details class="tg">
       <summary><span class="tw">▶</span><span class="sum-main">
-        <span class="sum-t">영업신고 리드타임</span><span class="sum-m"><span class="pill p-lo">영향 낮음~중간</span></span>
+        <span class="sum-t">영업신고 리드타임</span><span class="sum-m"><span class="tag p-lo">영향 낮음~중간</span></span>
       </span></summary>
       <div class="tg-body">현장 제조 · 판매를 택하면 일반/휴게음식점 영업신고가 필요합니다. 관할 구청 처리 기간을 고려해 8월 중 결정해야 하며,
       시음만 운영하면 신고가 불필요하므로 리스크를 회피할 수 있습니다.</div>
     </details>
     <details class="tg">
       <summary><span class="tw">▶</span><span class="sum-main">
-        <span class="sum-t">추석 피크 인력 · 재고</span><span class="sum-m"><span class="pill p-lo">영향 낮음</span></span>
+        <span class="sum-t">추석 피크 인력 · 재고</span><span class="sum-m"><span class="tag p-lo">영향 낮음</span></span>
       </span></summary>
       <div class="tg-body">종료일 9/23이 연휴 직전으로 수요 피크와 겹칩니다. 후반부 인력 증원과 재고 안전분을 사전에 확보해두어야 기회를 놓치지 않습니다.</div>
     </details>
     <details class="tg">
       <summary><span class="tw">▶</span><span class="sum-main">
-        <span class="sum-t">사인간판 규격 오작</span><span class="sum-m"><span class="pill p-lo">영향 낮음</span></span>
+        <span class="sum-t">사인간판 규격 오작</span><span class="sum-m"><span class="tag p-lo">영향 낮음</span></span>
       </span></summary>
       <div class="tg-body">1500×900 vs 1500×750 상충. 확인 전 제작 금지. 최악의 경우 양쪽 비율에서 모두 잘리지 않는 안전 영역으로 설계합니다.</div>
     </details>
@@ -1546,6 +1688,47 @@ body.showall .pane > footer{display:block}
 </section>
 
 
+<!-- ══════════════ 11 프로젝트 보드 (잠금) ══════════════ -->
+<section id="s11" class="locked">
+  <div class="sec-head">
+    <div class="sec-n">11</div>
+    <div class="sec-t">
+      <h2>프로젝트 보드 — 구매 · 디자인 · 할 일</h2>
+      <p class="sec-sub">
+        노션 데이터베이스처럼 쓰는 팀 작업 페이지입니다. 셀을 클릭해 바로 수정하고, 열과 행을 자유롭게 추가·삭제할 수 있습니다.
+        수정 내용은 실시간으로 저장되어 다른 기기에서도 같은 화면을 봅니다.
+      </p>
+    </div>
+  </div>
+
+  <div class="lock" id="bdLock">
+    <div class="lk-ic">🔒</div>
+    <div class="lk-t">팀 전용 페이지</div>
+    <div class="lk-s">비밀번호를 입력하면 프로젝트 보드가 열립니다.</div>
+    <form id="bdLockForm" autocomplete="off">
+      <input type="password" id="bdPw" inputmode="numeric" maxlength="12" placeholder="••••" aria-label="비밀번호">
+      <button class="btn pri" type="submit">열기</button>
+    </form>
+    <div class="lk-err" id="bdLockErr"></div>
+  </div>
+
+  <div id="bdApp" style="display:none">
+    <div class="bd-tabs" id="bdTabs"></div>
+    <div id="bdView"></div>
+    <div class="bd-foot">
+      <button class="btn" id="bdExport">↓ 보드 내려받기 (JSON)</button>
+      <button class="btn" id="bdImport">↑ 불러오기</button>
+      <button class="btn" id="bdLockBtn">🔒 잠그기</button>
+      <input type="file" id="bdFile" accept=".json" style="display:none">
+      <span class="bd-lock-state" id="bdSync">동기화 준비 중…</span>
+    </div>
+    <p class="hint">
+      열 이름을 클릭하면 이름 변경·유형 변경·정렬·삭제 메뉴가 열립니다. 선택 셀은 클릭해서 옵션을 고르거나 새 옵션을 바로 만들 수 있고,
+      행 왼쪽 손잡이(⋮⋮)를 끌어서 순서를 바꾸고, 손잡이에 마우스를 올리면 나오는 ✕로 행을 지웁니다.
+    </p>
+  </div>
+</section>
+
 <footer>
   <div class="fgrid">
     <div>
@@ -1593,6 +1776,7 @@ const NAVS = [
   {id:'s8',  n:'08', label:'실행 체크리스트', badge:'—', live:'tasks'},
   {id:'s9',  n:'09', label:'리스크',          badge:'9건'},
   {id:'s10', n:'10', label:'행정 · 연락처',   badge:''},
+  {id:'s11', n:'11', label:'프로젝트 보드',   badge:'🔒', live:'board'},
 ];
 let curNav = 0;
 
@@ -2401,6 +2585,559 @@ render();
       .then(r => { if (r.status === 404) throw 0; start(DB_CANDIDATES[i]); })
       .catch(() => detect(i + 1));
   })(0);
+})();
+</script>
+
+<script>
+/* ════════════════════════════════════════════════════
+   11. 프로젝트 보드 — 비밀번호 잠금 + 노션형 편집 표 + 실시간 동기화
+   ════════════════════════════════════════════════════ */
+(function(){
+  const sec = document.getElementById('s11'); if(!sec) return;
+  const $b = s => sec.querySelector(s);
+  const uid = p => (p||'x') + Math.random().toString(36).slice(2,9);
+  const hash = s => { let x=5381; for(const c of 'lm-board:'+s) x=((x<<5)+x+c.charCodeAt(0))>>>0; return x.toString(36); };
+  const PW_HASH = '1xbm7j2';
+  const UNLOCK_KEY = 'lm_board_unlocked';
+  const CACHE_KEY = 'lm_board_cache_v1';
+  const SYNC_PATH = '/board';
+  const COLORS = ['gray','brown','orange','yellow','green','blue','purple','pink','red','cyan'];
+  const COLOR_HEX = {gray:'#9A9A9A',brown:'#C9A07E',orange:'#FFA24D',yellow:'#FFD34D',green:'#9FD43F',blue:'#6FAEF0',purple:'#B79CFF',pink:'#FF8AC2',red:'#FF6B6E',cyan:'#3FE8E8'};
+  const TYPES = [
+    {t:'text',   l:'텍스트', ic:'Aa'},
+    {t:'select', l:'선택',   ic:'◎'},
+    {t:'status', l:'상태',   ic:'●'},
+    {t:'number', l:'숫자(₩)', ic:'123'},
+    {t:'date',   l:'날짜',   ic:'📅'},
+    {t:'check',  l:'체크',   ic:'☑'},
+    {t:'url',    l:'링크',   ic:'🔗'}
+  ];
+  const tyIc = t => (TYPES.find(x=>x.t===t)||TYPES[0]).ic;
+  const tyLb = t => (TYPES.find(x=>x.t===t)||TYPES[0]).l;
+  const fmtWon = n => (n===''||n==null||isNaN(n)) ? '' : '₩' + Number(n).toLocaleString('ko-KR');
+  const todayISO = () => { const d=new Date(); return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0'); };
+  const dday = iso => { if(!iso) return null; const a=new Date(iso+'T00:00:00'), b=new Date(todayISO()+'T00:00:00'); return Math.round((a-b)/864e5); };
+  const fmtDate = iso => { if(!iso) return ''; const d=new Date(iso+'T00:00:00'); if(isNaN(d)) return iso; return (d.getMonth()+1)+'/'+d.getDate()+' ('+'일월화수목금토'[d.getDay()]+')'; };
+
+  /* ── 시드 데이터 ─────────────────────────────── */
+  function seed(){
+    const o = (name,color) => ({id:uid('o'), name, color});
+    const ship = [o('시작 전','gray'), o('진행 중','blue'), o('도착','green'), o('보류','yellow')];
+    const cat  = [o('Zone 1','green'), o('Zone 2','red'), o('Zone 3','orange'), o('Zone 4','purple'), o('오마카세','brown'), o('Market','purple'), o('Etc','gray')];
+    const pay  = [o('결제예정','gray'), o('정산대기','green'), o('이롬측 후청구','orange'), o('정산완료','blue')];
+    const f = (arr,name) => (arr.find(x=>x.name===name)||{}).id||'';
+    const c1 = {ship:uid('c'), cat:uid('c'), name:uid('c'), vend:uid('c'), cost:uid('c'), pay:uid('c'), memo:uid('c')};
+    const r1 = (s,c,n,v,cost,p,m) => ({id:uid('r'), cells:{[c1.ship]:f(ship,s), [c1.cat]:f(cat,c), [c1.name]:n, [c1.vend]:v||'', [c1.cost]:cost==null?'':cost, [c1.pay]:f(pay,p), [c1.memo]:m||''}});
+    const db1 = { id:uid('d'), icon:'🧾', title:'기물 리스트', desc:'팝업 현장에 필요한 물품 구매·배송·정산 현황',
+      cols:[
+        {id:c1.ship, name:'배송', type:'status', opts:ship},
+        {id:c1.cat,  name:'카테고리', type:'select', opts:cat},
+        {id:c1.name, name:'리스트', type:'text'},
+        {id:c1.vend, name:'업체', type:'text'},
+        {id:c1.cost, name:'비용', type:'number'},
+        {id:c1.pay,  name:'결제', type:'select', opts:pay},
+        {id:c1.memo, name:'메모', type:'text'}
+      ],
+      rows:[
+        r1('진행 중','Etc','카드 단말기','서준권(BIG NET)',220000,'이롬측 후청구'),
+        r1('시작 전','오마카세','미니 냉장고','쿠팡',144760,'결제예정'),
+        r1('진행 중','Etc','행택 끈','쿠팡',4960,'정산대기'),
+        r1('진행 중','Market','페트리접시','쿠팡',8800,'정산대기'),
+        r1('시작 전','오마카세','오마카세 스탠드','',null,''),
+        r1('시작 전','Etc','후크','다이소',null,''),
+        r1('시작 전','','아이템 고정 후크(테스트존 벽면)','',null,''),
+        r1('시작 전','','티코스터(테스트존)','',null,''),
+        r1('진행 중','Zone 1','목걸이 사원증','쿠팡',8800,'정산대기'),
+        r1('시작 전','Zone 2','백팩','개인(박윤서)',null,'')
+      ]};
+
+    const st  = [o('시작 전','gray'), o('진행 중','blue'), o('검수 중','yellow'), o('완료','green'), o('보류','red')];
+    const kind= [o('고지물','cyan'), o('공간 그래픽','purple'), o('인쇄물','orange'), o('패키지','brown'), o('디지털','blue'), o('굿즈','pink')];
+    const own = [o('디자인팀','blue'), o('미라클애드','cyan'), o('라이프밀','green'), o('헤밀리','orange')];
+    const c2 = {st:uid('c'), kind:uid('c'), name:uid('c'), spec:uid('c'), own:uid('c'), due:uid('c'), file:uid('c'), memo:uid('c')};
+    const r2 = (s,k,n,sp,ow,due,m) => ({id:uid('r'), cells:{[c2.st]:f(st,s), [c2.kind]:f(kind,k), [c2.name]:n, [c2.spec]:sp||'', [c2.own]:f(own,ow), [c2.due]:due||'', [c2.file]:'', [c2.memo]:m||''}});
+    const db2 = { id:uid('d'), icon:'🎨', title:'디자인 작업', desc:'제작·발주가 필요한 디자인 산출물과 진행 상태',
+      cols:[
+        {id:c2.st,   name:'상태', type:'status', opts:st},
+        {id:c2.kind, name:'구분', type:'select', opts:kind},
+        {id:c2.name, name:'항목', type:'text'},
+        {id:c2.spec, name:'규격 · 포맷', type:'text'},
+        {id:c2.own,  name:'담당', type:'select', opts:own},
+        {id:c2.due,  name:'마감', type:'date'},
+        {id:c2.file, name:'파일', type:'url'},
+        {id:c2.memo, name:'메모', type:'text'}
+      ],
+      rows:[
+        r2('시작 전','고지물','DID 가로 1장','1920×1080 JPG','디자인팀','2026-08-26','"리빙파크 4F 더 팝업"+기간+프로모션 / "아이파크몰" 문구 금지'),
+        r2('시작 전','고지물','DID 세로 1장','1080×1920 JPG','디자인팀','2026-08-26',''),
+        r2('시작 전','고지물','스탠딩배너','365×1100mm PSD/AI 원본','디자인팀','2026-08-27','레이어 정리 · 폰트 아웃라인'),
+        r2('시작 전','디지털','APP 광고 시안 3종','썸네일 / 앱메인 / 앱상세','디자인팀','2026-08-27','광고 가이드_260323ver 준수'),
+        r2('시작 전','고지물','라이팅패널','출력 880×1480mm · 프레임 900×1500mm','디자인팀','2026-08-28','백라이트 색보정 · 와이드칼라-플렉스'),
+        r2('시작 전','디지털','디지털 사인간판','확정 규격 기준 JPG 또는 짧은 영상','디자인팀','2026-08-28','USB 백업 2개'),
+        r2('시작 전','공간 그래픽','Z2 동결건조 4단계 공정 가벽','허니콤보드','디자인팀','2026-08-28','원물→급속동결→진공승화→완성'),
+        r2('시작 전','공간 그래픽','가벽 / 백드롭 그래픽','포토존 겸용','디자인팀','2026-08-28',''),
+        r2('시작 전','인쇄물','POP · 가격택 · 쇼카드','정상가→할인가 병기','디자인팀','2026-09-02','추석 세트 전용 별도'),
+        r2('시작 전','인쇄물','한글표시사항 라벨','','라이프밀','2026-09-03','시음/제조음료 운영 시 필수'),
+        r2('시작 전','굿즈','Z1 소품 — 랩코트 · 연구원 뱃지 · 실험노트','','디자인팀','2026-09-03','방문객 배포용'),
+        r2('시작 전','인쇄물','Z4 추석 처방전 카드','','디자인팀','2026-09-03','실험 결과 기반 선물세트 추천 양식'),
+        r2('시작 전','패키지','추석 선물세트 패키지 · 띠지','','디자인팀','2026-09-04',''),
+        r2('시작 전','인쇄물','리플렛 (온라인 유입 QR 포함)','','미라클애드','2026-09-04','')
+      ]};
+
+    const st3 = [o('할 일','gray'), o('진행 중','blue'), o('완료','green')];
+    const c3 = {st:uid('c'), name:uid('c'), own:uid('c'), due:uid('c'), done:uid('c'), memo:uid('c')};
+    const own3 = own.map(x=>({...x, id:uid('o')}));
+    const r3 = (s,n,ow,due,m) => ({id:uid('r'), cells:{[c3.st]:f(st3,s), [c3.name]:n, [c3.own]:f(own3,ow), [c3.due]:due||'', [c3.done]:false, [c3.memo]:m||''}});
+    const db3 = { id:uid('d'), icon:'✅', title:'할 일', desc:'구매·디자인 외 잡무와 확인 사항',
+      cols:[
+        {id:c3.st,   name:'상태', type:'status', opts:st3},
+        {id:c3.name, name:'할 일', type:'text'},
+        {id:c3.own,  name:'담당', type:'select', opts:own3},
+        {id:c3.due,  name:'마감', type:'date'},
+        {id:c3.done, name:'확인', type:'check'},
+        {id:c3.memo, name:'메모', type:'text'}
+      ],
+      rows:[
+        r3('할 일','설치 당일 지참물 점검 — 라이팅패널 · USB · 카드 단말기','미라클애드','2026-09-09',''),
+        r3('할 일','오픈 리허설 동선 체크 (Z1→Z4)','라이프밀','2026-09-09',''),
+        r3('할 일','철수 후 기물 반납 · 정산 내역 정리','미라클애드','2026-09-23','')
+      ]};
+    return {v:1, dbs:[db1, db2, db3]};
+  }
+
+  /* ── 상태 ─────────────────────────────── */
+  let BOARD = null;
+  let cur = 0;                      /* 현재 표 index */
+  const UI = {};                    /* dbId → {q, sort:{col,dir}, filter:{col,opt}} */
+  const ui = () => { const d=BOARD.dbs[cur]||{id:'_'}; return UI[d.id] || (UI[d.id]={q:'', sort:null, filter:null}); };
+  function norm(b){
+    b = b || {};
+    return { v:1, dbs:(b.dbs||[]).map(d=>({
+      id:String(d.id||uid('d')), icon:String(d.icon||'📋'), title:String(d.title||''), desc:String(d.desc||''),
+      cols:(d.cols||[]).map(c=>({ id:String(c.id||uid('c')), name:String(c.name||''), type:TYPES.some(t=>t.t===c.type)?c.type:'text',
+        opts:(c.opts||[]).map(o=>({id:String(o.id||uid('o')), name:String(o.name||''), color:COLORS.includes(o.color)?o.color:'gray'})) })),
+      rows:(d.rows||[]).map(r=>{ const cells={}; const src=r.cells||{}; (d.cols||[]).forEach(c=>{ const v=src[c.id]; cells[c.id] = (v==null)?'':(c.type==='check'?!!v:(c.type==='number'?((v===''||isNaN(Number(v)))?'':Number(v)):String(v))); }); return {id:String(r.id||uid('r')), cells}; })
+    }))};
+  }
+
+  /* ── 잠금 ─────────────────────────────── */
+  const lockEl = $b('#bdLock'), appEl = $b('#bdApp');
+  function isUnlocked(){ try{ return sessionStorage.getItem(UNLOCK_KEY)==='1'; }catch(e){ return false; } }
+  function setUnlocked(on){ try{ on?sessionStorage.setItem(UNLOCK_KEY,'1'):sessionStorage.removeItem(UNLOCK_KEY);}catch(e){} applyLock(); }
+  function applyLock(){
+    const on = isUnlocked();
+    lockEl.style.display = on?'none':'';
+    appEl.style.display = on?'':'none';
+    sec.classList.toggle('locked', !on);
+    const badge = document.querySelector('[data-badge="board"]');
+    if(badge) badge.textContent = on ? (BOARD ? BOARD.dbs.length+'표' : '…') : '🔒';
+    if(on && BOARD) render();
+  }
+  $b('#bdLockForm').addEventListener('submit', e=>{
+    e.preventDefault();
+    const v = $b('#bdPw').value.trim();
+    if(hash(v)===PW_HASH){ $b('#bdLockErr').textContent=''; $b('#bdPw').value=''; setUnlocked(true); }
+    else { $b('#bdLockErr').textContent='비밀번호가 맞지 않습니다.'; lockEl.classList.remove('shake'); void lockEl.offsetWidth; lockEl.classList.add('shake'); $b('#bdPw').select(); }
+  });
+  $b('#bdLockBtn').onclick = ()=>setUnlocked(false);
+
+  /* ── 팝오버 ─────────────────────────────── */
+  let popEl = null;
+  function closePop(){ if(popEl){ popEl.remove(); popEl=null; } }
+  function openPop(anchor, html, onReady){
+    closePop();
+    popEl = document.createElement('div'); popEl.className='pop'; popEl.innerHTML=html;
+    document.body.appendChild(popEl);
+    const r = anchor.getBoundingClientRect();
+    const pw = popEl.offsetWidth, ph = popEl.offsetHeight;
+    let left = r.left + window.scrollX, top = r.bottom + window.scrollY + 4;
+    if(left + pw > window.scrollX + window.innerWidth - 12) left = window.scrollX + window.innerWidth - pw - 12;
+    if(r.bottom + ph > window.innerHeight - 12 && r.top - ph > 12) top = r.top + window.scrollY - ph - 4;
+    popEl.style.left = left+'px'; popEl.style.top = top+'px';
+    if(onReady) onReady(popEl);
+    return popEl;
+  }
+  document.addEventListener('mousedown', e=>{ if(popEl && !popEl.contains(e.target)) closePop(); });
+  document.addEventListener('keydown', e=>{ if(e.key==='Escape') closePop(); });
+  window.addEventListener('resize', closePop);
+
+  /* ── 렌더 ─────────────────────────────── */
+  function pill(opt, type, removable){
+    if(!opt) return '';
+    return `<span class="tag ${type==='status'?'st':''} c-${opt.color}" data-oid="${opt.id}">${esc(opt.name)}${removable?'<span class="px" title="비우기">✕</span>':''}</span>`;
+  }
+  function cellHTML(db, col, row){
+    const v = row.cells[col.id];
+    switch(col.type){
+      case 'select': case 'status': {
+        const opt = col.opts.find(o=>o.id===v);
+        return `<div class="cell pick" tabindex="0" data-r="${row.id}" data-c="${col.id}">${opt?pill(opt,col.type,true):'<span class="ph">비어 있음</span>'}</div>`;
+      }
+      case 'number':
+        return `<div class="cell num" contenteditable="true" data-r="${row.id}" data-c="${col.id}" data-raw="${v===''?'':v}">${fmtWon(v)}</div>`;
+      case 'date': {
+        const d = dday(v); const over = d!=null && d<0 && !rowDone(db,row);
+        return `<div class="cell date ${over?'over':''}" tabindex="0" data-r="${row.id}" data-c="${col.id}">${v?esc(fmtDate(v))+`<span class="dd">${d===0?'D-Day':(d>0?'D-'+d:'D+'+(-d))}</span>`:'<span class="ph" style="color:var(--ink-4);font-size:12px">날짜 선택</span>'}</div>`;
+      }
+      case 'check':
+        return `<div class="cell chk" tabindex="0" data-r="${row.id}" data-c="${col.id}"><span class="ck ${v?'on':''}">${v?'✓':''}</span></div>`;
+      case 'url': {
+        const s = String(v||'');
+        return `<div class="cell url" contenteditable="true" data-r="${row.id}" data-c="${col.id}">${esc(s)}</div>`;
+      }
+      default: {
+        const first = db.cols.findIndex(c=>c.type==='text')===db.cols.indexOf(col);
+        return `<div class="cell ${first?'title':''}" contenteditable="true" data-r="${row.id}" data-c="${col.id}">${esc(String(v||''))}</div>`;
+      }
+    }
+  }
+  /* 상태/체크 열 기준으로 "끝난 행"인지 — 마감 초과 강조에 사용 */
+  function rowDone(db,row){
+    for(const c of db.cols){
+      if(c.type==='status'){ const o=c.opts.find(o=>o.id===row.cells[c.id]); if(o && /완료|도착|정산완료/.test(o.name)) return true; }
+      if(c.type==='check' && row.cells[c.id]) return true;
+    }
+    return false;
+  }
+  function visibleRows(db){
+    const u = ui(); let rows = db.rows.slice();
+    if(u.q){ const q=u.q.toLowerCase(); rows = rows.filter(r=>db.cols.some(c=>{ let v=r.cells[c.id]; if(c.type==='select'||c.type==='status'){ const o=c.opts.find(o=>o.id===v); v=o?o.name:''; } return String(v??'').toLowerCase().includes(q); })); }
+    if(u.filter && u.filter.col){ rows = rows.filter(r=> u.filter.opt==='__empty' ? !r.cells[u.filter.col] : r.cells[u.filter.col]===u.filter.opt); }
+    if(u.sort && u.sort.col){
+      const c = db.cols.find(x=>x.id===u.sort.col);
+      if(c){ const key = r=>{ const v=r.cells[c.id]; if(c.type==='select'||c.type==='status'){ return c.opts.findIndex(o=>o.id===v); } if(c.type==='number') return v===''?Infinity:Number(v); if(c.type==='check') return v?0:1; return String(v||'').toLowerCase(); };
+        rows.sort((a,b)=>{ const x=key(a), y=key(b); return (x<y?-1:x>y?1:0)*(u.sort.dir==='desc'?-1:1); }); }
+    }
+    return rows;
+  }
+  function render(){
+    if(!BOARD || !isUnlocked()) return;
+    const ae=document.activeElement, keep=(ae && sec.contains(ae) && ae.classList.contains('cell') && ae.dataset.r) ? {r:ae.dataset.r, c:ae.dataset.c} : null;
+    if(cur>=BOARD.dbs.length) cur = Math.max(0, BOARD.dbs.length-1);
+    const tabs = $b('#bdTabs');
+    tabs.innerHTML = BOARD.dbs.map((d,i)=>`<button class="bd-tab ${i===cur?'on':''}" data-i="${i}">${esc(d.icon)} ${esc(d.title||'(제목 없음)')} <span class="ct">${d.rows.length}</span></button>`).join('')
+      + `<button class="bd-tab add" id="bdAddDb">+ 새 표</button>`;
+    const view = $b('#bdView');
+    if(!BOARD.dbs.length){ view.innerHTML = '<div class="bd-empty">표가 없습니다. <b>+ 새 표</b>로 시작하세요.</div>'; return; }
+    const db = BOARD.dbs[cur]; const u = ui();
+    const selCols = db.cols.filter(c=>c.type==='select'||c.type==='status');
+    const filterOpts = selCols.map(c=>`<optgroup label="${esc(c.name)}">${c.opts.map(o=>`<option value="${c.id}|${o.id}" ${u.filter&&u.filter.col===c.id&&u.filter.opt===o.id?'selected':''}>${esc(o.name)}</option>`).join('')}<option value="${c.id}|__empty" ${u.filter&&u.filter.col===c.id&&u.filter.opt==='__empty'?'selected':''}>(비어 있음)</option></optgroup>`).join('');
+    const rows = visibleRows(db);
+    const numCols = db.cols.filter(c=>c.type==='number'||c.type==='check'||c.type==='status'||c.type==='select');
+    view.innerHTML = `
+      <div class="bd-head">
+        <span class="bd-icon" id="bdIcon" title="아이콘 바꾸기">${esc(db.icon)}</span>
+        <div class="bd-title" contenteditable="true" id="bdTitle" spellcheck="false">${esc(db.title)}</div>
+        <span class="sp"></span>
+        <div class="bd-tools">
+          <input type="search" id="bdQ" placeholder="검색…" value="${esc(u.q)}">
+          <select id="bdFilter"><option value="">전체</option>${filterOpts}</select>
+          <button class="btn pri" id="bdNewRow">새로 만들기</button>
+          <button class="btn" id="bdDbMenu" title="표 설정">⋯</button>
+        </div>
+      </div>
+      <div class="bd-desc" contenteditable="true" id="bdDesc" spellcheck="false">${esc(db.desc)}</div>
+      <div class="bd-wrap"><div class="bd-scroll">
+        <table class="bd">
+          <thead><tr>
+            <th class="th-hd"></th>
+            ${db.cols.map(c=>`<th data-c="${c.id}"><div class="th" data-c="${c.id}"><span class="ty">${tyIc(c.type)}</span><span class="nm">${esc(c.name)}</span>${u.sort&&u.sort.col===c.id?`<span class="srt">${u.sort.dir==='desc'?'↓':'↑'}</span>`:''}</div></th>`).join('')}
+            <th class="th-add"><button id="bdAddCol" title="열 추가">+</button></th>
+          </tr></thead>
+          <tbody>
+            ${rows.map(r=>`<tr data-r="${r.id}" draggable="true">
+              <td class="td-hd" title="끌어서 순서 변경">⋮⋮<span class="rx" data-del="${r.id}" title="행 삭제">✕</span></td>
+              ${db.cols.map(c=>`<td>${cellHTML(db,c,r)}</td>`).join('')}
+              <td class="td-add"></td>
+            </tr>`).join('')}
+          </tbody>
+          ${numCols.length?`<tfoot><tr><td></td>${db.cols.map(c=>{
+            if(c.type==='number'){ const s=rows.reduce((a,r)=>a+(r.cells[c.id]===''?0:Number(r.cells[c.id])||0),0); return `<td>합계 <b>${fmtWon(s)}</b></td>`; }
+            if(c.type==='check'){ const n=rows.filter(r=>r.cells[c.id]).length; return `<td>체크 <b>${n}</b>/${rows.length}</td>`; }
+            if(c.type==='status'||c.type==='select'){ const n=rows.filter(r=>r.cells[c.id]).length; return `<td>입력 <b>${n}</b>/${rows.length}</td>`; }
+            return '<td></td>'; }).join('')}<td></td></tr></tfoot>`:''}
+        </table>
+        ${rows.length?'':'<div class="bd-empty">'+(db.rows.length?'조건에 맞는 행이 없습니다.':'아직 행이 없습니다.')+'</div>'}
+      </div>
+      <button class="bd-addrow" id="bdAddRow">＋ 새 행</button></div>`;
+    bindView(db);
+    if(keep){ const c=$b(`.cell[data-r="${keep.r}"][data-c="${keep.c}"]`); if(c){ c.focus(); if(c.isContentEditable) placeCaretEnd(c); } }
+    const badge = document.querySelector('[data-badge="board"]'); if(badge) badge.textContent = BOARD.dbs.length+'표';
+  }
+
+  /* ── 이벤트 ─────────────────────────────── */
+  $b('#bdTabs').addEventListener('click', e=>{
+    if(e.target.closest('#bdAddDb')){ addDb(); return; }
+    const t=e.target.closest('.bd-tab'); if(t && t.dataset.i!=null){ cur=+t.dataset.i; render(); }
+  });
+  function addDb(){
+    const st = [{id:uid('o'),name:'시작 전',color:'gray'},{id:uid('o'),name:'진행 중',color:'blue'},{id:uid('o'),name:'완료',color:'green'}];
+    const d = {id:uid('d'), icon:'📋', title:'새 표', desc:'', cols:[{id:uid('c'),name:'상태',type:'status',opts:st},{id:uid('c'),name:'이름',type:'text'},{id:uid('c'),name:'메모',type:'text'}], rows:[]};
+    BOARD.dbs.push(d); cur=BOARD.dbs.length-1; commit(); render();
+    setTimeout(()=>{ const t=$b('#bdTitle'); if(t){ t.focus(); document.execCommand && document.execCommand('selectAll',false,null); } },50);
+  }
+  function findRow(db,id){ return db.rows.find(r=>r.id===id); }
+  function findCol(db,id){ return db.cols.find(c=>c.id===id); }
+
+  function bindView(db){
+    const u = ui();
+    $b('#bdQ').addEventListener('input', e=>{ u.q=e.target.value; renderKeepFocus('#bdQ'); });
+    $b('#bdFilter').addEventListener('change', e=>{ const v=e.target.value; u.filter = v? {col:v.split('|')[0], opt:v.split('|')[1]} : null; render(); });
+    $b('#bdNewRow').onclick = ()=>addRow(db, true);
+    $b('#bdAddRow').onclick = ()=>addRow(db, false);
+    $b('#bdAddCol').onclick = e=>colTypeMenu(e.currentTarget, db, null);
+    $b('#bdTitle').addEventListener('input', e=>{ db.title=e.target.textContent; commit(); });
+    $b('#bdTitle').addEventListener('blur', ()=>render());
+    $b('#bdTitle').addEventListener('keydown', e=>{ if(e.key==='Enter'){ e.preventDefault(); e.target.blur(); } });
+    $b('#bdDesc').addEventListener('input', e=>{ db.desc=e.target.textContent; commit(); });
+    $b('#bdIcon').onclick = e=>{
+      const icons=['📋','🧾','🎨','✅','📦','🛒','🖨️','📐','🧪','🎁','📣','🗓️','💡','🚚','🔧','⭐'];
+      openPop(e.currentTarget, `<div class="pp-h">아이콘</div><div class="pp-sw" style="gap:4px">${icons.map(i=>`<span class="pp-i" style="padding:5px 7px;font-size:18px" data-ic="${i}">${i}</span>`).join('')}</div>`, p=>{
+        p.querySelectorAll('[data-ic]').forEach(el=>el.onclick=()=>{ db.icon=el.dataset.ic; commit(); closePop(); render(); });
+      });
+    };
+    $b('#bdDbMenu').onclick = e=>{
+      openPop(e.currentTarget, `<div class="pp-h">표 설정</div>
+        <div class="pp-i" data-a="left">← 앞으로 이동</div><div class="pp-i" data-a="right">→ 뒤로 이동</div>
+        <div class="pp-i" data-a="dup">표 복제</div><div class="pp-i" data-a="clearsort">정렬 · 필터 해제</div>
+        <div class="pp-sep"></div><div class="pp-i danger" data-a="del">표 삭제</div>`, p=>{
+        p.querySelectorAll('[data-a]').forEach(el=>el.onclick=()=>{
+          const a=el.dataset.a; closePop();
+          if(a==='left' && cur>0){ [BOARD.dbs[cur-1],BOARD.dbs[cur]]=[BOARD.dbs[cur],BOARD.dbs[cur-1]]; cur--; }
+          if(a==='right' && cur<BOARD.dbs.length-1){ [BOARD.dbs[cur+1],BOARD.dbs[cur]]=[BOARD.dbs[cur],BOARD.dbs[cur+1]]; cur++; }
+          if(a==='dup'){ const c=JSON.parse(JSON.stringify(db)); c.id=uid('d'); c.title=db.title+' 사본'; BOARD.dbs.splice(cur+1,0,c); cur++; }
+          if(a==='clearsort'){ u.sort=null; u.filter=null; u.q=''; }
+          if(a==='del'){ if(!confirm(`"${db.title}" 표를 삭제할까요? 행 ${db.rows.length}개가 함께 지워집니다.`)) return; BOARD.dbs.splice(cur,1); cur=Math.max(0,cur-1); }
+          commit(); render();
+        });
+      });
+    };
+
+    const table = $b('table.bd');
+    /* 열 헤더 메뉴 */
+    table.querySelectorAll('thead .th').forEach(th=>th.onclick=e=>colMenu(th, db, findCol(db, th.dataset.c)));
+
+    /* 셀 편집 */
+    table.addEventListener('input', e=>{
+      const el=e.target.closest('.cell[contenteditable]'); if(!el) return;
+      const row=findRow(db,el.dataset.r), col=findCol(db,el.dataset.c); if(!row||!col) return;
+      if(col.type==='number'){ const n=el.textContent.replace(/[^\d.-]/g,''); row.cells[col.id] = n===''?'':Number(n); el.dataset.raw=row.cells[col.id]; }
+      else row.cells[col.id] = el.textContent;
+      commit();
+    });
+    table.addEventListener('focusin', e=>{
+      const el=e.target.closest('.cell.num'); if(el){ el.textContent = el.dataset.raw||''; }
+    });
+    table.addEventListener('focusout', e=>{
+      const el=e.target.closest('.cell[contenteditable]'); if(!el) return;
+      const col=findCol(db,el.dataset.c), row=findRow(db,el.dataset.r); if(!col||!row) return;
+      if(col.type==='number') el.textContent = fmtWon(row.cells[col.id]);
+      if(col.type==='url' && row.cells[col.id]) el.innerHTML = esc(row.cells[col.id]);
+      if(col.type==='date' || col.type==='number' || col.type==='status' || col.type==='select') { /* 합계·강조 갱신 */ setTimeout(()=>{ if(!isEditingBoard()) render(); },80); }
+    });
+    table.addEventListener('keydown', e=>{
+      const nc=e.target.closest('.cell[tabindex]');
+      if(nc){ if(e.key==='Enter'||e.key===' '){ e.preventDefault(); nc.click(); return; }
+        if(e.key==='Tab'){ const td=nc.closest('td'); const nx=e.shiftKey?td.previousElementSibling:td.nextElementSibling; const c=nx&&nx.querySelector('.cell'); if(c){ e.preventDefault(); c.focus(); if(c.isContentEditable) placeCaretEnd(c); } }
+        return; }
+      const el=e.target.closest('.cell[contenteditable]'); if(!el) return;
+      if(e.key==='Enter' && !e.shiftKey){ e.preventDefault(); const td=el.closest('td'), tr=td.parentElement, idx=[...tr.children].indexOf(td);
+        const next=tr.nextElementSibling; if(next){ const c=next.children[idx].querySelector('.cell'); if(c){ c.focus(); if(c.isContentEditable) placeCaretEnd(c); else c.click(); } } else { addRow(db,false,idx); } }
+      if(e.key==='Tab'){ const td=el.closest('td'); const nx=e.shiftKey?td.previousElementSibling:td.nextElementSibling; const c=nx&&nx.querySelector('.cell'); if(c){ e.preventDefault(); c.focus(); if(c.isContentEditable) placeCaretEnd(c); } }
+    });
+    /* 붙여넣기: 서식 제거 */
+    table.addEventListener('paste', e=>{ const el=e.target.closest('.cell[contenteditable]'); if(!el) return; e.preventDefault(); const t=(e.clipboardData||window.clipboardData).getData('text/plain'); document.execCommand('insertText',false,t.replace(/\r?\n/g,' ')); });
+
+    table.addEventListener('click', e=>{
+      /* URL 링크 열기 */
+      const a=e.target.closest('.cell.url a'); if(a){ return; }
+      /* 행 삭제 */
+      const del=e.target.closest('[data-del]'); if(del){ const i=db.rows.findIndex(r=>r.id===del.dataset.del); if(i>=0){ db.rows.splice(i,1); commit(); render(); } return; }
+      /* 옵션 비우기 */
+      const px=e.target.closest('.tag .px'); if(px){ const cell=px.closest('.cell'); const row=findRow(db,cell.dataset.r); row.cells[cell.dataset.c]=''; commit(); render(); return; }
+      /* 선택 */
+      const pick=e.target.closest('.cell.pick'); if(pick){ selectMenu(pick, db, findCol(db,pick.dataset.c), findRow(db,pick.dataset.r)); return; }
+      /* 체크 */
+      const chk=e.target.closest('.cell.chk'); if(chk){ const row=findRow(db,chk.dataset.r); row.cells[chk.dataset.c]=!row.cells[chk.dataset.c]; commit(); render(); return; }
+      /* 날짜 */
+      const dt=e.target.closest('.cell.date'); if(dt && !dt.querySelector('input')){ const row=findRow(db,dt.dataset.r), col=findCol(db,dt.dataset.c);
+        dt.innerHTML = `<input type="date" value="${esc(row.cells[col.id]||'')}"> <span class="mini" data-clr="1">비우기</span>`;
+        const inp=dt.querySelector('input'); inp.focus(); try{ inp.showPicker && inp.showPicker(); }catch(_){}
+        inp.onchange = ()=>{ row.cells[col.id]=inp.value; commit(); render(); };
+        inp.onblur = ()=>setTimeout(()=>{ if(document.activeElement!==inp) render(); },150);
+        dt.querySelector('[data-clr]').onmousedown = ev=>{ ev.preventDefault(); row.cells[col.id]=''; commit(); render(); };
+        return; }
+    });
+    /* url 셀: 더블클릭 시 열기 */
+    table.addEventListener('dblclick', e=>{ const el=e.target.closest('.cell.url'); if(el){ const v=el.textContent.trim(); if(/^https?:\/\//.test(v)) window.open(v,'_blank'); } });
+
+    /* 행 드래그 정렬 */
+    let dragId=null;
+    table.querySelectorAll('tbody tr').forEach(tr=>{
+      tr.draggable=false;
+      tr.addEventListener('dragstart', e=>{ if(!tr.draggable){ e.preventDefault(); return; }
+        dragId=tr.dataset.r; tr.classList.add('drag'); e.dataTransfer.effectAllowed='move'; try{ e.dataTransfer.setData('text/plain',dragId);}catch(_){} });
+      tr.addEventListener('dragend', ()=>{ tr.classList.remove('drag'); tr.draggable=false; table.querySelectorAll('tr.over').forEach(x=>x.classList.remove('over')); });
+      tr.addEventListener('dragover', e=>{ if(!dragId) return; e.preventDefault(); table.querySelectorAll('tr.over').forEach(x=>x.classList.remove('over')); tr.classList.add('over'); });
+      tr.addEventListener('drop', e=>{ e.preventDefault(); if(!dragId||dragId===tr.dataset.r) return;
+        const from=db.rows.findIndex(r=>r.id===dragId), to=db.rows.findIndex(r=>r.id===tr.dataset.r); if(from<0||to<0) return;
+        const [m]=db.rows.splice(from,1); db.rows.splice(to,0,m); dragId=null; commit(); render(); });
+    });
+    /* 손잡이에서만 드래그 시작되도록 */
+    table.querySelectorAll('.td-hd').forEach(h=>{ h.addEventListener('mousedown', e=>{ if(!e.target.closest('[data-del]')) h.closest('tr').draggable=true; }); });
+    table.addEventListener('mouseup', ()=>table.querySelectorAll('tbody tr').forEach(tr=>tr.draggable=false));
+  }
+  function placeCaretEnd(el){ const r=document.createRange(); r.selectNodeContents(el); r.collapse(false); const s=window.getSelection(); s.removeAllRanges(); s.addRange(r); }
+  function renderKeepFocus(sel){ const el=$b(sel); const pos=el&&el.selectionStart; render(); const n=$b(sel); if(n){ n.focus(); try{ n.setSelectionRange(pos,pos);}catch(_){} } }
+  function addRow(db, top, focusIdx){
+    const r={id:uid('r'), cells:{}}; db.cols.forEach(c=>r.cells[c.id]=c.type==='check'?false:'');
+    /* 필터가 걸려 있으면 그 옵션을 기본값으로 */
+    const u=ui(); if(u.filter && u.filter.col && u.filter.opt!=='__empty') r.cells[u.filter.col]=u.filter.opt;
+    if(top) db.rows.unshift(r); else db.rows.push(r);
+    commit(); render();
+    const tr=$b(`tr[data-r="${r.id}"]`); if(tr){ const ti=db.cols.findIndex(c=>c.type==='text'); const c=tr.children[(ti>=0?ti:0)+1].querySelector('.cell'); if(c){ c.focus(); tr.scrollIntoView({block:'nearest'}); } }
+  }
+
+  /* 선택 옵션 팝오버 */
+  function selectMenu(anchor, db, col, row){
+    const cur = row.cells[col.id];
+    const list = () => col.opts.map(o=>`<div class="pp-i ${o.id===cur?'on':''}" data-o="${o.id}">${pill(o,col.type)}<span class="ed" data-e="${o.id}" title="옵션 편집">✎</span></div>`).join('');
+    openPop(anchor, `<input class="pp-in" placeholder="옵션 검색 또는 새로 만들기…"><div class="pp-list">${list()}</div><div class="pp-sep"></div><div class="pp-i" data-clear>비우기</div>`, p=>{
+      const inp=p.querySelector('.pp-in'); const lst=p.querySelector('.pp-list'); inp.focus();
+      const bind=()=>{
+        lst.querySelectorAll('[data-o]').forEach(el=>el.onclick=e=>{ if(e.target.closest('[data-e]')){ optEdit(el.querySelector('[data-e]'), db, col, col.opts.find(o=>o.id===el.dataset.o)); return; } row.cells[col.id]=el.dataset.o; commit(); closePop(); render(); });
+        const cr=lst.querySelector('[data-create]'); if(cr) cr.onclick=()=>{ const o={id:uid('o'), name:inp.value.trim(), color:COLORS[col.opts.length%COLORS.length]}; col.opts.push(o); row.cells[col.id]=o.id; commit(); closePop(); render(); };
+      };
+      bind();
+      inp.oninput=()=>{ const q=inp.value.trim().toLowerCase(); const m=col.opts.filter(o=>o.name.toLowerCase().includes(q));
+        lst.innerHTML = m.map(o=>`<div class="pp-i ${o.id===cur?'on':''}" data-o="${o.id}">${pill(o,col.type)}<span class="ed" data-e="${o.id}">✎</span></div>`).join('')
+          + (q && !col.opts.some(o=>o.name.toLowerCase()===q) ? `<div class="pp-i" data-create>＋ 만들기 <span class="tag c-${COLORS[col.opts.length%COLORS.length]}">${esc(inp.value.trim())}</span></div>` : '');
+        bind(); };
+      inp.onkeydown=e=>{ if(e.key==='Enter'){ e.preventDefault(); const cr=lst.querySelector('[data-create]'); const first=lst.querySelector('[data-o]'); if(cr) cr.click(); else if(first) first.click(); } };
+      p.querySelector('[data-clear]').onclick=()=>{ row.cells[col.id]=''; commit(); closePop(); render(); };
+    });
+  }
+  function optEdit(anchor, db, col, opt){
+    openPop(anchor, `<div class="pp-h">옵션 편집</div><input class="pp-in" value="${esc(opt.name)}"><div class="pp-sw">${COLORS.map(c=>`<i class="${c===opt.color?'on':''}" data-col="${c}" style="background:${COLOR_HEX[c]}" title="${c}"></i>`).join('')}</div><div class="pp-sep"></div><div class="pp-i" data-ok>저장</div><div class="pp-i danger" data-del>옵션 삭제</div>`, p=>{
+      p.querySelectorAll('.pp-sw i').forEach(i=>{ i.onclick=()=>{ p.querySelectorAll('.pp-sw i').forEach(x=>x.classList.remove('on')); i.classList.add('on'); }; });
+      const inp=p.querySelector('.pp-in'); inp.focus(); inp.select();
+      const save=()=>{ opt.name=inp.value.trim()||opt.name; const on=p.querySelector('.pp-sw i.on'); if(on) opt.color=on.dataset.col; commit(); closePop(); render(); };
+      p.querySelector('[data-ok]').onclick=save; inp.onkeydown=e=>{ if(e.key==='Enter'){ e.preventDefault(); save(); } };
+      p.querySelector('[data-del]').onclick=()=>{ const n=db.rows.filter(r=>r.cells[col.id]===opt.id).length; if(!confirm(`"${opt.name}" 옵션을 삭제할까요?${n?` 이 옵션이 들어간 ${n}개 셀이 비워집니다.`:''}`)) return; col.opts=col.opts.filter(o=>o!==opt); db.rows.forEach(r=>{ if(r.cells[col.id]===opt.id) r.cells[col.id]=''; }); commit(); closePop(); render(); };
+    });
+  }
+
+  /* 열 메뉴 */
+  function colMenu(anchor, db, col){
+    const u=ui(); const idx=db.cols.indexOf(col);
+    const isSel = col.type==='select'||col.type==='status';
+    openPop(anchor, `<input class="pp-in" value="${esc(col.name)}" placeholder="열 이름">
+      <div class="pp-i" data-a="type">유형 <span class="r">${tyIc(col.type)} ${tyLb(col.type)} ›</span></div>
+      ${isSel?`<div class="pp-i" data-a="opts">옵션 관리 <span class="r">${col.opts.length}개 ›</span></div>`:''}
+      <div class="pp-sep"></div>
+      <div class="pp-i" data-a="asc">↑ 오름차순 정렬</div><div class="pp-i" data-a="desc">↓ 내림차순 정렬</div>
+      ${u.sort&&u.sort.col===col.id?'<div class="pp-i" data-a="nosort">정렬 해제</div>':''}
+      <div class="pp-sep"></div>
+      <div class="pp-i" data-a="left" ${idx===0?'style="opacity:.4"':''}>← 왼쪽으로</div><div class="pp-i" data-a="right" ${idx===db.cols.length-1?'style="opacity:.4"':''}>→ 오른쪽으로</div>
+      <div class="pp-i" data-a="dup">열 복제</div>
+      <div class="pp-sep"></div><div class="pp-i danger" data-a="del">열 삭제</div>`, p=>{
+      const inp=p.querySelector('.pp-in'); inp.focus(); inp.select();
+      const rename=()=>{ const v=inp.value.trim(); if(v && v!==col.name){ col.name=v; commit(); render(); } };
+      inp.onkeydown=e=>{ if(e.key==='Enter'){ e.preventDefault(); rename(); closePop(); } };
+      inp.onblur=rename;
+      p.querySelectorAll('[data-a]').forEach(el=>el.onclick=()=>{
+        const a=el.dataset.a;
+        if(a==='type'){ colTypeMenu(anchor, db, col); return; }
+        if(a==='opts'){ optsMenu(anchor, db, col); return; }
+        closePop();
+        if(a==='asc'||a==='desc'){ u.sort={col:col.id, dir:a}; }
+        if(a==='nosort'){ u.sort=null; }
+        if(a==='left' && idx>0){ [db.cols[idx-1],db.cols[idx]]=[db.cols[idx],db.cols[idx-1]]; }
+        if(a==='right' && idx<db.cols.length-1){ [db.cols[idx+1],db.cols[idx]]=[db.cols[idx],db.cols[idx+1]]; }
+        if(a==='dup'){ const c=JSON.parse(JSON.stringify(col)); c.id=uid('c'); c.name=col.name+' 사본'; db.cols.splice(idx+1,0,c); db.rows.forEach(r=>r.cells[c.id]=r.cells[col.id]); }
+        if(a==='del'){ if(db.cols.length<=1){ alert('열은 최소 1개가 필요합니다.'); return; } if(!confirm(`"${col.name}" 열을 삭제할까요? 이 열의 내용이 모두 지워집니다.`)) return; db.cols.splice(idx,1); db.rows.forEach(r=>delete r.cells[col.id]); if(u.sort&&u.sort.col===col.id)u.sort=null; if(u.filter&&u.filter.col===col.id)u.filter=null; }
+        commit(); render();
+      });
+    });
+  }
+  function colTypeMenu(anchor, db, col){
+    openPop(anchor, `<div class="pp-h">${col?'유형 변경':'새 열 유형'}</div>${TYPES.map(t=>`<div class="pp-i ${col&&col.type===t.t?'on':''}" data-t="${t.t}"><span style="width:26px;font-size:11px;font-weight:800;color:var(--ink-4)">${t.ic}</span>${t.l}</div>`).join('')}`, p=>{
+      p.querySelectorAll('[data-t]').forEach(el=>el.onclick=()=>{
+        const t=el.dataset.t; closePop();
+        if(!col){ const c={id:uid('c'), name:tyLb(t), type:t, opts:[]}; if(t==='status') c.opts=[{id:uid('o'),name:'시작 전',color:'gray'},{id:uid('o'),name:'진행 중',color:'blue'},{id:uid('o'),name:'완료',color:'green'}];
+          db.cols.push(c); db.rows.forEach(r=>r.cells[c.id]=t==='check'?false:''); commit(); render();
+          setTimeout(()=>{ const th=$b(`.th[data-c="${c.id}"]`); if(th) colMenu(th, db, c); },60); return; }
+        if(t===col.type) return;
+        const from=col.type;
+        /* 값 변환 */
+        db.rows.forEach(r=>{ let v=r.cells[col.id];
+          if(from==='select'||from==='status'){ const o=col.opts.find(o=>o.id===v); v=o?o.name:''; }
+          if(t==='check'){ v = !!v && v!=='' && v!==false; }
+          else if(t==='number'){ const n=String(v).replace(/[^\d.-]/g,''); v = n===''?'':Number(n); }
+          else if(t==='select'||t==='status'){ const name=String(v===false?'':v).trim(); if(name){ let o=col.opts.find(o=>o.name===name); if(!o){ o={id:uid('o'),name,color:COLORS[col.opts.length%COLORS.length]}; col.opts.push(o);} v=o.id; } else v=''; }
+          else if(t==='date'){ v = /^\d{4}-\d{2}-\d{2}$/.test(String(v))?String(v):''; }
+          else { v = v===false?'':String(v===true?'✓':v); }
+          r.cells[col.id]=v; });
+        if(!(t==='select'||t==='status')) col.opts = (from==='select'||from==='status') ? [] : (col.opts||[]);
+        col.type=t; commit(); render();
+      });
+    });
+  }
+  function optsMenu(anchor, db, col){
+    const list=()=>col.opts.map(o=>`<div class="pp-i" data-e="${o.id}">${pill(o,col.type)}<span class="r">${db.rows.filter(r=>r.cells[col.id]===o.id).length}</span></div>`).join('');
+    openPop(anchor, `<div class="pp-h">옵션 관리 — 클릭해 편집</div><div class="pp-list">${list()||'<div class="pp-i" style="color:var(--ink-4)">옵션 없음</div>'}</div><div class="pp-sep"></div><input class="pp-in" placeholder="새 옵션 이름 + Enter">`, p=>{
+      p.querySelectorAll('[data-e]').forEach(el=>el.onclick=()=>optEdit(el, db, col, col.opts.find(o=>o.id===el.dataset.e)));
+      const inp=p.querySelector('.pp-in'); inp.onkeydown=e=>{ if(e.key==='Enter'){ e.preventDefault(); const n=inp.value.trim(); if(!n) return; col.opts.push({id:uid('o'),name:n,color:COLORS[col.opts.length%COLORS.length]}); commit(); optsMenu(anchor, db, col); } };
+    });
+  }
+
+  /* ── 내려받기 / 불러오기 ─────────────────────────────── */
+  $b('#bdExport').onclick = ()=>{ const a=document.createElement('a'); a.href=URL.createObjectURL(new Blob([JSON.stringify(norm(BOARD),null,2)],{type:'application/json'})); a.download='lifemeal-popup-board-'+todayISO()+'.json'; a.click(); setTimeout(()=>URL.revokeObjectURL(a.href),2000); };
+  $b('#bdImport').onclick = ()=>$b('#bdFile').click();
+  $b('#bdFile').onchange = e=>{ const f=e.target.files[0]; if(!f) return; const rd=new FileReader(); rd.onload=()=>{ try{ const j=JSON.parse(rd.result); if(!j.dbs) throw 0; if(!confirm('현재 보드를 불러온 파일로 교체할까요?')) return; BOARD=norm(j); cur=0; commit(); render(); }catch(_){ alert('보드 JSON 파일이 아닙니다.'); } e.target.value=''; }; rd.readAsText(f); };
+
+  /* ── 저장 · 동기화 ─────────────────────────────── */
+  const syncEl = $b('#bdSync');
+  const setSync = (t,c)=>{ syncEl.textContent=t; syncEl.style.color=c||''; };
+  let ref=null, ready=false, lastJSON='', pendingRemote=null, saveTimer=null;
+  const CLIENT = 'b'+Math.random().toString(36).slice(2,10);
+  function isEditingBoard(){ const a=document.activeElement; return !!(a && sec.contains(a) && (a.isContentEditable || /INPUT|SELECT|TEXTAREA/.test(a.tagName))) || !!popEl; }
+  function cache(){ try{ localStorage.setItem(CACHE_KEY, JSON.stringify(norm(BOARD))); }catch(_){} }
+  function commit(){ cache(); clearTimeout(saveTimer); saveTimer=setTimeout(save, 500); }
+  function save(){
+    if(!ref||!ready) return;
+    const str=JSON.stringify(norm(BOARD)); if(str===lastJSON) return; lastJSON=str; pendingRemote=null;
+    setSync('저장 중…');
+    ref.set({state:JSON.parse(str), meta:{by:CLIENT, at:firebase.database.ServerValue.TIMESTAMP}})
+      .then(()=>setSync('● 실시간 동기화 중','#7ee787'))
+      .catch(err=>{ console.error('[board]',err); setSync('저장 실패 — 인터넷/DB 규칙 확인','#ff8a80'); });
+  }
+  function applyRemote(state){ BOARD=norm(state); lastJSON=JSON.stringify(BOARD); cache(); render(); }
+  window.addEventListener('beforeunload', ()=>{ clearTimeout(saveTimer); save(); });
+  document.addEventListener('focusout', ()=>{ setTimeout(()=>{ if(pendingRemote && !isEditingBoard()){ const p=pendingRemote; pendingRemote=null; applyRemote(p); setSync('● 업데이트 받음','#7ee787'); } },150); });
+
+  /* 초기 데이터: 캐시 → 없으면 시드 */
+  try{ const c=localStorage.getItem(CACHE_KEY); BOARD = c ? norm(JSON.parse(c)) : seed(); }catch(_){ BOARD=seed(); }
+  applyLock();
+
+  /* Firebase는 기존 동기화 코드가 초기화한 앱을 재사용 */
+  let tries=0;
+  (function waitFb(){
+    if(typeof firebase!=='undefined' && firebase.apps && firebase.apps.length){
+      try{ ref = firebase.database().ref(SYNC_PATH); }catch(e){ setSync('오프라인 · 이 기기에만 저장됨','#fda75f'); return; }
+      ref.on('value', snap=>{
+        const v=snap.val();
+        if(!ready){ ready=true; if(!v||!v.state){ lastJSON=''; save(); return; } }
+        if(!v||!v.state) return;
+        const str=JSON.stringify(norm(v.state));
+        if(str===lastJSON){ setSync('● 실시간 동기화 중','#7ee787'); return; }
+        if(isEditingBoard()){ pendingRemote=v.state; return; }
+        applyRemote(v.state); setSync('● 업데이트 받음','#7ee787'); setTimeout(()=>setSync('● 실시간 동기화 중','#7ee787'),1500);
+      }, err=>{ console.error('[board]',err); setSync('권한 오류 — Firebase DB 규칙 확인','#ff8a80'); });
+      return;
+    }
+    if(++tries<75) setTimeout(waitFb, 400); else setSync('오프라인 · 이 기기에만 저장됨 (JSON 내려받기 권장)','#fda75f');
+  })();
 })();
 </script>
 </body>
