@@ -177,7 +177,7 @@ details.tg[open]>summary .tw{transform:rotate(90deg);color:var(--accent)}
 .card>details.tg:first-of-type>summary{padding-top:4px}
 
 /* --- pills --- */
-.pill{display:inline-flex;align-items:center;gap:5px;font-size:10.5px;font-weight:800;padding:3.5px 9px;border-radius:5px;
+.pill,.tag{display:inline-flex;align-items:center;gap:5px;font-size:10.5px;font-weight:800;padding:3.5px 9px;border-radius:5px;
   letter-spacing:.02em;text-transform:uppercase;white-space:nowrap;border:1px solid transparent}
 .p-them{background:var(--accent-soft);color:var(--accent);border-color:var(--accent-line)}
 .p-us{background:var(--blue-soft);color:#8FBEF0;border-color:rgba(74,144,226,.35)}
@@ -593,6 +593,52 @@ body.showall .pane > footer{display:block}
 }
 
 
+/* ── 네이버 스마트플레이스 블록 (개요 상단) ─────────────── */
+.nv-embed{border:1px solid var(--line);border-radius:var(--r);background:var(--card);overflow:hidden;margin:36px 0 8px;box-shadow:var(--shadow)}
+.nv-body{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);gap:0;background:var(--card-2)}
+.nv-cta{padding:18px;border-right:1px solid var(--line-2);display:flex;flex-direction:column;gap:10px}
+.nv-btn{display:flex;align-items:center;gap:14px;text-decoration:none;border:1px solid var(--line);border-radius:12px;padding:14px 16px;
+  background:var(--card);color:var(--ink);transition:.15s}
+.nv-btn:hover{border-color:var(--accent);box-shadow:0 0 0 1px var(--accent-line),0 10px 30px -14px rgba(0,255,255,.5)}
+.nv-btn.pri{background:var(--accent);color:#000;border-color:var(--accent)}
+.nv-btn .nb-ic{flex:0 0 38px;height:38px;border-radius:9px;display:grid;place-items:center;font-size:16px;background:rgba(255,255,255,.08)}
+.nv-btn.pri .nb-ic{background:rgba(0,0,0,.14)}
+.nv-btn .nb-t{font-family:var(--display);font-size:16.5px;font-weight:800;letter-spacing:-.02em;line-height:1.25}
+.nv-btn .nb-t small{display:block;font-family:var(--sans);font-size:11.5px;font-weight:600;margin-top:4px;opacity:.72;letter-spacing:0}
+.nv-meta{font-size:12.5px;color:var(--ink-3);line-height:1.8;margin-top:4px}
+.nv-meta b{color:var(--accent);font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;margin-right:8px}
+.nv-meta a{color:var(--accent-dim)}
+.nv-live{display:grid;grid-template-rows:auto auto;gap:0}
+.nv-card{padding:16px 18px;border-bottom:1px solid var(--line-2)}
+.nv-card:last-child{border-bottom:none}
+.nv-ch{display:flex;align-items:baseline;gap:10px}
+.nv-ck{font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);font-weight:800}
+.nv-cs{margin-left:auto;font-size:11px;color:var(--ink-4);font-weight:600}
+.nv-big{display:flex;align-items:baseline;gap:8px;margin-top:8px}
+.nv-big b{font-family:var(--display);font-size:38px;line-height:1;letter-spacing:-.03em;color:var(--ink)}
+.nv-big span{font-size:12.5px;color:var(--ink-3);font-weight:700}
+.nv-big em{font-style:normal;font-size:12px;font-weight:800;color:var(--green);margin-left:6px}
+.nv-bars{display:flex;align-items:flex-end;gap:4px;height:44px;margin-top:12px}
+.nv-bars i{flex:1;background:var(--accent-soft);border:1px solid var(--accent-line);border-bottom:2px solid var(--accent);border-radius:3px 3px 0 0;min-height:3px;position:relative}
+.nv-bars i:after{content:attr(data-l);position:absolute;left:0;right:0;top:100%;margin-top:4px;text-align:center;font-size:9px;color:var(--ink-4);white-space:nowrap}
+.nv-bars i b{position:absolute;left:0;right:0;bottom:100%;margin-bottom:2px;text-align:center;font-size:9.5px;color:var(--accent);font-weight:800}
+.nv-bars.has{margin-bottom:16px}
+.nv-cf{font-size:11px;color:var(--ink-4);margin-top:10px;line-height:1.6}
+.nv-cf a{color:var(--accent-dim);text-decoration:none}
+.nv-chips{display:flex;gap:6px;flex-wrap:wrap;margin-top:8px}
+.nv-chip{font-size:11px;font-weight:800;border-radius:5px;padding:3px 8px;background:rgba(255,255,255,.07);color:var(--ink-2)}
+.nv-chip b{color:var(--accent);margin-left:4px}
+.nv-list{list-style:none;margin:10px 0 0;padding:0}
+.nv-list li{display:flex;gap:8px;align-items:baseline;font-size:12.5px;padding:5px 0;border-top:1px solid var(--line-2);line-height:1.5}
+.nv-list li:first-child{border-top:none}
+.nv-list .d{flex:0 0 40px;font-size:10.5px;color:var(--ink-4);font-weight:700}
+.nv-list .c{flex:0 0 auto;font-size:9.5px;font-weight:800;letter-spacing:.06em;color:var(--accent);text-transform:uppercase}
+.nv-list a{flex:1;min-width:0;color:var(--ink-2);text-decoration:none;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.nv-list a:hover{color:var(--accent)}
+.nv-empty{font-size:12px;color:var(--ink-4);margin-top:8px}
+@media(max-width:860px){.nv-body{grid-template-columns:1fr}.nv-cta{border-right:none;border-bottom:1px solid var(--line-2)}}
+@media print{.nv-live{display:none}.nv-btn.pri{background:#008B8B!important;color:#fff!important}}
+
 /* ============================================================
    11. PROJECT BOARD — 비밀번호 잠금 · 노션형 편집 표
    ============================================================ */
@@ -653,8 +699,21 @@ table.bd thead th.th-add button:hover{color:var(--accent)}
 table.bd thead th.th-hd{width:34px;min-width:34px}
 table.bd td.td-hd{width:34px;min-width:34px;text-align:center;color:var(--ink-4);font-size:14px;cursor:grab;vertical-align:middle;position:relative}
 table.bd td.td-hd:hover{color:var(--ink-2)}
-table.bd td.td-hd .rx{position:absolute;inset:0;display:grid;place-items:center;opacity:0;transition:.12s;font-size:12px;color:var(--red);background:var(--card)}
-table.bd tr:hover td.td-hd .rx{opacity:1}
+table.bd td.td-hd{touch-action:none;user-select:none;-webkit-user-select:none}
+table.bd td.td-hd:active{cursor:grabbing}
+table.bd td.td-del{width:40px;min-width:40px;text-align:center;vertical-align:middle;background:transparent}
+table.bd td.td-del .rx{display:inline-grid;place-items:center;width:24px;height:24px;border-radius:6px;opacity:0;transition:.12s;font-size:12px;color:var(--ink-4);cursor:pointer}
+table.bd tr:hover td.td-del .rx{opacity:1}
+table.bd td.td-del .rx:hover{color:var(--red);background:var(--red-soft)}
+table.bd tr.dragging{opacity:.35}
+table.bd tr.dragging td{background:var(--accent-soft)!important}
+.bd-ghost{position:fixed;z-index:400;pointer-events:none;background:var(--card-3);border:1px solid var(--accent-line);border-radius:8px;padding:8px 14px;font-size:13px;font-weight:700;color:var(--ink);
+  box-shadow:0 18px 40px -12px rgba(0,0,0,.9);max-width:320px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;opacity:.95}
+.bd-toast{position:fixed;left:50%;bottom:64px;transform:translateX(-50%);z-index:500;background:#161616;border:1px solid var(--line);border-radius:10px;
+  padding:10px 14px;font-size:13px;color:var(--ink-2);display:flex;align-items:center;gap:12px;box-shadow:0 20px 50px -18px rgba(0,0,0,.95);animation:slidein .2s}
+.bd-toast button{border:1px solid var(--accent-line);background:var(--accent-soft);color:var(--accent);border-radius:7px;padding:5px 10px;font-family:var(--sans);font-size:12px;font-weight:800;cursor:pointer}
+.bd-toast button:hover{background:var(--accent);color:#000}
+.bd-toast kbd{font-family:var(--sans);font-size:10.5px;color:var(--ink-4);border:1px solid var(--line);border-radius:4px;padding:1px 5px;margin-left:2px}
 table.bd tr.drag{opacity:.35}
 table.bd tr.over td{border-top:2px solid var(--accent)}
 table.bd tbody tr:hover td{background:rgba(255,255,255,.025)}
@@ -675,11 +734,11 @@ table.bd tbody td{min-width:110px;max-width:360px;position:relative}
 .cell.url a{color:var(--accent-dim);text-decoration:none;word-break:break-all}
 .cell.url a:hover{text-decoration:underline}
 
-.tag{display:inline-flex;align-items:center;gap:5px;border-radius:5px;padding:2px 8px;font-size:12px;font-weight:700;line-height:1.5;white-space:nowrap;max-width:100%}
-.tag.st:before{content:"";width:7px;height:7px;border-radius:50%;background:currentColor;flex:0 0 auto;opacity:.9}
-.tag .px{opacity:0;cursor:pointer;margin-left:2px;font-size:11px;transition:.12s}
-.cell.pick:hover .tag .px,.cell.pick:focus .tag .px{opacity:.6}
-.tag .px:hover{opacity:1!important}
+.opt-tag{display:inline-flex;align-items:center;gap:5px;border-radius:5px;padding:2px 8px;font-size:12px;font-weight:700;line-height:1.5;white-space:nowrap;max-width:100%}
+.opt-tag.st:before{content:"";width:7px;height:7px;border-radius:50%;background:currentColor;flex:0 0 auto;opacity:.9}
+.opt-tag .px{opacity:0;cursor:pointer;margin-left:2px;font-size:11px;transition:.12s}
+.cell.pick:hover .opt-tag .px,.cell.pick:focus .opt-tag .px{opacity:.6}
+.opt-tag .px:hover{opacity:1!important}
 .c-gray{background:rgba(255,255,255,.10);color:#D9D9D9}
 .c-brown{background:rgba(190,140,100,.18);color:#E0B896}
 .c-orange{background:rgba(255,150,60,.16);color:#FFB86B}
@@ -730,9 +789,9 @@ table.bd tfoot td b{color:var(--accent);font-weight:800}
   table.bd{font-size:13px}
 }
 @media print{
-  #s11 .bd-tools,#s11 .bd-foot,#s11 .th-add,#s11 .td-add,#s11 .td-hd,#s11 .th-hd,#s11 .bd-addrow,#s11 .bd-tabs{display:none!important}
+  #s11 .bd-tools,#s11 .bd-foot,#s11 .th-add,#s11 .td-add,#s11 .td-del,#s11 .td-hd,#s11 .th-hd,#s11 .bd-addrow,#s11 .bd-tabs,.bd-toast,.bd-ghost{display:none!important}
   #s11.locked{display:none!important}
-  .tag{border:1px solid #CCC;color:#000!important;background:#fff!important}
+  .opt-tag{border:1px solid #CCC;color:#000!important;background:#fff!important}
 }
 </style>
 </head>
@@ -750,9 +809,9 @@ table.bd tfoot td b{color:var(--accent);font-weight:800}
     </div>
     <nav class="side-nav" id="sideNav"></nav>
     <div class="side-foot">
-      <div class="sf-r"><span>오픈까지</span><b id="sfDday">D-33</b></div>
-      <div class="sf-r"><span>고지물 마감</span><b>D-19</b></div>
-      <div class="sf-r"><span>업데이트</span><b>2026.08.08</b></div>
+      <div class="sf-r"><span>오픈까지</span><b id="sfDday">D-6</b></div>
+      <div class="sf-r"><span>설치 · 리허설</span><b id="sfInstall">D-5</b></div>
+      <div class="sf-r"><span>업데이트</span><b id="sfBuild">2026.09.04</b></div>
     </div>
   </aside>
 
@@ -771,16 +830,42 @@ table.bd tfoot td b{color:var(--accent);font-weight:800}
 
     <div class="pane" id="pane">
 <section id="s1">
-      <div class="ref-embed">
+      <div class="nv-embed">
         <div class="ref-h">
-          <span class="ref-k">Reference</span>
-          <span class="ref-t">Behance · 레퍼런스 프로젝트</span>
-          <a class="ref-a" href="https://www.behance.net/gallery/254395611" target="_blank" rel="noopener">Behance에서 열기 ↗</a>
+          <span class="ref-k">Naver Smart Place</span>
+          <span class="ref-t">라이프밀 추석선물 연구소 — FREEZE LAB 팝업</span>
+          <a class="ref-a" href="https://www.behance.net/gallery/254395611" target="_blank" rel="noopener">Behance 기획안 ↗</a>
         </div>
-        <div class="ref-frame">
-          <iframe src="https://www.behance.net/embed/project/254395611?ilo0=1" height="316" width="404" allowfullscreen loading="lazy" frameborder="0" allow="clipboard-write" referrerpolicy="strict-origin-when-cross-origin" title="Behance 레퍼런스 프로젝트"></iframe>
+        <div class="nv-body">
+          <div class="nv-cta">
+            <a class="nv-btn pri" href="https://m.booking.naver.com/booking/12/bizes/1726808/items/8007129?area=ple&amp;lang=ko&amp;startDateTime=2026-09-01T00%3A00%3A00%2B09%3A00&amp;theme=place" target="_blank" rel="noopener">
+              <span class="nb-ic">▶</span><span class="nb-t">사전예약 바로가기<small>네이버 예약 · 9/1 오픈 · 방문 시 웰컴 키트 100%</small></span>
+            </a>
+            <a class="nv-btn" href="https://naver.me/GbywSQir" target="_blank" rel="noopener">
+              <span class="nb-ic">📍</span><span class="nb-t">팝업 위치 확인<small>용산 아이파크몰 리빙파크 4F 더 팝업</small></span>
+            </a>
+            <div class="nv-meta">
+              <div><b>운영</b> 2026.9.10(목) – 9.23(수) · 매일 10:30 – 20:30</div>
+              <div><b>주소</b> 서울 용산구 한강대로23길 55 용산 아이파크몰 리빙파크 4F 더 팝업</div>
+              <div><b>채널</b> 네이버 스마트플레이스 · 스마트스토어 <a href="https://smartstore.naver.com/life_meal" target="_blank" rel="noopener">life_meal</a> · 인스타그램 <a href="https://www.instagram.com/p/DcabaNskeCl/" target="_blank" rel="noopener">사전예약 게시물</a></div>
+            </div>
+          </div>
+          <div class="nv-live">
+            <div class="nv-card">
+              <div class="nv-ch"><span class="nv-ck">사전예약 현황</span><span class="nv-cs" id="rsvStamp">—</span></div>
+              <div class="nv-big"><b id="rsvTotal">—</b><span>명 누적</span><em id="rsvDelta"></em></div>
+              <div class="nv-bars" id="rsvBars"></div>
+              <div class="nv-cf">네이버 예약 파트너센터 숫자를 <a href="#s11">프로젝트 보드 › 사전예약 현황</a>에 입력하면 자동 반영됩니다.</div>
+            </div>
+            <div class="nv-card">
+              <div class="nv-ch"><span class="nv-ck">온라인 언급 · 리뷰</span><span class="nv-cs" id="menStamp">—</span></div>
+              <div class="nv-chips" id="menChips"></div>
+              <ul class="nv-list" id="menList"></ul>
+              <div class="nv-cf">블로그 · 인스타 · 네이버 리뷰를 <a href="#s11">프로젝트 보드 › 마케팅 모니터링</a>에 모으면 여기 최신 5건이 뜹니다.</div>
+            </div>
+          </div>
         </div>
-        <div class="ref-f">임베드는 인터넷 연결이 있어야 표시됩니다. 안 보이면 위 <b>Behance에서 열기</b>로 확인하세요.</div>
+        <div class="ref-f">네이버 예약·플레이스는 외부 사이트라 문서 안에 직접 임베드되지 않습니다. 버튼은 새 창으로 열립니다.</div>
       </div>
 
       <div class="hero-wrap">
@@ -793,18 +878,18 @@ table.bd tfoot td b{color:var(--accent);font-weight:800}
       실험 끝에 찾아낸 가장 좋은 영양을 추석 선물로 가져가는 것 — 그것이 용산 팝업이 도달해야 할 지점입니다.
     </p>
     <p class="lede">
-      HDC아이파크몰 리빙팀 황다경 바이어와 주고받은 <strong>이메일 3개 스레드·총 8통(2026.6.30 ~ 7.30)</strong>을 전수 분석해
-      콘셉트 설계, 합의된 조건, 아직 답이 없는 항목, 디자인 제작물 명세, 자료실, 그리고 오픈까지 남은 5주의 실행 계획을 하나의 문서로 정리했습니다.
+      HDC아이파크몰 황다경 바이어, 헤밀리 본사, 제작사·PG사와 주고받은 <strong>메일 전체(2026.6.30 ~ 9.4, 20통 이상)</strong>를 기준으로
+      확정된 조건, 아직 답이 없는 항목, 제작물 명세, 자료실, 실행 체크리스트, 그리고 팀 작업용 프로젝트 보드를 하나의 문서로 유지합니다. <strong>9/4 업데이트.</strong>
       <span class="editnote">타이틀·메시지는 클릭해서 바로 고칠 수 있습니다.</span>
     </p>
     <div class="hero-rule"></div>
   </div>
 
   <div class="props">
-    <div class="prop"><div class="pk">Status</div><div class="pv">콘셉트 확정 · 기획안 대기<small>입점서류 3종 제출 완료</small></div></div>
+    <div class="prop"><div class="pk">Status</div><div class="pv">고지물 제출 완료 · 공간 제작사 확정 중<small>사전예약 9/1 오픈 · 추가 서류 불필요</small></div></div>
     <div class="prop"><div class="pk">Period</div><div class="pv">9.10 – 9.23<small>목요일 시작 · 14일간</small></div></div>
     <div class="prop"><div class="pk">Venue</div><div class="pv">리빙파크 4F 더 팝업<small>22py 단독 · 창고 포함 · 코너 벽체</small></div></div>
-    <div class="prop"><div class="pk">Terms</div><div class="pv">마진 30% / 20%<small>에누리 O / 특가·에누리 X</small></div></div>
+    <div class="prop"><div class="pk">Terms</div><div class="pv">수수료 22% 단일<small>에누리 없음 · 8/25 공문 확정</small></div></div>
     <div class="prop"><div class="pk">Concept</div><div class="pv">FREEZE LAB<small>연구원 체험 · 추석 처방</small></div></div>
   </div>
       </div>
@@ -813,25 +898,25 @@ table.bd tfoot td b{color:var(--accent);font-weight:800}
     <div class="sec-n">01</div>
     <div class="sec-t">
       <h2>지금 어디에 있고, 무엇이 급한가</h2>
-      <p class="sec-sub">오늘은 2026년 8월 8일 토요일. 오픈까지 33일, 고지물 하드 마감까지 19일 남았습니다.</p>
+      <p class="sec-sub" id="s1Today">오픈까지 6일, 설치일(9/9)까지 5일 남았습니다.</p>
     </div>
   </div>
 
   <div class="tiles">
-    <div class="tile hot"><div class="tk">최우선 과제</div><div class="tv">기한 도달</div><div class="tn">종합 기획안 회신<br>&ldquo;8월 초 중&rdquo; 약속</div></div>
-    <div class="tile hot"><div class="tk">고지물 하드 마감</div><div class="tv">D-19</div><div class="tn">8/27(목)<br>스탠딩배너 · APP광고</div></div>
-    <div class="tile"><div class="tk">팝업 오픈</div><div class="tv">D-33</div><div class="tn">9/10(목)</div></div>
-    <div class="tile"><div class="tk">팝업 종료</div><div class="tv">D-46</div><div class="tn">9/23(수)<br>추석 연휴 직전</div></div>
+    <div class="tile hot"><div class="tk">최우선 과제</div><div class="tv">제작사 확정</div><div class="tn">가벽 · 그래픽월 · 조명간판<br>9/9 설치까지 <b id="tInstall">D-5</b></div></div>
+    <div class="tile ok"><div class="tk">고지물 제출</div><div class="tv">완료</div><div class="tn">8/31 광고 7종 · 배너<br>9/2 장소명 수정본</div></div>
+    <div class="tile"><div class="tk">팝업 오픈</div><div class="tv" id="tOpen">D-6</div><div class="tn">9/10(목)<br>사전예약 진행 중</div></div>
+    <div class="tile"><div class="tk">팝업 종료</div><div class="tv" id="tClose">D-19</div><div class="tn">9/23(수)<br>추석 연휴 직전</div></div>
     <div class="tile ok"><div class="tk">정산 입금</div><div class="tv">10/25</div><div class="tn">9월 정산분<br>계산서 10월 초</div></div>
   </div>
 
   <div class="callout warn" style="margin-top:26px">
     <div class="ic">🔥</div>
     <div>
-      <p><strong>지금 가장 급한 것 — 종합 기획안 회신.</strong></p>
-      <p>바이어는 7/14 메일에서 &ldquo;8월 초 중 제안서 작성하여 전체 회신&rdquo;을 요청했고, 우리도 7/30 메일에서 &ldquo;8월 초까지 정리하여 회신드리겠습니다&rdquo;라고 답했습니다.
-      오늘이 8/8 — 기한에 도달한 상태이며 7/30 이후 <strong>9일간 커뮤니케이션 공백</strong>입니다. 마진율·건기식 같은 미확정 항목은 &lsquo;확인 요청&rsquo;으로 표기해 남기고,
-      기획안 자체는 먼저 보내는 편이 안전합니다.</p>
+      <p><strong>지금 가장 급한 것 — 공간 구조물과 조명간판의 제작처.</strong></p>
+      <p>일괄 제작을 문의한 포썸무브먼트·폼플로우는 일정으로 거절했고, 비비씨컴퍼니는 3~4주와 예산 상향을 요구했습니다. 9/1 종이 가벽으로 방향을 바꿔 세 곳에 긴급 문의했지만
+      페이퍼팝은 무응답, 카멜레온프린팅은 채널톡 상담 안내뿐이고, <strong>팝플리(이너스커뮤니티)만 &ldquo;조닝 플랜·디자인 파일 + 총 예산 가이드&rdquo;를 보내 주면 견적을 내겠다</strong>는 상태입니다 — 이 두 가지를 아직 보내지 않았습니다.
+      조명간판 3EA(9/4 4곳 문의)도 1곳이 간판 미취급으로 거절했습니다. <strong>오늘 안에 이너스커뮤니티에 자료를 보내고, 제작이 안 될 경우의 축소안(레어로우 집기 + 출력물 중심)을 함께 결정</strong>해야 9/9 설치가 지켜집니다.</p>
     </div>
   </div>
 
@@ -843,10 +928,10 @@ table.bd tfoot td b{color:var(--accent);font-weight:800}
       바이어도 &ldquo;9월은 추석이 있는 달로 층 목표액이 매우 큰 달&rdquo;이라고 명시했습니다. 추석 선물세트를 상품 기획의 축으로 세울 근거가 충분합니다.</p>
     </div>
     <div class="card">
-      <h4 style="margin-top:0">주의 — 22평을 채워야 한다</h4>
-      <p style="font-size:15px;color:var(--ink-2);margin-bottom:0">바이어는 7/8 메일에서 &ldquo;라이프밀만으로 22평을 가득 채우기에 <strong>목표매출이나 SKU 면에서 고민되는 지점</strong>이 있다&rdquo;며
-      타 브랜드와의 면적 공유를 제안한 이력이 있습니다. 단독으로 확정된 만큼, 기획안에 <strong>진열 볼륨 확보 계획</strong>(SKU 수, 벽면 연출, 체험 존)을
-      명시적으로 담아 이 우려를 먼저 해소해야 합니다.</p>
+      <h4 style="margin-top:0">회신 대기 — 우리 쪽에서 끊긴 것</h4>
+      <p style="font-size:15px;color:var(--ink-2);margin-bottom:0">헤밀리 김수지 과장이 요청한 <strong>추석 선물세트 품목별 파셜입고 소진예정수량</strong>(9/1 메신저 · 9/2 메일, &ldquo;금주 중&rdquo;)은 방울토마토칩 232봉 외에는 아직 회신하지 않았습니다.
+      토스페이먼츠 PG 계약은 <strong>(주)이롬 명의 서류 보완</strong>(사업자등록증 최신본 · 법인인감증명서 · 위임장 · 홈페이지 상호명)이 김현수 대리 앞으로 걸려 있습니다.
+      바이어에게는 8/25 &ldquo;현장 구성안 공유&rdquo; 약속이 남아 있습니다.</p>
     </div>
   </div>
 </section>
@@ -969,7 +1054,7 @@ table.bd tfoot td b{color:var(--accent);font-weight:800}
     <div class="sec-n">04</div>
     <div class="sec-t">
       <h2>커뮤니케이션 로그</h2>
-      <p class="sec-sub">메일 8통을 시간순으로 정리했습니다. 제목을 클릭하면 내용이 펼쳐집니다.</p>
+      <p class="sec-sub">바이어 스레드 8통(6/30~7/30)에 8/24 이후 바이어·헤밀리·제작사·PG사 메일을 이어 붙였습니다. 제목을 클릭하면 내용이 펼쳐집니다. <span style="color:var(--ink-4)">9/4 업데이트</span></p>
     </div>
   </div>
 
@@ -1144,22 +1229,159 @@ table.bd tfoot td b{color:var(--accent);font-weight:800}
       </div>
     </details>
 
-    <details class="tg" open>
+    <details class="tg">
       <summary>
         <span class="tw">▶</span>
         <span class="sum-main">
-          <span class="sum-t">입점 서류 3종 발송 — 가장 최근 커뮤니케이션</span>
-          <span class="sum-m"><span class="sum-d">7/30 (목)</span><span class="tag p-us">우리 · 미라클애드</span><span class="tag p-hi">이후 9일 공백</span></span>
-          <span class="sum-x">서류는 완료. 제안서는 &ldquo;8월 초까지 회신&rdquo; 약속으로 남아 있는 상태입니다.</span>
+          <span class="sum-t">입점 서류 3종 발송</span>
+          <span class="sum-m"><span class="sum-d">7/30 (목)</span><span class="tag p-us">우리 · 미라클애드</span></span>
+          <span class="sum-x">서류 완료. 제안서는 &ldquo;8월 초까지 회신&rdquo; 약속 → 8/25 종합 회신으로 이행.</span>
         </span>
       </summary>
       <div class="tg-body">
         <p>① 팝업 입점 요청 공문 ② 사업자등록증 사본 ③ 통장 사본 첨부 발송.</p>
         <p>&ldquo;확인 후 보완이 필요한 부분이 있으면 편하게 말씀 부탁드립니다. <strong>제안서는 안내주신 대로 8월 초까지 정리하여 회신드리겠습니다.</strong>&rdquo;</p>
-        <div class="callout warn" style="margin:14px 0 0">
-          <div class="ic">⏳</div>
-          <div><p style="margin:0">이후 <strong>8/8 현재까지 추가 커뮤니케이션 없음</strong> — 9일간 공백. 기획안 발송이 곧 다음 접점입니다.</p></div>
+      </div>
+    </details>
+
+    <details class="tg">
+      <summary>
+        <span class="tw">▶</span>
+        <span class="sum-main">
+          <span class="sum-t">종합 준비사항 회신 — 수수료 22% 단일 공문 재발송</span>
+          <span class="sum-m"><span class="sum-d">8/25 (화)</span><span class="tag p-us">우리 · 미라클애드</span><span class="tag p-fix">기획안 회신 완료</span></span>
+          <span class="sum-x">8/8 이후 최우선 과제였던 기획안 회신. 포스터 가안 · Behance 콘셉트 · 앱 광고 8/27 약속 · 수수료 22%(에누리 없음) 공문.</span>
+        </span>
+      </summary>
+      <div class="tg-body">
+        <ul>
+          <li><strong>포스터·홍보 게시물</strong> — 가안 첨부, 정식 포스터는 9/1 전달 약속. 인스타그램 게시물 링크 공유</li>
+          <li><strong>콘셉트·선물세트</strong> — Behance 링크로 안내</li>
+          <li><strong>인테리어 도면</strong> — &ldquo;시공 업체 선정이 어려워 <strong>자체 제작</strong>으로 진행, 별도 도면 없음. 현장 구성안이 정리되는 대로 공유&rdquo;</li>
+          <li><strong>앱 광고·홍보물</strong> — 8/27(목)까지 전달 약속</li>
+          <li><strong>수수료</strong> — 내부 협의로 <strong>22% 단일(에누리 없음)</strong>. 반영한 입점 요청 공문 재첨부</li>
+        </ul>
+      </div>
+    </details>
+
+    <details class="tg">
+      <summary>
+        <span class="tw">▶</span>
+        <span class="sum-main">
+          <span class="sum-t">온라인 광고 7종 + 오프라인 제작물 전달 — 드라이브 공유</span>
+          <span class="sum-m"><span class="sum-d">8/31 (월)</span><span class="tag p-us">우리 · 미라클애드</span><span class="tag p-fix">고지물 제출</span></span>
+          <span class="sum-x">8/27 하드 마감 대비 4일 늦은 제출. 앱 메인·앱 썸네일·DID 가로/세로(기본·자유)·기획전 예시 + 라이팅패널·스탠딩배너·판매 상품 및 가격.xlsx</span>
+        </span>
+      </summary>
+      <div class="tg-body">
+        <p>01:27 첨부 메일(이미지 7종) → 16:35 구글 드라이브 정리본 메일.</p>
+        <ul>
+          <li>[온라인 광고] App 메인 · App 썸네일 · DID 가로형 기본/자유 · DID 세로형 기본/자유 · 기획전 예시 (0830_[라이프밀] 온라인 광고 가이드_260323ver_*.png)</li>
+          <li>[오프라인 제작물] 0830_용산 아이파크몰 대형_라이팅패널.png · _스탠딩 배너.png · 대형(out).ai</li>
+          <li>[판매 자료] 판매 상품 및 가격 전달.xlsx</li>
+          <li>역할 분담 명시 — <strong>스탠딩 배너는 아이파크몰 출력</strong>, <strong>라이팅패널은 라이프밀이 직접 출력해 지참</strong></li>
+        </ul>
+        <div class="files">
+          <span class="file">drive.google.com/…/1SC_xBIp9LeHdHapwO5JnCv48Q-dgIBfW</span>
         </div>
+      </div>
+    </details>
+
+    <details class="tg">
+      <summary>
+        <span class="tw">▶</span>
+        <span class="sum-main">
+          <span class="sum-t">입점 서류 질의 → &ldquo;추가 서류 필요 없습니다&rdquo;</span>
+          <span class="sum-m"><span class="sum-d">8/31 (월) → 9/1 (화)</span><span class="tag p-in">헤밀리 김현수 대리</span><span class="tag p-them">황다경 바이어</span><span class="tag p-fix">확정</span></span>
+          <span class="sum-x">음료 제조 없음 · 완제품 시식 · 영업신고 미진행 · 시식 인력 보건증/마스크/위생모/장갑 운영안을 통보하고, 나이스다큐·트러스빌 외 추가 서류 여부를 질의.</span>
+        </span>
+      </summary>
+      <div class="tg-body">
+        <p>바이어 회신(9/1 11:26): &ldquo;<strong>추가 서류 필요 없습니다!</strong> 필요하면 공유드리겠습니다.&rdquo; — 운영 방식과 서류 범위가 함께 정리된 메일입니다.</p>
+      </div>
+    </details>
+
+    <details class="tg" open>
+      <summary>
+        <span class="tw">▶</span>
+        <span class="sum-main">
+          <span class="sum-t">장소명 표기 수정 지시 — &ldquo;리빙파크 4F 더 팝업&rdquo;</span>
+          <span class="sum-m"><span class="sum-d">9/1 (화)</span><span class="tag p-them">황다경 바이어</span><span class="tag p-req">수정 요청</span></span>
+          <span class="sum-x">&ldquo;리빙파크 4F 팝업&rdquo; · &ldquo;팝업존&rdquo; → 모두 &ldquo;리빙파크 4F 더 팝업&rdquo;. DID는 자유형만, 앱 3종은 AI/PSD 원본 동봉.</span>
+        </span>
+      </summary>
+      <div class="tg-body">
+        <ul>
+          <li>DID — 장소명 수정한 <strong>자유형만</strong> 제출</li>
+          <li>앱 상세 / 앱 썸네일 / 앱 메인 — 장소명 수정 + <strong>AI 또는 PSD 원본파일</strong> 함께 전달</li>
+        </ul>
+        <p style="margin-top:10px">→ <strong>9/2 15:25 수정본 재전달</strong>(드라이브 1Vs29Ga3D…). 이후 바이어 추가 피드백 없음 — 명시적 &lsquo;확인&rsquo; 회신은 아직입니다.</p>
+      </div>
+    </details>
+
+    <details class="tg">
+      <summary>
+        <span class="tw">▶</span>
+        <span class="sum-main">
+          <span class="sum-t">공간 제작사 컨택 — 일괄 제작 3곳 거절·보류, 종이 가벽 3곳 문의</span>
+          <span class="sum-m"><span class="sum-d">8/24 – 9/1</span><span class="tag p-opt">제작사</span><span class="tag p-hi">미확정</span></span>
+          <span class="sum-x">포썸무브먼트·폼플로우 거절(일정), 비비씨 3~4주·예산 상향 요구. 9/1 페이퍼팝·팝플리(이너스커뮤니티)·카멜레온프린팅에 허니콤보드 가벽 긴급 문의.</span>
+        </span>
+      </summary>
+      <div class="tg-body">
+        <ul>
+          <li><strong>8/24 포썸무브먼트</strong> — 예산 1,000만~1,200만 원, 설치 9/8~9 조건 문의 → &ldquo;9월 8-9일 설치 일정을 맞추기 힘든 상황&rdquo; 거절</li>
+          <li><strong>8/25 폼플로우</strong> — 진행 중 프로젝트 + 촉박한 일정으로 거절</li>
+          <li><strong>8/26 비비씨컴퍼니(팝텔) 이재용 실장</strong> — 2주는 불가, <strong>3~4주 조정 + 최대 예산 상향</strong> 필요. 우리 회신 없음</li>
+          <li><strong>9/1 페이퍼팝</strong> — 가벽 L6,700×H2,400 · 그래픽월 W3,000×H2,500 · 창고 파티션 · 아치 W2,000×H2,700 · 카운터 · 시식대 문의 → <strong>무응답</strong></li>
+          <li><strong>9/1 팝플리 → (주)이너스커뮤니티 황상윤 실장</strong> — &ldquo;조닝 플랜·디자인 파일 + 총 예산 가이드&rdquo; 2가지 보내주면 친환경 소재 발주 가능 여부 체크 후 견적. <strong>우리 쪽 자료 송부가 다음 액션</strong></li>
+          <li><strong>9/1 카멜레온프린팅</strong> — 채널톡(zqpqe.channel.io) 상담으로 안내, 메일 견적 없음</li>
+        </ul>
+      </div>
+    </details>
+
+    <details class="tg">
+      <summary>
+        <span class="tw">▶</span>
+        <span class="sum-main">
+          <span class="sum-t">헤밀리 — 방울토마토칩 물량 회신 · 9/4 촬영 취소 · 상세페이지 최종본</span>
+          <span class="sum-m"><span class="sum-d">9/1 – 9/3</span><span class="tag p-in">헤밀리 김수지 과장</span></span>
+          <span class="sum-x">재고 관리 대상 방울토마토칩 10g 일별 사용량 232봉 가안 회신. 촬영용 인쇄데이터 가공은 촬영 취소로 미진행. 추석 선물세트 상세페이지 PNG 전달.</span>
+        </span>
+      </summary>
+      <div class="tg-body">
+        <ul>
+          <li><strong>9/2 물량 회신</strong> — 현장 단품 78봉 / 골라담기·8봉 세트 100봉(50세트) / 시식 50봉 / 홀딩 4봉 → <strong>총 232봉</strong>. 일별 14~21봉, 금·토·일 가중</li>
+          <li><strong>9/2 촬영 취소</strong> — 마케팅본부 결정으로 9/4 촬영 미진행, 인쇄데이터 10개 AI 가공도 미진행</li>
+          <li><strong>9/3 상세페이지</strong> — 추석 선물세트 상세페이지 최종본 드롭박스 + PNG 3장 회신</li>
+          <li style="color:var(--gold)"><strong>미회신</strong> — 추석 선물세트 품목별 <strong>파셜입고에 따른 소진예정수량</strong>(9/1 메신저 · 9/2 메일, &ldquo;금주 중&rdquo;)</li>
+        </ul>
+      </div>
+    </details>
+
+    <details class="tg">
+      <summary>
+        <span class="tw">▶</span>
+        <span class="sum-main">
+          <span class="sum-t">토스페이먼츠 PG 계약 — (주)이롬 명의 서류 보완 요청</span>
+          <span class="sum-m"><span class="sum-d">9/2 (수)</span><span class="tag p-opt">토스페이먼츠 손혜령</span><span class="tag p-hi">회신 대기</span></span>
+          <span class="sum-x">수신 김현수 대리. 최신 주소 사업자등록증 · 3개월 이내 법인인감증명서 · 인감날인 위임장(+사용인감계) · 홈페이지 하단 상호명 수정.</span>
+        </span>
+      </summary>
+      <div class="tg-body"><p>현장 카드 결제(카드 단말기 · 온라인 결제)와 연결되는 건이면 오픈 전 완료가 필요합니다. 스레드에 회신 기록 없음.</p></div>
+    </details>
+
+    <details class="tg">
+      <summary>
+        <span class="tw">▶</span>
+        <span class="sum-main">
+          <span class="sum-t">갈바 프레임 조명간판 3EA 긴급 견적 — 1곳 거절</span>
+          <span class="sum-m"><span class="sum-d">9/4 (금)</span><span class="tag p-us">우리 · 미라클애드</span><span class="tag p-hi">미확정</span></span>
+          <span class="sum-x">W1,100×H220×D60 2EA + W500×H220×D60 1EA, 9/9 오전 현장 납품 조건으로 4곳 발송. (주)21세기안전산업은 간판 미취급으로 거절.</span>
+        </span>
+      </summary>
+      <div class="tg-body">
+        <p>갈바 1.2T 절곡·용접 / 실버 무광 도장 / 유백 아크릴 3T + 투과 출력 / 내부 백색 LED + SMPS / 후면 전선 인출 / 벽체 숨김 고정. 나머지 3곳(h2o0402pks · hs16447523 · jin_frame) 회신 대기.</p>
       </div>
     </details>
 
@@ -1183,7 +1405,7 @@ table.bd tfoot td b{color:var(--accent);font-weight:800}
       <div class="kv">
         <div class="k">브랜드</div><div class="v">라이프밀 (LIFEMEAL)</div>
         <div class="k">기간</div><div class="v"><strong>2026.9.10(목) ~ 9.23(수)</strong> · 14일</div>
-        <div class="k">장소</div><div class="v">HDC아이파크몰 <strong>리빙파크 4F 더 팝업</strong></div>
+        <div class="k">장소</div><div class="v">HDC아이파크몰 <strong>리빙파크 4F 더 팝업</strong><br><span style="color:var(--accent);font-size:13px;font-weight:700">모든 제작물 표기 &ldquo;리빙파크 4F 더 팝업&rdquo;으로 통일 (9/1 바이어 지시)</span></div>
         <div class="k">면적</div><div class="v"><strong>22평(22py) 단독</strong> — 면적 공유 안 미채택<br><span style="color:var(--ink-3);font-size:13px">제안서 p16 기준 <b>전용 창고 포함</b> 총 면적 · 코너형 벽체 매장</span></div>
         <div class="k">공간 특성</div><div class="v">리빙파크 입구 · 카페거리 골목과 맞닿은 층 내 최고 입지<br>코너형 벽체 매장 · 레어로우 벽체 집기 활용 가능<br><span class="mono" style="font-size:12.5px">팝업존 W2000 × D6000 × H1500 · 포비 동선 약 7000</span></div>
         <div class="k">예상 매출</div><div class="v">2주 기준 0.7억 ~ 2.5억 (품목별 상이)</div>
@@ -1193,13 +1415,15 @@ table.bd tfoot td b{color:var(--accent);font-weight:800}
     <div class="card">
       <h4 style="margin-top:0">거래 · 행정 조건</h4>
       <div class="kv">
-        <div class="k">마진</div><div class="v">30% (에누리 O) / 20% (특가상품, 에누리 X)<br><span style="color:var(--accent);font-size:13px;font-weight:700">※ &ldquo;마진 확인 후 픽스 예정&rdquo; — 확정 회신 미수신</span></div>
+        <div class="k">수수료</div><div class="v"><strong>22% 단일 (에누리 없음)</strong><br><span style="color:var(--ink-3);font-size:13px">7/2 안내 30%/20% → 내부 협의 후 8/25 공문 재발송으로 확정</span></div>
         <div class="k">가격 조건</div><div class="v">행사 기간 중 <strong>온·오프라인 최저가</strong> 유지</div>
         <div class="k">정산</div><div class="v">월 정산분 → <strong>익월 25일</strong> 입금 (연휴 시 익일)<br>9월분 → 10/25 예정</div>
         <div class="k">계산서</div><div class="v">익월 초 발송 (9월분 → 10월 초)</div>
         <div class="k">전자계약</div><div class="v"><strong>프리미엄 나이스다큐</strong> 사전 가입 필수</div>
         <div class="k">세금계산서</div><div class="v"><strong>트러스빌</strong> 사전 가입 필수</div>
-        <div class="k">제출 완료</div><div class="v">입점 공문 · 사업자등록증 · 통장사본 (7/30)</div>
+        <div class="k">제출 완료</div><div class="v">입점 공문 · 사업자등록증 · 통장사본 (7/30) · 22% 반영 공문 (8/25)<br>온라인 광고 7종 · 라이팅패널 · 스탠딩배너 · 판매 상품 및 가격.xlsx (8/31) · 장소명 수정본 (9/2)</div>
+        <div class="k">추가 서류</div><div class="v"><strong>없음</strong> — 9/1 바이어 &ldquo;추가 서류 필요 없습니다&rdquo;</div>
+        <div class="k">PG</div><div class="v">토스페이먼츠 · (주)이롬 명의 계약 심사 중 — 서류 보완 대기</div>
       </div>
     </div>
   </div>
@@ -1212,10 +1436,16 @@ table.bd tfoot td b{color:var(--accent);font-weight:800}
       <div class="k">면적 공유</div><div class="v">데비마이어 · 메팔 공동 사용 안 → <strong>미채택</strong></div>
       <div class="k">카페거리 안</div><div class="v">3m×4m 신규 장소 → <strong>미채택</strong>, 향후 확장 옵션으로 보류</div>
       <div class="k">현수막</div><div class="v">바이어 비권장(&ldquo;감도가 나오지 않음&rdquo;) → <strong>벽체 집기 활용 또는 허니콤보드 가벽</strong> 권장</div>
+      <div class="k">품목</div><div class="v"><strong>전 품목 일반식품</strong> — 건강기능식품 없음, 기능성 문구 사용 금지 (POP · 배너 · 예약 페이지 · 멘트 공통)</div>
+      <div class="k">운영 방식</div><div class="v">음료 제조 없음 · <strong>완제품 시식 코너</strong> · 영업신고 미진행 · 시식 인력 보건증/마스크/위생모/장갑 <span style="color:var(--ink-3);font-size:12.5px">(8/31 김현수 → 바이어)</span></div>
+      <div class="k">출력 분담</div><div class="v"><strong>스탠딩배너 = 아이파크몰 출력</strong> / <strong>라이팅패널 = 라이프밀 직접 출력 · 지참</strong> <span style="color:var(--ink-3);font-size:12.5px">(8/31 우리 메일)</span></div>
+      <div class="k">공간 제작</div><div class="v">시공사 선정 난항 → <strong>자체 제작</strong>, 종이(허니콤보드) 가벽 중심으로 전환 검토 중 <span style="color:var(--ink-3);font-size:12.5px">(8/25 바이어 통보 · 9/1 제작사 문의)</span></div>
+      <div class="k">사전예약</div><div class="v"><strong>9/1 네이버 예약 오픈</strong> — 방문 시 웰컴 키트 100% 증정 · 우선 입장. 키트 QR 룰렛(2,000개, 개인별 쿠폰 발급)</div>
+      <div class="k">촬영</div><div class="v">9/4 선물세트 샘플 촬영 <strong>취소</strong> (마케팅본부 결정, 9/2 헤밀리 통보) — 인쇄데이터 가공 미진행</div>
     </div>
   </div>
 
-  <h3>미해결 이슈 — 기획안 회신 시 함께 질의</h3>
+  <h3>미해결 이슈 — 오픈 전 6일 안에 닫아야 하는 것</h3>
   <div class="toolbar-mini">
     <button class="btn" onclick="allTg('#issues',true)">모두 펼치기</button>
     <button class="btn" onclick="allTg('#issues',false)">모두 접기</button>
@@ -1224,92 +1454,95 @@ table.bd tfoot td b{color:var(--accent);font-weight:800}
 
     <details class="tg" open>
       <summary><span class="tw">▶</span><span class="sum-main">
-        <span class="sum-t">01 · 종합 기획안 미제출 — 기한 도달</span>
-        <span class="sum-m"><span class="tag p-hi">최우선</span><span class="sum-d">근거 · 7/14 바이어 메일, 7/30 우리 회신</span></span>
+        <span class="sum-t">01 · 공간 구조물 제작사 미확정 — 9/9 설치</span>
+        <span class="sum-m"><span class="tag p-hi">최우선</span><span class="sum-d">근거 · 8/24~9/1 제작사 메일 6건</span></span>
       </span></summary>
       <div class="tg-body">
-        바이어 요청 &ldquo;8월 초 중&rdquo;, 우리 약속 &ldquo;8월 초까지&rdquo;. 오늘 8/8.
-        상품 구성 · 프로모션 · 공간 연출 · 인플루언서 협업 일정을 담은 통합 기획안을 <strong>전체 회신(reply-all)</strong> 형태로 발송해야 합니다.
-        참조 라인에 최선미 · 허동영 담당자가 포함되어 있으므로 전체 회신을 유지하세요.
+        가벽 L6,700×H2,400 · 그래픽월 W3,000×H2,500 · 창고 파티션·도어 · 아치 W2,000×H2,700 · 카운터 · 시식대. 일괄 제작 3곳은 거절·보류, 종이 가벽 3곳 중 <strong>이너스커뮤니티(팝플리)만 살아 있는 라인</strong>입니다.
+        요구 자료는 <strong>조닝 플랜·디자인 파일(손스케치 가능) + 총 예산 가이드</strong> 두 가지 — 우리 쪽에서 아직 보내지 않았습니다. 카멜레온프린팅은 채널톡 상담이 열려 있습니다.
+        제작사가 안 잡히면 <strong>레어로우 벽체 집기 + 출력물 중심의 축소안</strong>으로 전환할 결정 시점도 함께 잡아야 합니다.
       </div>
     </details>
 
     <details class="tg" open>
       <summary><span class="tw">▶</span><span class="sum-main">
-        <span class="sum-t">02 · 마진율 최종 확정 회신 없음</span>
-        <span class="sum-m"><span class="tag p-hi">가격 설계 선행 조건</span><span class="sum-d">근거 · 7/2 바이어 메일</span></span>
+        <span class="sum-t">02 · 갈바 프레임 조명간판 3EA 제작처 미확보</span>
+        <span class="sum-m"><span class="tag p-hi">9/9 오전 납품</span><span class="sum-d">근거 · 9/4 견적 요청 4건, 거절 1건</span></span>
       </span></summary>
       <div class="tg-body">
-        30%(에누리 O) / 20%(특가·에누리 X)는 &ldquo;<strong>마진 확인 후 픽스 예정</strong>&rdquo; 상태로만 안내되었습니다.
-        판매가·할인율·세트 구성의 전제 조건이므로, 확정 없이는 상품 리스트와 가격표를 확정할 수 없습니다.
+        W1,100×H220×D60 2EA + W500×H220×D60 1EA. 21세기안전산업은 간판 미취급 거절, 3곳 회신 대기. 5일 안에 제작·납품이 어려우면 <strong>아크릴 박스 사인 또는 출력 채널 사인으로 대체</strong>하는 B안을 오늘 중 준비해두는 편이 안전합니다.
       </div>
     </details>
 
     <details class="tg" open>
       <summary><span class="tw">▶</span><span class="sum-main">
-        <span class="sum-t">03 · 건강기능식품 판매 가능 여부 미확인</span>
-        <span class="sum-m"><span class="tag p-hi">SKU 구성 변수</span><span class="sum-d">근거 · 7/2 바이어 메일 서두</span></span>
+        <span class="sum-t">03 · 헤밀리 — 추석 선물세트 파셜입고 소진예정수량 미회신</span>
+        <span class="sum-m"><span class="tag p-mid">&ldquo;금주 중&rdquo; 요청</span><span class="sum-d">근거 · 9/1 메신저 · 9/2 김수지 메일</span></span>
       </span></summary>
       <div class="tg-body">
-        바이어가 명시적으로 &ldquo;건기식 판매에 대한 내용은 포함돼 있지 않아서 <strong>상호 추가 확인이 필요</strong>&rdquo;라고 언급했습니다.
-        라이프밀 상품군에 건기식이 포함될 경우 SKU 구성 자체가 달라지므로 기획안 확정 전 반드시 해소해야 합니다.
-        <strong>건기식 포함 / 제외 두 가지 시나리오</strong>를 미리 준비해두면 회신 지연에도 대응할 수 있습니다.
+        방울토마토칩(232봉)만 회신했고, <strong>선물세트 품목별 소진 예정 수량과 팝업 기간 진열·소진 전 품목 일자별 수량</strong>은 아직입니다. 세트 조립·입고 일정이 여기에 걸려 있습니다.
       </div>
     </details>
 
     <details class="tg">
       <summary><span class="tw">▶</span><span class="sum-main">
-        <span class="sum-t">04 · 디지털 사인간판 규격 상충</span>
-        <span class="sum-m"><span class="tag p-mid">디자인 착수 전 확정</span><span class="sum-d">근거 · 6/30 vs 7/2 메일 비교</span></span>
+        <span class="sum-t">04 · 토스페이먼츠 PG 서류 보완 — (주)이롬 명의</span>
+        <span class="sum-m"><span class="tag p-mid">결제 연결</span><span class="sum-d">근거 · 9/2 토스 온보딩팀 메일 (수신 김현수)</span></span>
       </span></summary>
       <div class="tg-body">
-        6/30 메일에는 <span class="mono">1500×900px</span>, 7/2 메일에는 <span class="mono">1500×750px</span>로 서로 다르게 안내되었습니다.
-        7/2가 더 상세한 규격 안내 메일이므로 <strong>1500×750px이 유력</strong>하나 서면 확인이 필요합니다.
-        최악의 경우 양쪽 비율 모두에서 잘리지 않는 안전 영역으로 레이아웃을 설계해두는 것이 안전합니다.
+        최신 주소지 사업자등록증 · 3개월 이내 법인인감증명서 · 인감날인 대리인 위임장(사용인감 시 사용인감계) · 홈페이지 하단 상호명을 등록증과 동일하게. 회신 기록 없음 — 김현수 대리 진행 여부 확인 필요.
       </div>
     </details>
 
     <details class="tg">
       <summary><span class="tw">▶</span><span class="sum-main">
-        <span class="sum-t">05 · 현장 운영 방식 미결정 — 시음 / 제조음료 / 완제품</span>
-        <span class="sum-m"><span class="tag p-mid">영업신고 리드타임</span><span class="sum-d">근거 · 7/2 &lsquo;제조음료 판매 원칙&rsquo;</span></span>
+        <span class="sum-t">05 · 라이팅패널 출력 발주 · 지참 — 우리 몫</span>
+        <span class="sum-m"><span class="tag p-mid">9/9 지참</span><span class="sum-d">근거 · 8/31 우리 메일 역할 분담</span></span>
       </span></summary>
       <div class="tg-body">
-        세 방식마다 법적 준비물이 완전히 다릅니다. 현장 제조·판매를 택하면 <strong>영업신고(일반/휴게음식점)</strong>가 필요하고 관할 구청 처리 기간이 발생합니다.
-        시음만 운영하면 영업신고는 불필요하므로 리스크를 회피할 수 있습니다. <strong>8월 중 결정</strong>이 필요합니다.
+        출력 880×1480mm(프레임 900×1500mm), 와이드칼라-플렉스 원단. 스탠딩배너는 몰이 출력하지만 <strong>라이팅패널은 라이프밀이 직접 출력해 설치일에 가져가야</strong> 합니다. 발주 완료 여부를 체크리스트에 표시하세요.
       </div>
     </details>
 
     <details class="tg">
       <summary><span class="tw">▶</span><span class="sum-main">
-        <span class="sum-t">06 · 나이스다큐 · 트러스빌 가입 완료 여부</span>
-        <span class="sum-m"><span class="tag p-lo">계약 단계 병목</span><span class="sum-d">근거 · 7/2 메일 &lsquo;4. 기타&rsquo;</span></span>
-      </span></summary>
-      <div class="tg-body">전자계약과 세금계산서 발행의 전제입니다. 미가입 상태면 계약 단계에서 지연이 발생합니다.</div>
-    </details>
-
-    <details class="tg">
-      <summary><span class="tw">▶</span><span class="sum-main">
-        <span class="sum-t">07 · 현장 실측 미실시</span>
-        <span class="sum-m"><span class="tag p-lo">도면 확정 선행</span><span class="sum-d">근거 · 7/2 메일 &lsquo;현수막&rsquo; 항목</span></span>
+        <span class="sum-t">06 · 바이어 &lsquo;현장 구성안 공유&rsquo; 약속 미이행 · 실측 미기록</span>
+        <span class="sum-m"><span class="tag p-lo">신뢰 관리</span><span class="sum-d">근거 · 8/25 우리 메일 3항</span></span>
       </span></summary>
       <div class="tg-body">
-        도면(PDF/DWG)은 수령 완료. 다만 바이어가 &ldquo;도면 6p 아일릿 구멍 위치 등 표기되어 있으나 <strong>현장 실측 필요</strong>&rdquo;라고 명시했습니다.
-        2D/3D 레이아웃 확정과 가벽 제작 전에 실측이 필요하며, 이때 <strong>전기 용량 · 급배수 여부</strong>도 함께 확인해두면 좋습니다.
+        &ldquo;현장 구성안이 정리되는 대로 다시 공유드리겠습니다&rdquo;라고 했으나 이후 전달 기록이 없습니다. 제작사가 확정되면 <strong>존 배치 1장(손스케치라도)</strong>을 바이어에게도 같이 보내는 것이 좋습니다. 이 자료는 이너스커뮤니티 요구 자료와 겹치므로 한 번에 만듭니다.
       </div>
     </details>
 
     <details class="tg">
       <summary><span class="tw">▶</span><span class="sum-main">
-        <span class="sum-t">08 · 22평 SKU · 진열 볼륨 대응안 미제시</span>
-        <span class="sum-m"><span class="tag p-mid">바이어 우려 해소</span><span class="sum-d">근거 · 7/8 메일 1-D</span></span>
+        <span class="sum-t">07 · 나이스다큐 · 트러스빌 가입 및 전자계약 진행 상태</span>
+        <span class="sum-m"><span class="tag p-lo">계약 · 정산</span><span class="sum-d">근거 · 7/2 메일 · 8/31 김현수 메일에서 언급</span></span>
       </span></summary>
-      <div class="tg-body">
-        바이어가 단독 운영 시 목표매출·SKU 우려를 표명한 상태에서 단독으로 확정되었습니다.
-        기획안에 <strong>SKU 수 · 벽면 연출 · 체험 존 · 포토존</strong>을 포함한 진열 볼륨 확보 계획을 명시적으로 담아 우려를 먼저 해소해야 합니다.
-      </div>
+      <div class="tg-body">8/31 메일에서 &ldquo;나이스다큐, 트러스빌 제외하고&rdquo;라고 한 것으로 보아 인지는 되어 있으나, 가입·계약 서명 완료 기록은 메일에 없습니다. 헤밀리 쪽 완료 여부 확인.</div>
     </details>
 
+    <details class="tg">
+      <summary><span class="tw">▶</span><span class="sum-main">
+        <span class="sum-t">08 · 시식 인력 건강진단결과서(보건증) · 위생 장구</span>
+        <span class="sum-m"><span class="tag p-lo">운영 준비</span><span class="sum-d">근거 · 8/31 김현수 메일 · 본사 행정 가이드</span></span>
+      </span></summary>
+      <div class="tg-body">바이어에게 &ldquo;보건증·마스크·위생모·장갑 착용&rdquo;을 약속했습니다. 유효기간이 9/23 이후인 결과서를 9/8까지 수령하고, 시식코너 위생 장구를 기물 리스트에 넣어 두세요.</div>
+    </details>
+
+  </div>
+
+  <h3>해소된 이슈 (8/8 기준 미해결 → 이후 확정)</h3>
+  <div class="card tight">
+    <div class="kv">
+      <div class="k">종합 기획안</div><div class="v">8/25 준비사항 종합 회신으로 해소 — 콘셉트(Behance) · 포스터 가안 · 공문</div>
+      <div class="k">마진율</div><div class="v"><strong>수수료 22% 단일(에누리 없음)</strong>으로 확정, 8/25 공문 재발송</div>
+      <div class="k">건기식</div><div class="v"><strong>전 품목 일반식품</strong>으로 구성 — 건강기능식품 미판매, 기능성 문구 사용 금지</div>
+      <div class="k">운영 방식</div><div class="v">음료 제조 없음 · <strong>완제품 시식</strong> · 영업신고 미진행 (8/31 바이어 통보)</div>
+      <div class="k">입점 서류</div><div class="v">9/1 바이어 &ldquo;추가 서류 필요 없습니다&rdquo;</div>
+      <div class="k">고지물</div><div class="v">8/31 온라인 광고 7종 + 라이팅패널·스탠딩배너 전달, 9/2 장소명 수정본 재전달</div>
+      <div class="k">사인간판 규격</div><div class="v">DID 가로 1920×1080 · 세로 1080×1920 기준으로 제작·전달 (자유형 채택)</div>
+    </div>
   </div>
 </section>
 
@@ -1654,6 +1887,9 @@ table.bd tfoot td b{color:var(--accent);font-weight:800}
         <div class="k">몰 참조</div><div class="v">최선미 <span class="mono">choi0304@iparkmall.co.kr</span><br>허동영 <span class="mono">dongyoung.heo@iparkmall.co.kr</span></div>
         <div class="k">우리</div><div class="v"><strong>황윤희</strong> · Creative Director, MIRACLE AD<br><span class="mono">miraclead2026@gmail.com</span> · 010-2926-7713</div>
         <div class="k">파트너</div><div class="v">헤밀리 (hemily.co.kr)<br><span class="mono">christmas@hemily.co.kr</span> · <span class="mono">rkdtks1995@hemily.co.kr</span></div>
+        <div class="k">헤밀리 실무</div><div class="v">김수지 과장 · 상품화본부 상품마케팅팀 <span class="mono">sjkim@hemily.co.kr</span> · 010-3688-5227<br>김현수 대리 · 서류·PG 담당 <span class="mono">ilc5738@hemily.co.kr</span></div>
+        <div class="k">제작사 (진행)</div><div class="v">(주)이너스커뮤니티(팝플리) 황상윤 실장 <span class="mono">martina@inuscomm.co.kr</span> · 02-519-1202 · 010-2445-6214<br>카멜레온프린팅 <span class="mono">design@chameleon.design</span> · 031-366-1984 (채널톡 상담)</div>
+        <div class="k">PG</div><div class="v">토스페이먼츠 온보딩팀 손혜령 <span class="mono">hr.son@toss.im</span></div>
       </div>
     </div>
   </div>
@@ -1673,10 +1909,11 @@ table.bd tfoot td b{color:var(--accent);font-weight:800}
     <table>
       <thead><tr><th style="width:130px">날짜</th><th style="width:90px">D-day</th><th>내용</th></tr></thead>
       <tbody>
-        <tr><td class="mono">8/10 (월)</td><td class="mono">D-31</td><td><strong>종합 기획안 발송 목표</strong> — 전체 회신</td></tr>
-        <tr><td class="mono">8/21 (금)</td><td class="mono">D-20</td><td>2D/3D 도면 · 상품리스트 · 프로모션 계획 제출</td></tr>
-        <tr><td class="mono" style="color:var(--accent);font-weight:700">8/27 (목)</td><td class="mono" style="color:var(--accent);font-weight:700">D-14</td><td><strong>스탠딩배너 · APP 광고 시안 하드 마감</strong></td></tr>
-        <tr><td class="mono">9/9 (수)</td><td class="mono">D-1</td><td>설치 · 연출, 라이팅패널 · USB 지참, 오픈 리허설</td></tr>
+        <tr><td class="mono">8/25 (화)</td><td class="mono" style="color:var(--green)">완료</td><td>종합 준비사항 회신 · 수수료 22% 공문 재발송 <span style="color:var(--ink-4)">(목표 8/10 대비 지연)</span></td></tr>
+        <tr><td class="mono">8/31 (월)</td><td class="mono" style="color:var(--green)">완료</td><td>온라인 광고 7종 · 라이팅패널 · 스탠딩배너 · 판매 상품 및 가격 제출 <span style="color:var(--ink-4)">(하드 마감 8/27 대비 4일 지연 · 도면은 자체 제작으로 미제출)</span></td></tr>
+        <tr><td class="mono">9/1 (화)</td><td class="mono" style="color:var(--green)">완료</td><td><strong>사전예약 오픈</strong> (네이버 예약) · 바이어 &ldquo;추가 서류 불필요&rdquo;</td></tr>
+        <tr><td class="mono">9/2 (수)</td><td class="mono" style="color:var(--green)">완료</td><td>장소명 &ldquo;리빙파크 4F 더 팝업&rdquo; 수정본 재전달</td></tr>
+        <tr><td class="mono" style="color:var(--accent);font-weight:700">9/9 (수)</td><td class="mono" style="color:var(--accent);font-weight:700">D-1</td><td><strong>설치 · 연출</strong> — 가벽·그래픽월·조명간판 납품, 라이팅패널 · USB 지참, 오픈 리허설</td></tr>
         <tr><td class="mono">9/10 (목)</td><td class="mono">D-Day</td><td><strong>팝업 오픈</strong></td></tr>
         <tr><td class="mono">9/23 (수)</td><td class="mono">D+13</td><td><strong>팝업 종료 · 철수</strong> — 추석 연휴 직전</td></tr>
         <tr><td class="mono">9/24 – 9/27</td><td class="mono">—</td><td>추석 연휴 (추석 9/25 금)</td></tr>
@@ -1724,7 +1961,7 @@ table.bd tfoot td b{color:var(--accent);font-weight:800}
     </div>
     <p class="hint">
       열 이름을 클릭하면 이름 변경·유형 변경·정렬·삭제 메뉴가 열립니다. 선택 셀은 클릭해서 옵션을 고르거나 새 옵션을 바로 만들 수 있고,
-      행 왼쪽 손잡이(⋮⋮)를 끌어서 순서를 바꾸고, 손잡이에 마우스를 올리면 나오는 ✕로 행을 지웁니다.
+      행 왼쪽 손잡이(⋮⋮)를 끌어서 순서를 바꾸고, 행 맨 오른쪽 ✕로 지웁니다. 삭제·이동·옵션 변경은 <kbd>⌘Z</kbd>(Windows <kbd>Ctrl+Z</kbd>)로 되돌릴 수 있습니다.
     </p>
   </div>
 </section>
@@ -1735,7 +1972,7 @@ table.bd tfoot td b{color:var(--accent);font-weight:800}
       <div class="fm">Project Dossier</div>
       <div class="ft">라이프밀 × HDC아이파크몰 더팝업</div>
       <div class="fs">
-        작성 2026.08.08 · 분석 대상 Gmail 스레드 3건 / 메일 8통 (2026.6.30 ~ 7.30)<br>
+        작성 2026.08.08 · 업데이트 2026.09.04 · 분석 대상 바이어 스레드 8통 (6.30 ~ 7.30) + 바이어·헤밀리·제작사·PG 메일 20통 이상 (8.24 ~ 9.4)<br>
         근거 메일 — [아이파크몰] 라이프밀 오프라인 팝업 제안의 건 (6/30) · 라이프밀 더팝업 진행 전 안내의 건 (7/2, 7/7, 7/8) · 라이프밀 더팝업 행사 픽스의 건 (7/14, 7/30)<br>
         추석 날짜 확인 — <a href="https://dallyeok.com/holiday/chuseok/2026/" target="_blank">dallyeok.com</a> · <a href="https://kholidayz.com/year/2026/chuseok" target="_blank">kholidayz.com</a>
       </div>
@@ -1758,7 +1995,22 @@ table.bd tfoot td b{color:var(--accent);font-weight:800}
 const $ = s => document.querySelector(s);
 const $$ = s => [...document.querySelectorAll(s)];
 const esc = s => String(s).replace(/[&<>"]/g, m => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[m]));
-const TODAY = '2026-08-08';
+const TODAY = (()=>{ const d=new Date(Date.now()+9*3600e3); return d.toISOString().slice(0,10); })(); /* KST 오늘 */
+const BUILD_DATE = '2026.09.04';
+const OPEN_ISO='2026-09-10', CLOSE_ISO='2026-09-23', INSTALL_ISO='2026-09-09';
+function dayDiff(iso){ return Math.round((new Date(iso+'T00:00:00') - new Date(TODAY+'T00:00:00'))/864e5); }
+function dstr(iso){ const n=dayDiff(iso); return n===0?'D-Day':(n>0?'D-'+n:'D+'+(-n)); }
+function kdate(iso){ const d=new Date(iso+'T00:00:00'); return `${d.getFullYear()}년 ${d.getMonth()+1}월 ${d.getDate()}일 ${'일월화수목금토'[d.getDay()]}요일`; }
+function weekIsNow(w){ const m=String(w.range||'').match(/^(\d{1,2})\/(\d{1,2}).*?(\d{1,2})\/(\d{1,2})/); if(!m) return !!w.now;
+  const a=`2026-${String(m[1]).padStart(2,'0')}-${String(m[2]).padStart(2,'0')}`, b=`2026-${String(m[3]).padStart(2,'0')}-${String(m[4]).padStart(2,'0')}`; return TODAY>=a && TODAY<=b; }
+document.addEventListener('DOMContentLoaded', ()=>{
+  const set=(id,v)=>{ const el=document.getElementById(id); if(el) el.textContent=v; };
+  set('sfDday', dstr(OPEN_ISO)); set('sfInstall', dstr(INSTALL_ISO)); set('sfBuild', BUILD_DATE);
+  set('tOpen', dstr(OPEN_ISO)); set('tClose', dstr(CLOSE_ISO)); set('tInstall', dstr(INSTALL_ISO));
+  const n=dayDiff(OPEN_ISO), i=dayDiff(INSTALL_ISO);
+  set('s1Today', `오늘은 ${kdate(TODAY)}. `+(n>0?`오픈까지 ${n}일, 설치일(9/9)까지 ${Math.max(i,0)}일 남았습니다.`:(n===0?'오늘 오픈합니다.':(dayDiff(CLOSE_ISO)>=0?`오픈 ${-n}일째 운영 중입니다.`:'팝업이 종료되었습니다.'))));
+  const b=document.querySelector('.nv[data-id="s1"] .nvb'); if(b) b.textContent=dstr(OPEN_ISO);
+});
 function allTg(scope, open){ $$(scope+' details.tg').forEach(d => d.open = open); }
 
 
@@ -1766,10 +2018,10 @@ function allTg(scope, open){ $$(scope+' details.tg').forEach(d => d.open = open)
    0-B. 카테고리 내비게이션 (SPA 뷰 전환)
    ════════════════════════════════════════════════════ */
 const NAVS = [
-  {id:'s1',  n:'01', label:'개요',            badge:'D-33'},
+  {id:'s1',  n:'01', label:'개요',            badge:'D-6'},
   {id:'s2',  n:'02', label:'콘셉트',          badge:'Z1–Z4'},
   {id:'s3',  n:'03', label:'캘린더',          badge:'9/10'},
-  {id:'s4',  n:'04', label:'커뮤니케이션',    badge:'8통'},
+  {id:'s4',  n:'04', label:'커뮤니케이션',    badge:'20통+'},
   {id:'s5',  n:'05', label:'확정 · 미해결',   badge:'8건'},
   {id:'s6',  n:'06', label:'디자인 명세',     badge:'6종'},
   {id:'s7',  n:'07', label:'자료실',          badge:'—', live:'assets'},
@@ -1964,12 +2216,17 @@ initData();
    2. 캘린더
    ════════════════════════════════════════════════════ */
 const MONTHS = [{y:2026,m:8,label:'8월'},{y:2026,m:9,label:'9월'},{y:2026,m:10,label:'10월'}];
-let curMonth = 0, selDay = null;
+let curMonth = Math.max(0, MONTHS.findIndex(m=>TODAY.startsWith(`${m.y}-${String(m.m).padStart(2,'0')}`))), selDay = null;
 
 /* 고정 마일스톤 — kind: 1 핵심 / 2 제출 / 3 기획 / 4 운영 / 5 행정 / 6 협업 */
 const MILE = [
-  {d:'2026-08-08', t:'★ 오늘 · 기획안 기한 도달', k:1},
+  {d:'2026-08-25', t:'기획안 · 22% 공문 회신 (완료)', k:2},
   {d:'2026-08-27', t:'★ D-14 고지물 하드 마감', k:1},
+  {d:'2026-08-31', t:'온라인 광고 7종 · 라이팅패널 · 배너 전달 (완료)', k:2},
+  {d:'2026-09-01', t:'★ 사전예약 오픈 (네이버)', k:1},
+  {d:'2026-09-02', t:'장소명 수정본 재전달 (완료)', k:2},
+  {d:'2026-09-03', t:'제작사 최종 디자인 파일 전달 예정일', k:2},
+  {d:'2026-09-09', t:'★ 설치 · 연출 · 오픈 리허설', k:1},
   {d:'2026-09-10', t:'★ 팝업 오픈', k:1},
   {d:'2026-09-23', t:'★ 팝업 종료 · 철수', k:1},
   {d:'2026-09-25', t:'★ 추석', k:1}
@@ -2315,7 +2572,7 @@ function render(){
           <textarea class="memo ${it.memoOpen||it.memo?'show':''}" data-f="memo" placeholder="메모 · 진행 상황 · 링크…">${esc(it.memo)}</textarea>
         </div>
       </div>`).join('') : '<div class="empty">필터 조건에 해당하는 항목이 없습니다.</div>';
-    return `<div class="wk ${w.open?'':'closed'} ${w.now?'now':''}" data-w="${w.id}">
+    return `<div class="wk ${w.open?'':'closed'} ${weekIsNow(w)?'now':''}" data-w="${w.id}">
       <div class="wk-h" data-act="fold">
         <span class="wk-n">${w.tag}</span>
         <div><div class="wk-t">${esc(w.tit)}</div><div class="wk-s">${esc(w.range)} &nbsp;·&nbsp; ${esc(w.dd)}</div></div>
@@ -2607,12 +2864,15 @@ render();
     {t:'text',   l:'텍스트', ic:'Aa'},
     {t:'select', l:'선택',   ic:'◎'},
     {t:'status', l:'상태',   ic:'●'},
-    {t:'number', l:'숫자(₩)', ic:'123'},
+    {t:'number', l:'금액(₩)', ic:'₩'},
+    {t:'int',    l:'숫자',   ic:'123'},
     {t:'date',   l:'날짜',   ic:'📅'},
     {t:'check',  l:'체크',   ic:'☑'},
     {t:'url',    l:'링크',   ic:'🔗'}
   ];
   const tyIc = t => (TYPES.find(x=>x.t===t)||TYPES[0]).ic;
+  const isNum = t => t==='number'||t==='int';
+  const fmtNum = (n,t) => t==='int' ? ((n===''||n==null||isNaN(n))?'':Number(n).toLocaleString('ko-KR')) : fmtWon(n);
   const tyLb = t => (TYPES.find(x=>x.t===t)||TYPES[0]).l;
   const fmtWon = n => (n===''||n==null||isNaN(n)) ? '' : '₩' + Number(n).toLocaleString('ko-KR');
   const todayISO = () => { const d=new Date(); return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0'); };
@@ -2702,8 +2962,43 @@ render();
         r3('할 일','오픈 리허설 동선 체크 (Z1→Z4)','라이프밀','2026-09-09',''),
         r3('할 일','철수 후 기물 반납 · 정산 내역 정리','미라클애드','2026-09-23','')
       ]};
-    return {v:1, dbs:[db1, db2, db3]};
+    return {v:1, dbs:[db1, db2, db3, sysDb('reserve'), sysDb('mentions')]};
   }
+  /* 개요 화면과 연결되는 고정 표 — key 로 식별 */
+  function sysDb(key){
+    const o = (name,color) => ({id:uid('o'), name, color});
+    if(key==='reserve'){
+      const c={d:uid('c'), n:uid('c'), t:uid('c'), v:uid('c'), m:uid('c')};
+      return { id:uid('d'), key:'reserve', icon:'🗓️', title:'사전예약 현황', desc:'네이버 예약 파트너센터 기준. 날짜별 신규 예약 수와 누적을 적으면 개요 화면 카드에 자동 반영됩니다.',
+        cols:[{id:c.d,name:'날짜',type:'date'},{id:c.n,name:'신규 예약',type:'int'},{id:c.t,name:'누적 예약',type:'int'},{id:c.v,name:'방문 완료',type:'int'},{id:c.m,name:'메모',type:'text'}],
+        rows:[] };
+    }
+    const ch=[o('블로그','green'), o('인스타그램','pink'), o('네이버 리뷰','cyan'), o('카페','orange'), o('뉴스','blue'), o('기타','gray')];
+    const ty=[o('자발 후기','green'), o('협찬 · 체험단','purple'), o('안내 · 정보','gray'), o('부정 · 문의','red')];
+    const c={d:uid('c'), ch:uid('c'), t:uid('c'), u:uid('c'), a:uid('c'), ty:uid('c'), m:uid('c')};
+    const f=(arr,name)=>(arr.find(x=>x.name===name)||{}).id||'';
+    const r=(d,chn,t,u,a,tt,m)=>({id:uid('r'), cells:{[c.d]:d,[c.ch]:f(ch,chn),[c.t]:t,[c.u]:u,[c.a]:a,[c.ty]:f(ty,tt),[c.m]:m||''}});
+    return { id:uid('d'), key:'mentions', icon:'📣', title:'마케팅 모니터링', desc:'블로그 · 인스타 · 네이버 리뷰 등 온라인 언급을 모읍니다. 최신 5건과 채널별 건수가 개요 화면에 뜹니다.',
+      cols:[{id:c.d,name:'날짜',type:'date'},{id:c.ch,name:'채널',type:'select',opts:ch},{id:c.t,name:'제목',type:'text'},{id:c.u,name:'링크',type:'url'},{id:c.a,name:'작성자',type:'text'},{id:c.ty,name:'유형',type:'select',opts:ty},{id:c.m,name:'메모',type:'text'}],
+      rows:[
+        r('2026-09-03','블로그','라이프밀 FREEZE LAB 팝업, 사전예약부터 웰컴키트와 연구원 체험','https://blog.naver.com/ppo-gom/224398074144','뽀곰','안내 · 정보','네이버 검색 수집 9/4'),
+        r('2026-09-01','블로그','용산 팝업 사전예약 라이프밀 FREEZE LAB 선물 혜택','https://blog.naver.com/pleen25/224397814121','요즘 전시 요즘 팝업','안내 · 정보','네이버 검색 수집 9/4'),
+        r('2026-08-30','블로그','[용산] 라이프밀 추석선물 연구소 - FREEZE LAB 팝업 (+사전예약 링크)','https://blog.naver.com/cirksun5/224395235081','우아하마','안내 · 정보','네이버 검색 수집 9/4'),
+        r('2026-08-30','블로그','[용산 팝업] 아이파크몰 라이프밀 프리즈랩 팝업 - 사전예약 100% 굿즈','https://blog.naver.com/jurineeee/224395190886','주린이의 주린한 일상','안내 · 정보','네이버 검색 수집 9/4')
+      ] };
+  }
+  function ensureSysDbs(){
+    let changed=false;
+    const TITLE={reserve:'사전예약 현황', mentions:'마케팅 모니터링'};
+    ['reserve','mentions'].forEach(k=>{
+      if(BOARD.dbs.some(d=>d.key===k)) return;
+      const byTitle=BOARD.dbs.find(d=>!d.key && d.title.trim()===TITLE[k]);
+      if(byTitle){ byTitle.key=k; changed=true; return; }
+      BOARD.dbs.push(sysDb(k)); changed=true;
+    });
+    return changed;
+  }
+  function broadcast(){ try{ window.BOARD_STATE = BOARD; document.dispatchEvent(new CustomEvent('board:update')); }catch(_){} }
 
   /* ── 상태 ─────────────────────────────── */
   let BOARD = null;
@@ -2713,10 +3008,10 @@ render();
   function norm(b){
     b = b || {};
     return { v:1, dbs:(b.dbs||[]).map(d=>({
-      id:String(d.id||uid('d')), icon:String(d.icon||'📋'), title:String(d.title||''), desc:String(d.desc||''),
+      id:String(d.id||uid('d')), key:String(d.key||''), icon:String(d.icon||'📋'), title:String(d.title||''), desc:String(d.desc||''),
       cols:(d.cols||[]).map(c=>({ id:String(c.id||uid('c')), name:String(c.name||''), type:TYPES.some(t=>t.t===c.type)?c.type:'text',
         opts:(c.opts||[]).map(o=>({id:String(o.id||uid('o')), name:String(o.name||''), color:COLORS.includes(o.color)?o.color:'gray'})) })),
-      rows:(d.rows||[]).map(r=>{ const cells={}; const src=r.cells||{}; (d.cols||[]).forEach(c=>{ const v=src[c.id]; cells[c.id] = (v==null)?'':(c.type==='check'?!!v:(c.type==='number'?((v===''||isNaN(Number(v)))?'':Number(v)):String(v))); }); return {id:String(r.id||uid('r')), cells}; })
+      rows:(d.rows||[]).map(r=>{ const cells={}; const src=r.cells||{}; (d.cols||[]).forEach(c=>{ const v=src[c.id]; cells[c.id] = (v==null)?'':(c.type==='check'?!!v:(isNum(c.type)?((v===''||isNaN(Number(v)))?'':Number(v)):String(v))); }); return {id:String(r.id||uid('r')), cells}; })
     }))};
   }
 
@@ -2764,7 +3059,7 @@ render();
   /* ── 렌더 ─────────────────────────────── */
   function pill(opt, type, removable){
     if(!opt) return '';
-    return `<span class="tag ${type==='status'?'st':''} c-${opt.color}" data-oid="${opt.id}">${esc(opt.name)}${removable?'<span class="px" title="비우기">✕</span>':''}</span>`;
+    return `<span class="opt-tag ${type==='status'?'st':''} c-${opt.color}" data-oid="${opt.id}">${esc(opt.name)}${removable?'<span class="px" title="비우기">✕</span>':''}</span>`;
   }
   function cellHTML(db, col, row){
     const v = row.cells[col.id];
@@ -2773,8 +3068,8 @@ render();
         const opt = col.opts.find(o=>o.id===v);
         return `<div class="cell pick" tabindex="0" data-r="${row.id}" data-c="${col.id}">${opt?pill(opt,col.type,true):'<span class="ph">비어 있음</span>'}</div>`;
       }
-      case 'number':
-        return `<div class="cell num" contenteditable="true" data-r="${row.id}" data-c="${col.id}" data-raw="${v===''?'':v}">${fmtWon(v)}</div>`;
+      case 'number': case 'int':
+        return `<div class="cell num" contenteditable="true" data-r="${row.id}" data-c="${col.id}" data-raw="${v===''?'':v}">${fmtNum(v,col.type)}</div>`;
       case 'date': {
         const d = dday(v); const over = d!=null && d<0 && !rowDone(db,row);
         return `<div class="cell date ${over?'over':''}" tabindex="0" data-r="${row.id}" data-c="${col.id}">${v?esc(fmtDate(v))+`<span class="dd">${d===0?'D-Day':(d>0?'D-'+d:'D+'+(-d))}</span>`:'<span class="ph" style="color:var(--ink-4);font-size:12px">날짜 선택</span>'}</div>`;
@@ -2805,7 +3100,7 @@ render();
     if(u.filter && u.filter.col){ rows = rows.filter(r=> u.filter.opt==='__empty' ? !r.cells[u.filter.col] : r.cells[u.filter.col]===u.filter.opt); }
     if(u.sort && u.sort.col){
       const c = db.cols.find(x=>x.id===u.sort.col);
-      if(c){ const key = r=>{ const v=r.cells[c.id]; if(c.type==='select'||c.type==='status'){ return c.opts.findIndex(o=>o.id===v); } if(c.type==='number') return v===''?Infinity:Number(v); if(c.type==='check') return v?0:1; return String(v||'').toLowerCase(); };
+      if(c){ const key = r=>{ const v=r.cells[c.id]; if(c.type==='select'||c.type==='status'){ return c.opts.findIndex(o=>o.id===v); } if(isNum(c.type)) return v===''?Infinity:Number(v); if(c.type==='check') return v?0:1; return String(v||'').toLowerCase(); };
         rows.sort((a,b)=>{ const x=key(a), y=key(b); return (x<y?-1:x>y?1:0)*(u.sort.dir==='desc'?-1:1); }); }
     }
     return rows;
@@ -2823,7 +3118,7 @@ render();
     const selCols = db.cols.filter(c=>c.type==='select'||c.type==='status');
     const filterOpts = selCols.map(c=>`<optgroup label="${esc(c.name)}">${c.opts.map(o=>`<option value="${c.id}|${o.id}" ${u.filter&&u.filter.col===c.id&&u.filter.opt===o.id?'selected':''}>${esc(o.name)}</option>`).join('')}<option value="${c.id}|__empty" ${u.filter&&u.filter.col===c.id&&u.filter.opt==='__empty'?'selected':''}>(비어 있음)</option></optgroup>`).join('');
     const rows = visibleRows(db);
-    const numCols = db.cols.filter(c=>c.type==='number'||c.type==='check'||c.type==='status'||c.type==='select');
+    const numCols = db.cols.filter(c=>isNum(c.type)||c.type==='check'||c.type==='status'||c.type==='select');
     view.innerHTML = `
       <div class="bd-head">
         <span class="bd-icon" id="bdIcon" title="아이콘 바꾸기">${esc(db.icon)}</span>
@@ -2846,13 +3141,13 @@ render();
           </tr></thead>
           <tbody>
             ${rows.map(r=>`<tr data-r="${r.id}" draggable="true">
-              <td class="td-hd" title="끌어서 순서 변경">⋮⋮<span class="rx" data-del="${r.id}" title="행 삭제">✕</span></td>
+              <td class="td-hd" title="끌어서 순서 변경">⋮⋮</td>
               ${db.cols.map(c=>`<td>${cellHTML(db,c,r)}</td>`).join('')}
-              <td class="td-add"></td>
+              <td class="td-del"><span class="rx" data-del="${r.id}" title="행 삭제 (되돌리기 ⌘Z)">✕</span></td>
             </tr>`).join('')}
           </tbody>
           ${numCols.length?`<tfoot><tr><td></td>${db.cols.map(c=>{
-            if(c.type==='number'){ const s=rows.reduce((a,r)=>a+(r.cells[c.id]===''?0:Number(r.cells[c.id])||0),0); return `<td>합계 <b>${fmtWon(s)}</b></td>`; }
+            if(isNum(c.type)){ const s=rows.reduce((a,r)=>a+(r.cells[c.id]===''?0:Number(r.cells[c.id])||0),0); return `<td>합계 <b>${fmtNum(s,c.type)}</b></td>`; }
             if(c.type==='check'){ const n=rows.filter(r=>r.cells[c.id]).length; return `<td>체크 <b>${n}</b>/${rows.length}</td>`; }
             if(c.type==='status'||c.type==='select'){ const n=rows.filter(r=>r.cells[c.id]).length; return `<td>입력 <b>${n}</b>/${rows.length}</td>`; }
             return '<td></td>'; }).join('')}<td></td></tr></tfoot>`:''}
@@ -2877,6 +3172,37 @@ render();
     setTimeout(()=>{ const t=$b('#bdTitle'); if(t){ t.focus(); document.execCommand && document.execCommand('selectAll',false,null); } },50);
   }
   function findRow(db,id){ return db.rows.find(r=>r.id===id); }
+  function firstText(db,row){ if(!row) return ''; const c=db.cols.find(c=>c.type==='text'); return c? String(row.cells[c.id]||'').trim().slice(0,40) : ''; }
+  /* 토스트 (되돌리기 버튼 포함) */
+  let toastEl=null, toastT=null;
+  function toast(msg, undoLabel){
+    if(toastEl) toastEl.remove(); clearTimeout(toastT);
+    toastEl=document.createElement('div'); toastEl.className='bd-toast';
+    toastEl.innerHTML=`<span>${esc(msg)}</span>${undoLabel?`<button type="button">${esc(undoLabel)} <kbd>⌘Z</kbd></button>`:''}`;
+    if(undoLabel) toastEl.querySelector('button').onclick=()=>{ undo(); };
+    document.body.appendChild(toastEl); toastT=setTimeout(()=>{ if(toastEl){ toastEl.remove(); toastEl=null; } }, 7000);
+  }
+  /* 실행취소 스택 — commit 직전 상태를 저장 */
+  const UNDO=[], REDO=[]; let lastSnap=null, lastPushAt=0, lastCoalesce=false;
+  function pushUndo(coalesce){
+    if(lastSnap==null) return;
+    const now=Date.now();
+    if(coalesce && lastCoalesce && now-lastPushAt<1500 && UNDO.length){ lastPushAt=now; return; } /* 타이핑은 한 묶음으로 */
+    UNDO.push(lastSnap); if(UNDO.length>60) UNDO.shift(); REDO.length=0; lastPushAt=now; lastCoalesce=!!coalesce;
+  }
+  function restore(json){ BOARD=norm(JSON.parse(json)); lastSnap=json; cache(); broadcast(); if(cur>=BOARD.dbs.length) cur=Math.max(0,BOARD.dbs.length-1); render(); clearTimeout(saveTimer); saveTimer=setTimeout(save,300); }
+  function undo(){ if(!UNDO.length){ toast('되돌릴 작업이 없습니다'); return; } const curJ=JSON.stringify(norm(BOARD)); const j=UNDO.pop(); REDO.push(curJ); lastCoalesce=false; restore(j); if(toastEl){ toastEl.remove(); toastEl=null; } toast('되돌렸습니다'); }
+  function redo(){ if(!REDO.length) return; const curJ=JSON.stringify(norm(BOARD)); const j=REDO.pop(); UNDO.push(curJ); lastCoalesce=false; restore(j); toast('다시 실행했습니다'); }
+  document.addEventListener('keydown', e=>{
+    if(!isUnlocked() || !BOARD) return;
+    if(!(e.metaKey || e.ctrlKey)) return;
+    const key=e.key.toLowerCase(); if(key!=='z' && key!=='y') return;
+    const a=document.activeElement;
+    if(a && (a.isContentEditable || /INPUT|TEXTAREA/.test(a.tagName))) return; /* 글자 입력 중엔 브라우저 기본 실행취소 */
+    if(!sec.classList.contains('on') && !document.body.classList.contains('showall')) return; /* 보드가 보일 때만 */
+    e.preventDefault();
+    if(key==='y' || (key==='z' && e.shiftKey)) redo(); else undo();
+  });
   function findCol(db,id){ return db.cols.find(c=>c.id===id); }
 
   function bindView(db){
@@ -2886,10 +3212,10 @@ render();
     $b('#bdNewRow').onclick = ()=>addRow(db, true);
     $b('#bdAddRow').onclick = ()=>addRow(db, false);
     $b('#bdAddCol').onclick = e=>colTypeMenu(e.currentTarget, db, null);
-    $b('#bdTitle').addEventListener('input', e=>{ db.title=e.target.textContent; commit(); });
+    $b('#bdTitle').addEventListener('input', e=>{ db.title=e.target.textContent; commit({coalesce:true}); });
     $b('#bdTitle').addEventListener('blur', ()=>render());
     $b('#bdTitle').addEventListener('keydown', e=>{ if(e.key==='Enter'){ e.preventDefault(); e.target.blur(); } });
-    $b('#bdDesc').addEventListener('input', e=>{ db.desc=e.target.textContent; commit(); });
+    $b('#bdDesc').addEventListener('input', e=>{ db.desc=e.target.textContent; commit({coalesce:true}); });
     $b('#bdIcon').onclick = e=>{
       const icons=['📋','🧾','🎨','✅','📦','🛒','🖨️','📐','🧪','🎁','📣','🗓️','💡','🚚','🔧','⭐'];
       openPop(e.currentTarget, `<div class="pp-h">아이콘</div><div class="pp-sw" style="gap:4px">${icons.map(i=>`<span class="pp-i" style="padding:5px 7px;font-size:18px" data-ic="${i}">${i}</span>`).join('')}</div>`, p=>{
@@ -2907,7 +3233,7 @@ render();
           if(a==='right' && cur<BOARD.dbs.length-1){ [BOARD.dbs[cur+1],BOARD.dbs[cur]]=[BOARD.dbs[cur],BOARD.dbs[cur+1]]; cur++; }
           if(a==='dup'){ const c=JSON.parse(JSON.stringify(db)); c.id=uid('d'); c.title=db.title+' 사본'; BOARD.dbs.splice(cur+1,0,c); cur++; }
           if(a==='clearsort'){ u.sort=null; u.filter=null; u.q=''; }
-          if(a==='del'){ if(!confirm(`"${db.title}" 표를 삭제할까요? 행 ${db.rows.length}개가 함께 지워집니다.`)) return; BOARD.dbs.splice(cur,1); cur=Math.max(0,cur-1); }
+          if(a==='del'){ if(db.key){ alert('이 표는 개요 화면과 연결되어 있어 삭제할 수 없습니다. 행만 비우세요.'); return; } if(!confirm(`"${db.title}" 표를 삭제할까요? 행 ${db.rows.length}개가 함께 지워집니다.`)) return; BOARD.dbs.splice(cur,1); cur=Math.max(0,cur-1); }
           commit(); render();
         });
       });
@@ -2921,9 +3247,9 @@ render();
     table.addEventListener('input', e=>{
       const el=e.target.closest('.cell[contenteditable]'); if(!el) return;
       const row=findRow(db,el.dataset.r), col=findCol(db,el.dataset.c); if(!row||!col) return;
-      if(col.type==='number'){ const n=el.textContent.replace(/[^\d.-]/g,''); row.cells[col.id] = n===''?'':Number(n); el.dataset.raw=row.cells[col.id]; }
+      if(isNum(col.type)){ const n=el.textContent.replace(/[^\d.-]/g,''); row.cells[col.id] = n===''?'':Number(n); el.dataset.raw=row.cells[col.id]; }
       else row.cells[col.id] = el.textContent;
-      commit();
+      commit({coalesce:true});
     });
     table.addEventListener('focusin', e=>{
       const el=e.target.closest('.cell.num'); if(el){ el.textContent = el.dataset.raw||''; }
@@ -2931,9 +3257,9 @@ render();
     table.addEventListener('focusout', e=>{
       const el=e.target.closest('.cell[contenteditable]'); if(!el) return;
       const col=findCol(db,el.dataset.c), row=findRow(db,el.dataset.r); if(!col||!row) return;
-      if(col.type==='number') el.textContent = fmtWon(row.cells[col.id]);
+      if(isNum(col.type)) el.textContent = fmtNum(row.cells[col.id], col.type);
       if(col.type==='url' && row.cells[col.id]) el.innerHTML = esc(row.cells[col.id]);
-      if(col.type==='date' || col.type==='number' || col.type==='status' || col.type==='select') { /* 합계·강조 갱신 */ setTimeout(()=>{ if(!isEditingBoard()) render(); },80); }
+      if(col.type==='date' || isNum(col.type) || col.type==='status' || col.type==='select') { /* 합계·강조 갱신 */ setTimeout(()=>{ if(!isEditingBoard()) render(); },80); }
     });
     table.addEventListener('keydown', e=>{
       const nc=e.target.closest('.cell[tabindex]');
@@ -2952,9 +3278,9 @@ render();
       /* URL 링크 열기 */
       const a=e.target.closest('.cell.url a'); if(a){ return; }
       /* 행 삭제 */
-      const del=e.target.closest('[data-del]'); if(del){ const i=db.rows.findIndex(r=>r.id===del.dataset.del); if(i>=0){ db.rows.splice(i,1); commit(); render(); } return; }
+      const del=e.target.closest('[data-del]'); if(del){ const i=db.rows.findIndex(r=>r.id===del.dataset.del); if(i>=0){ const name=firstText(db, db.rows[i]); db.rows.splice(i,1); commit(); render(); toast(`"${name||'행'}" 삭제됨`, '되돌리기'); } return; }
       /* 옵션 비우기 */
-      const px=e.target.closest('.tag .px'); if(px){ const cell=px.closest('.cell'); const row=findRow(db,cell.dataset.r); row.cells[cell.dataset.c]=''; commit(); render(); return; }
+      const px=e.target.closest('.opt-tag .px'); if(px){ const cell=px.closest('.cell'); const row=findRow(db,cell.dataset.r); row.cells[cell.dataset.c]=''; commit(); render(); return; }
       /* 선택 */
       const pick=e.target.closest('.cell.pick'); if(pick){ selectMenu(pick, db, findCol(db,pick.dataset.c), findRow(db,pick.dataset.r)); return; }
       /* 체크 */
@@ -2971,21 +3297,36 @@ render();
     /* url 셀: 더블클릭 시 열기 */
     table.addEventListener('dblclick', e=>{ const el=e.target.closest('.cell.url'); if(el){ const v=el.textContent.trim(); if(/^https?:\/\//.test(v)) window.open(v,'_blank'); } });
 
-    /* 행 드래그 정렬 */
-    let dragId=null;
-    table.querySelectorAll('tbody tr').forEach(tr=>{
-      tr.draggable=false;
-      tr.addEventListener('dragstart', e=>{ if(!tr.draggable){ e.preventDefault(); return; }
-        dragId=tr.dataset.r; tr.classList.add('drag'); e.dataTransfer.effectAllowed='move'; try{ e.dataTransfer.setData('text/plain',dragId);}catch(_){} });
-      tr.addEventListener('dragend', ()=>{ tr.classList.remove('drag'); tr.draggable=false; table.querySelectorAll('tr.over').forEach(x=>x.classList.remove('over')); });
-      tr.addEventListener('dragover', e=>{ if(!dragId) return; e.preventDefault(); table.querySelectorAll('tr.over').forEach(x=>x.classList.remove('over')); tr.classList.add('over'); });
-      tr.addEventListener('drop', e=>{ e.preventDefault(); if(!dragId||dragId===tr.dataset.r) return;
-        const from=db.rows.findIndex(r=>r.id===dragId), to=db.rows.findIndex(r=>r.id===tr.dataset.r); if(from<0||to<0) return;
-        const [m]=db.rows.splice(from,1); db.rows.splice(to,0,m); dragId=null; commit(); render(); });
-    });
-    /* 손잡이에서만 드래그 시작되도록 */
-    table.querySelectorAll('.td-hd').forEach(h=>{ h.addEventListener('mousedown', e=>{ if(!e.target.closest('[data-del]')) h.closest('tr').draggable=true; }); });
-    table.addEventListener('mouseup', ()=>table.querySelectorAll('tbody tr').forEach(tr=>tr.draggable=false));
+    /* 행 드래그 정렬 — 포인터 기반 (마우스·터치 공통, 손잡이에서만 시작) */
+    table.querySelectorAll('tbody tr').forEach(tr=>{ tr.draggable=false; tr.addEventListener('dragstart', e=>e.preventDefault()); });
+    table.querySelectorAll('.td-hd').forEach(h=>h.addEventListener('pointerdown', e=>{
+      if(e.button!==undefined && e.button!==0) return;
+      e.preventDefault(); closePop();
+      const tr=h.closest('tr'), tbody=tr.parentElement, startY=e.clientY, startX=e.clientX;
+      let active=false, ghost=null;
+      const rowsEl=()=>[...tbody.querySelectorAll('tr')];
+      const move=ev=>{
+        if(!active){ if(Math.abs(ev.clientY-startY)<4 && Math.abs(ev.clientX-startX)<4) return; active=true; tr.classList.add('dragging');
+          ghost=document.createElement('div'); ghost.className='bd-ghost'; ghost.textContent='⋮⋮  '+(firstText(db, findRow(db,tr.dataset.r))||'행'); document.body.appendChild(ghost); document.body.style.cursor='grabbing'; }
+        ghost.style.left=(ev.clientX+14)+'px'; ghost.style.top=(ev.clientY-14)+'px';
+        const list=rowsEl(); let placed=false;
+        for(const o of list){ if(o===tr) continue; const r=o.getBoundingClientRect(); if(ev.clientY < r.top + r.height/2){ if(o.previousElementSibling!==tr) tbody.insertBefore(tr,o); placed=true; break; } }
+        if(!placed && tbody.lastElementChild!==tr) tbody.appendChild(tr);
+        /* 화면 가장자리 자동 스크롤 */
+        if(ev.clientY<70) window.scrollBy(0,-12); else if(ev.clientY>window.innerHeight-70) window.scrollBy(0,12);
+      };
+      const up=()=>{
+        document.removeEventListener('pointermove',move); document.removeEventListener('pointerup',up); document.removeEventListener('pointercancel',up);
+        document.body.style.cursor=''; if(ghost) ghost.remove(); tr.classList.remove('dragging');
+        if(!active) return;
+        const order=rowsEl().map(x=>x.dataset.r); const before=db.rows.map(r=>r.id).join();
+        const vis=new Set(order); const moved=order.map(id=>db.rows.find(r=>r.id===id)).filter(Boolean);
+        /* 필터·검색으로 숨겨진 행은 원래 상대 위치를 유지하고, 보이는 행만 새 순서로 */
+        const out=[]; let k=0; db.rows.forEach(r=>{ if(vis.has(r.id)) out.push(moved[k++]); else out.push(r); });
+        db.rows=out; if(db.rows.map(r=>r.id).join()!==before){ commit(); } render();
+      };
+      document.addEventListener('pointermove',move); document.addEventListener('pointerup',up); document.addEventListener('pointercancel',up);
+    }));
   }
   function placeCaretEnd(el){ const r=document.createRange(); r.selectNodeContents(el); r.collapse(false); const s=window.getSelection(); s.removeAllRanges(); s.addRange(r); }
   function renderKeepFocus(sel){ const el=$b(sel); const pos=el&&el.selectionStart; render(); const n=$b(sel); if(n){ n.focus(); try{ n.setSelectionRange(pos,pos);}catch(_){} } }
@@ -3011,7 +3352,7 @@ render();
       bind();
       inp.oninput=()=>{ const q=inp.value.trim().toLowerCase(); const m=col.opts.filter(o=>o.name.toLowerCase().includes(q));
         lst.innerHTML = m.map(o=>`<div class="pp-i ${o.id===cur?'on':''}" data-o="${o.id}">${pill(o,col.type)}<span class="ed" data-e="${o.id}">✎</span></div>`).join('')
-          + (q && !col.opts.some(o=>o.name.toLowerCase()===q) ? `<div class="pp-i" data-create>＋ 만들기 <span class="tag c-${COLORS[col.opts.length%COLORS.length]}">${esc(inp.value.trim())}</span></div>` : '');
+          + (q && !col.opts.some(o=>o.name.toLowerCase()===q) ? `<div class="pp-i" data-create>＋ 만들기 <span class="opt-tag c-${COLORS[col.opts.length%COLORS.length]}">${esc(inp.value.trim())}</span></div>` : '');
         bind(); };
       inp.onkeydown=e=>{ if(e.key==='Enter'){ e.preventDefault(); const cr=lst.querySelector('[data-create]'); const first=lst.querySelector('[data-o]'); if(cr) cr.click(); else if(first) first.click(); } };
       p.querySelector('[data-clear]').onclick=()=>{ row.cells[col.id]=''; commit(); closePop(); render(); };
@@ -3055,7 +3396,7 @@ render();
         if(a==='left' && idx>0){ [db.cols[idx-1],db.cols[idx]]=[db.cols[idx],db.cols[idx-1]]; }
         if(a==='right' && idx<db.cols.length-1){ [db.cols[idx+1],db.cols[idx]]=[db.cols[idx],db.cols[idx+1]]; }
         if(a==='dup'){ const c=JSON.parse(JSON.stringify(col)); c.id=uid('c'); c.name=col.name+' 사본'; db.cols.splice(idx+1,0,c); db.rows.forEach(r=>r.cells[c.id]=r.cells[col.id]); }
-        if(a==='del'){ if(db.cols.length<=1){ alert('열은 최소 1개가 필요합니다.'); return; } if(!confirm(`"${col.name}" 열을 삭제할까요? 이 열의 내용이 모두 지워집니다.`)) return; db.cols.splice(idx,1); db.rows.forEach(r=>delete r.cells[col.id]); if(u.sort&&u.sort.col===col.id)u.sort=null; if(u.filter&&u.filter.col===col.id)u.filter=null; }
+        if(a==='del'){ if(db.cols.length<=1){ alert('열은 최소 1개가 필요합니다.'); return; } if(!confirm(`"${col.name}" 열을 삭제할까요? 이 열의 내용이 모두 지워집니다.`)) return; db.cols.splice(idx,1); db.rows.forEach(r=>delete r.cells[col.id]); if(u.sort&&u.sort.col===col.id)u.sort=null; if(u.filter&&u.filter.col===col.id)u.filter=null; setTimeout(()=>toast(`"${col.name}" 열 삭제됨`, '되돌리기'),50); }
         commit(); render();
       });
     });
@@ -3073,7 +3414,7 @@ render();
         db.rows.forEach(r=>{ let v=r.cells[col.id];
           if(from==='select'||from==='status'){ const o=col.opts.find(o=>o.id===v); v=o?o.name:''; }
           if(t==='check'){ v = !!v && v!=='' && v!==false; }
-          else if(t==='number'){ const n=String(v).replace(/[^\d.-]/g,''); v = n===''?'':Number(n); }
+          else if(isNum(t)){ const n=String(v).replace(/[^\d.-]/g,''); v = n===''?'':Number(n); }
           else if(t==='select'||t==='status'){ const name=String(v===false?'':v).trim(); if(name){ let o=col.opts.find(o=>o.name===name); if(!o){ o={id:uid('o'),name,color:COLORS[col.opts.length%COLORS.length]}; col.opts.push(o);} v=o.id; } else v=''; }
           else if(t==='date'){ v = /^\d{4}-\d{2}-\d{2}$/.test(String(v))?String(v):''; }
           else { v = v===false?'':String(v===true?'✓':v); }
@@ -3103,7 +3444,7 @@ render();
   const CLIENT = 'b'+Math.random().toString(36).slice(2,10);
   function isEditingBoard(){ const a=document.activeElement; return !!(a && sec.contains(a) && (a.isContentEditable || /INPUT|SELECT|TEXTAREA/.test(a.tagName))) || !!popEl; }
   function cache(){ try{ localStorage.setItem(CACHE_KEY, JSON.stringify(norm(BOARD))); }catch(_){} }
-  function commit(){ cache(); clearTimeout(saveTimer); saveTimer=setTimeout(save, 500); }
+  function commit(opt){ pushUndo(opt&&opt.coalesce); lastSnap=JSON.stringify(norm(BOARD)); cache(); broadcast(); clearTimeout(saveTimer); saveTimer=setTimeout(save, 500); }
   function save(){
     if(!ref||!ready) return;
     const str=JSON.stringify(norm(BOARD)); if(str===lastJSON) return; lastJSON=str; pendingRemote=null;
@@ -3112,12 +3453,13 @@ render();
       .then(()=>setSync('● 실시간 동기화 중','#7ee787'))
       .catch(err=>{ console.error('[board]',err); setSync('저장 실패 — 인터넷/DB 규칙 확인','#ff8a80'); });
   }
-  function applyRemote(state){ BOARD=norm(state); lastJSON=JSON.stringify(BOARD); cache(); render(); }
+  function applyRemote(state){ BOARD=norm(state); lastJSON=JSON.stringify(BOARD); lastSnap=lastJSON; if(ensureSysDbs()){ commit(); } else { cache(); broadcast(); } render(); }
   window.addEventListener('beforeunload', ()=>{ clearTimeout(saveTimer); save(); });
   document.addEventListener('focusout', ()=>{ setTimeout(()=>{ if(pendingRemote && !isEditingBoard()){ const p=pendingRemote; pendingRemote=null; applyRemote(p); setSync('● 업데이트 받음','#7ee787'); } },150); });
 
   /* 초기 데이터: 캐시 → 없으면 시드 */
   try{ const c=localStorage.getItem(CACHE_KEY); BOARD = c ? norm(JSON.parse(c)) : seed(); }catch(_){ BOARD=seed(); }
+  ensureSysDbs(); lastSnap=JSON.stringify(norm(BOARD)); broadcast();
   applyLock();
 
   /* Firebase는 기존 동기화 코드가 초기화한 앱을 재사용 */
@@ -3138,6 +3480,45 @@ render();
     }
     if(++tries<75) setTimeout(waitFb, 400); else setSync('오프라인 · 이 기기에만 저장됨 (JSON 내려받기 권장)','#fda75f');
   })();
+})();
+</script>
+
+<script>
+/* 개요 — 사전예약 현황 · 온라인 언급 카드 (프로젝트 보드 데이터 연동) */
+(function(){
+  const $h = id => document.getElementById(id);
+  const findDb = k => ((window.BOARD_STATE||{}).dbs||[]).find(d=>d.key===k);
+  const colBy = (db,names,types) => db.cols.find(c=>names.some(n=>c.name.includes(n)) && (!types||types.includes(c.type))) || db.cols.find(c=>types&&types.includes(c.type));
+  const md = iso => { const m=String(iso||'').match(/^\d{4}-(\d{2})-(\d{2})$/); return m?`${+m[1]}/${+m[2]}`:''; };
+  function renderReserve(){
+    const db=findDb('reserve'); if(!db) return;
+    const cD=colBy(db,['날짜'],['date']), cN=colBy(db,['신규'],['int','number']), cT=colBy(db,['누적'],['int','number']);
+    const rows=db.rows.filter(r=>cD&&r.cells[cD.id]).map(r=>({d:r.cells[cD.id], n:cN?Number(r.cells[cN.id]||0):0, t:cT?r.cells[cT.id]:''})).sort((a,b)=>a.d<b.d?-1:1);
+    const tot=$h('rsvTotal'), st=$h('rsvStamp'), dl=$h('rsvDelta'), bars=$h('rsvBars'); if(!tot) return;
+    if(!rows.length){ tot.textContent='—'; st.textContent='입력 대기'; dl.textContent=''; bars.innerHTML=''; bars.classList.remove('has'); return; }
+    const last=rows[rows.length-1];
+    let cum = (last.t!==''&&last.t!=null) ? Number(last.t) : rows.reduce((a,r)=>a+r.n,0);
+    tot.textContent = cum.toLocaleString('ko-KR');
+    st.textContent = md(last.d)+' 기준';
+    dl.textContent = last.n ? `+${last.n} 신규` : '';
+    const recent=rows.slice(-10); const mx=Math.max(1,...recent.map(r=>r.n));
+    bars.innerHTML = recent.map(r=>`<i style="height:${Math.max(6,Math.round(r.n/mx*100))}%" data-l="${md(r.d)}"><b>${r.n||''}</b></i>`).join('');
+    bars.classList.add('has');
+  }
+  function renderMentions(){
+    const db=findDb('mentions'); if(!db) return;
+    const cD=colBy(db,['날짜'],['date']), cC=colBy(db,['채널'],['select']), cT=colBy(db,['제목'],['text']), cU=colBy(db,['링크'],['url']);
+    const chips=$h('menChips'), list=$h('menList'), st=$h('menStamp'); if(!chips) return;
+    const rows=db.rows.map(r=>({d:cD?r.cells[cD.id]:'', ch:cC?(cC.opts.find(o=>o.id===r.cells[cC.id])||{}).name||'':'', t:cT?r.cells[cT.id]:'', u:cU?r.cells[cU.id]:''})).filter(r=>r.t||r.u).sort((a,b)=>a.d<b.d?1:-1);
+    if(!rows.length){ chips.innerHTML=''; list.innerHTML='<li class="nv-empty">아직 수집된 언급이 없습니다.</li>'; st.textContent='—'; return; }
+    const cnt={}; rows.forEach(r=>{ const k=r.ch||'기타'; cnt[k]=(cnt[k]||0)+1; });
+    chips.innerHTML = `<span class="nv-chip">전체<b>${rows.length}</b></span>` + Object.entries(cnt).map(([k,v])=>`<span class="nv-chip">${esc(k)}<b>${v}</b></span>`).join('');
+    list.innerHTML = rows.slice(0,5).map(r=>`<li><span class="d">${md(r.d)||'—'}</span><span class="c">${esc(r.ch||'')}</span>${r.u?`<a href="${esc(r.u)}" target="_blank" rel="noopener" title="${esc(r.t)}">${esc(r.t||r.u)}</a>`:`<a title="${esc(r.t)}">${esc(r.t)}</a>`}</li>`).join('');
+    st.textContent = rows[0].d ? '최근 '+md(rows[0].d) : '';
+  }
+  function renderAll(){ try{ renderReserve(); renderMentions(); }catch(e){ console.error('[home]',e); } }
+  document.addEventListener('board:update', renderAll);
+  renderAll();
 })();
 </script>
 </body>
