@@ -618,6 +618,8 @@ body.showall .pane > footer{display:block}
 .nv-big b{font-family:var(--display);font-size:38px;line-height:1;letter-spacing:-.03em;color:var(--ink)}
 .nv-big span{font-size:12.5px;color:var(--ink-3);font-weight:700}
 .nv-big em{font-style:normal;font-size:12px;font-weight:800;color:var(--green);margin-left:6px}
+.nv-sub{font-size:12px;color:var(--ink-3);margin-top:4px;font-weight:600}
+.nv-sub b{color:var(--ink);font-weight:800}
 .nv-bars{display:flex;align-items:flex-end;gap:4px;height:44px;margin-top:12px}
 .nv-bars i{flex:1;background:var(--accent-soft);border:1px solid var(--accent-line);border-bottom:2px solid var(--accent);border-radius:3px 3px 0 0;min-height:3px;position:relative}
 .nv-bars i:after{content:attr(data-l);position:absolute;left:0;right:0;top:100%;margin-top:4px;text-align:center;font-size:9px;color:var(--ink-4);white-space:nowrap}
@@ -853,7 +855,8 @@ table.bd tfoot td b{color:var(--accent);font-weight:800}
           <div class="nv-live">
             <div class="nv-card">
               <div class="nv-ch"><span class="nv-ck">사전예약 현황</span><span class="nv-cs" id="rsvStamp">—</span></div>
-              <div class="nv-big"><b id="rsvTotal">—</b><span>명 누적</span><em id="rsvDelta"></em></div>
+              <div class="nv-big"><b id="rsvTotal">—</b><span>건 누적 (순)</span><em id="rsvDelta"></em></div>
+              <div class="nv-sub" id="rsvSub"></div>
               <div class="nv-bars" id="rsvBars"></div>
               <div class="nv-cf">네이버 예약 파트너센터 숫자를 <a href="#s11">프로젝트 보드 › 사전예약 현황</a>에 입력하면 자동 반영됩니다.</div>
             </div>
@@ -2988,9 +2991,9 @@ render();
   function sysDb(key){
     const o = (name,color) => ({id:uid('o'), name, color});
     if(key==='reserve'){
-      const c={d:uid('c'), n:uid('c'), t:uid('c'), v:uid('c'), m:uid('c')};
-      return { id:uid('d'), key:'reserve', icon:'🗓️', title:'사전예약 현황', desc:'네이버 예약 파트너센터 기준. 날짜별 신규 예약 수와 누적을 적으면 개요 화면 카드에 자동 반영됩니다.',
-        cols:[{id:c.d,name:'날짜',type:'date'},{id:c.n,name:'신규 예약',type:'int'},{id:c.t,name:'누적 예약',type:'int'},{id:c.v,name:'방문 완료',type:'int'},{id:c.m,name:'메모',type:'text'}],
+      const c={d:uid('c'), a:uid('c'), n:uid('c'), x:uid('c'), t:uid('c'), pp:uid('c'), v:uid('c'), m:uid('c')};
+      return { id:uid('d'), key:'reserve', icon:'🗓️', title:'사전예약 현황', desc:'네이버 예약 파트너센터 > 통계 > 전체통계 엑셀 기준. 신청·확정·취소는 그날 건수, 누적 예약(순)=확정 누계-취소 누계, 누적 인원=확정 인원 누계-취소 인원 누계. 개요 카드에 자동 반영.',
+        cols:[{id:c.d,name:'날짜',type:'date'},{id:c.a,name:'신청',type:'int'},{id:c.n,name:'신규 예약(확정)',type:'int'},{id:c.x,name:'취소',type:'int'},{id:c.t,name:'누적 예약(순)',type:'int'},{id:c.pp,name:'누적 인원',type:'int'},{id:c.v,name:'방문 완료',type:'int'},{id:c.m,name:'메모',type:'text'}],
         rows:[] };
     }
     if(key==='quote'){
@@ -3038,6 +3041,17 @@ render();
       if(byTitle){ byTitle.key=k; changed=true; return; }
       BOARD.dbs.push(sysDb(k)); changed=true;
     });
+    /* 사전예약 표: 구버전 열 구성 보강 (신청 · 취소 · 누적 인원) */
+    const rv=BOARD.dbs.find(d=>d.key==='reserve');
+    if(rv){
+      const has=n=>rv.cols.some(c=>c.name.includes(n));
+      const ins=(name,afterName)=>{ const c={id:uid('c'),name,type:'int',opts:[]}; const i=rv.cols.findIndex(x=>x.name.includes(afterName)); rv.cols.splice(i>=0?i+1:rv.cols.length,0,c); rv.rows.forEach(r=>r.cells[c.id]=''); changed=true; };
+      if(!has('신청')) ins('신청','날짜');
+      if(!has('취소')) ins('취소','신규');
+      if(!has('누적 인원')) ins('누적 인원','누적 예약');
+      const cn=rv.cols.find(c=>c.name==='신규 예약'); if(cn){ cn.name='신규 예약(확정)'; changed=true; }
+      const ct=rv.cols.find(c=>c.name==='누적 예약'); if(ct){ ct.name='누적 예약(순)'; changed=true; }
+    }
     return changed;
   }
   function broadcast(){ try{ window.BOARD_STATE = BOARD; document.dispatchEvent(new CustomEvent('board:update')); }catch(_){} }
@@ -3065,11 +3079,11 @@ render();
     setReserve(o){
       const db=BOARD.dbs.find(d=>d.key==='reserve'); if(!db) return {error:'no reserve db'};
       const col=n=>db.cols.find(c=>c.name.includes(n));
-      const cD=col('날짜'), cN=col('신규'), cT=col('누적'), cV=col('방문'), cM=col('메모');
+      const cD=col('날짜'), cA=col('신청'), cN=col('신규'), cX=col('취소'), cT=col('누적 예약'), cP=col('누적 인원'), cV=col('방문'), cM=col('메모');
       const date=String(o.date||todayISO()); let r=db.rows.find(r=>cD && r.cells[cD.id]===date);
       if(!r){ r={id:uid('r'), cells:{}}; db.cols.forEach(c=>r.cells[c.id]=c.type==='check'?false:''); if(cD) r.cells[cD.id]=date; db.rows.push(r); }
       const num=v=>(v===''||v==null||isNaN(Number(v)))?'':Number(v);
-      if(cN && o.new!=null) r.cells[cN.id]=num(o.new); if(cT && o.total!=null) r.cells[cT.id]=num(o.total); if(cV && o.visit!=null) r.cells[cV.id]=num(o.visit); if(cM && o.memo!=null) r.cells[cM.id]=String(o.memo);
+      if(cA && o.applied!=null) r.cells[cA.id]=num(o.applied); if(cN && o.new!=null) r.cells[cN.id]=num(o.new); if(cX && o.cancel!=null) r.cells[cX.id]=num(o.cancel); if(cT && o.total!=null) r.cells[cT.id]=num(o.total); if(cP && o.persons!=null) r.cells[cP.id]=num(o.persons); if(cV && o.visit!=null) r.cells[cV.id]=num(o.visit); if(cM && o.memo!=null) r.cells[cM.id]=String(o.memo);
       db.rows.sort((a,b)=>String(a.cells[cD.id])<String(b.cells[cD.id])?-1:1);
       commit(); if(isUnlocked()) render(); return {ok:true, date};
     },
@@ -3570,15 +3584,17 @@ render();
   const md = iso => { const m=String(iso||'').match(/^\d{4}-(\d{2})-(\d{2})$/); return m?`${+m[1]}/${+m[2]}`:''; };
   function renderReserve(){
     const db=findDb('reserve'); if(!db) return;
-    const cD=colBy(db,['날짜'],['date']), cN=colBy(db,['신규'],['int','number']), cT=colBy(db,['누적'],['int','number']);
-    const rows=db.rows.filter(r=>cD&&r.cells[cD.id]).map(r=>({d:r.cells[cD.id], n:cN?Number(r.cells[cN.id]||0):0, t:cT?r.cells[cT.id]:''})).sort((a,b)=>a.d<b.d?-1:1);
-    const tot=$h('rsvTotal'), st=$h('rsvStamp'), dl=$h('rsvDelta'), bars=$h('rsvBars'); if(!tot) return;
-    if(!rows.length){ tot.textContent='—'; st.textContent='입력 대기'; dl.textContent=''; bars.innerHTML=''; bars.classList.remove('has'); return; }
+    const cD=colBy(db,['날짜'],['date']), cN=db.cols.find(c=>c.name.includes('신규')), cX=db.cols.find(c=>c.name.includes('취소')), cT=db.cols.find(c=>c.name.includes('누적 예약')), cP=db.cols.find(c=>c.name.includes('누적 인원'));
+    const val=(r,c)=>c&&r.cells[c.id]!==''&&r.cells[c.id]!=null?Number(r.cells[c.id]):null;
+    const rows=db.rows.filter(r=>cD&&r.cells[cD.id]).map(r=>({d:r.cells[cD.id], n:val(r,cN)||0, x:val(r,cX)||0, t:val(r,cT), p:val(r,cP)})).sort((a,b)=>a.d<b.d?-1:1);
+    const tot=$h('rsvTotal'), st=$h('rsvStamp'), dl=$h('rsvDelta'), bars=$h('rsvBars'), sub=$h('rsvSub'); if(!tot) return;
+    if(!rows.length){ tot.textContent='—'; st.textContent='입력 대기'; dl.textContent=''; if(sub) sub.textContent=''; bars.innerHTML=''; bars.classList.remove('has'); return; }
     const last=rows[rows.length-1];
-    let cum = (last.t!==''&&last.t!=null) ? Number(last.t) : rows.reduce((a,r)=>a+r.n,0);
+    let cum = last.t!=null ? last.t : rows.reduce((a,r)=>a+r.n-r.x,0);
     tot.textContent = cum.toLocaleString('ko-KR');
     st.textContent = md(last.d)+' 기준';
-    dl.textContent = last.n ? `+${last.n} 신규` : '';
+    dl.textContent = last.n ? `+${last.n} 확정${last.x?` · 취소 ${last.x}`:''}` : '';
+    if(sub){ const cx=rows.reduce((a,r)=>a+r.x,0); const cn=rows.reduce((a,r)=>a+r.n,0); sub.innerHTML = (last.p!=null?`인원 <b>${last.p.toLocaleString('ko-KR')}명</b> · `:'')+`확정 누계 ${cn.toLocaleString('ko-KR')} · 취소 누계 ${cx.toLocaleString('ko-KR')}`; }
     const recent=rows.slice(-10); const mx=Math.max(1,...recent.map(r=>r.n));
     bars.innerHTML = recent.map(r=>`<i style="height:${Math.max(6,Math.round(r.n/mx*100))}%" data-l="${md(r.d)}"><b>${r.n||''}</b></i>`).join('');
     bars.classList.add('has');
